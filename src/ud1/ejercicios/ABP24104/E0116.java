@@ -1,0 +1,33 @@
+package ud1.ejercicios.ABP24104;
+
+import java.util.Scanner;
+
+public class E0116 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int mm;
+        int cm;
+        int m;
+
+
+        System.out.println("Introduce tres unidades de medida para la conversión total a centímetros: ");
+        System.out.println("Introduce la cantidad de milímetros");
+        mm = sc.nextInt();
+
+        System.out.println("Introduce la cantidad de centímetros");
+        cm = sc.nextInt();
+
+        System.out.println("Introduce la cantidad de metros");
+        m = sc.nextInt();
+
+        int totalCm = (mm/10) + cm + (m * 100);
+
+        System.out.println("El número total de centímetros es de: "+totalCm);
+        sc.close();
+
+    }
+
+}
