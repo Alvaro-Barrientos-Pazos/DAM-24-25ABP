@@ -1,15 +1,15 @@
+/* 
+Escribe un programa que convierta unidades de masa entre kilogramos y libras o viceversa. El programa solicitará al usuario la cantidad de masa y la unidad de medida origen (kilogramos o libras).
+    1 kilogramo = 1000 gramos
+    1 libra = 453.592 gramos
+El programa deberá manejar las conversiones automáticamente y mostrar el resultado al usuario. Utiliza el operador ternario para evaluar la unidad de medida introducida por el usuario. El programa mostrará por pantalla el resultado con la unidad de medida adecuada.
+ */
 package ud1.ejercicios.ABP24104;
 
 import java.util.Scanner;
 
 public class E0123Copy {
     public static void main( String[] args ) {
-        /* 
-        Escribe un programa que convierta unidades de masa entre kilogramos y libras o viceversa. 
-        El programa solicitará al usuario la cantidad de masa y la unidad de medida origen (kilogramos o libras).
-            1 kilogramo = 1000 gramos
-            1 libra     = 453.592 gramos
-        */
 
         // Creamos una instancia de clase Scanner, es necesario para poder usar los métodos de la clase Scanner
         Scanner sc = new Scanner(System.in); 
@@ -24,6 +24,7 @@ public class E0123Copy {
 
         System.out.println("Introduce una cantidad");
         c = sc.nextDouble();
+        sc.close();
 
         // Si u es igual a 0, osea Kilos, la condición sera verdadera y se aplicará el primer valor del operador ternario.
 
@@ -59,8 +60,6 @@ public class E0123Copy {
         // Las "etiquetas" se sustituyen por los valores a continuación de la String "" secuencialmente usando comas como se ve a continuación.
         // La primera etiqueta se sustituira por el primer valor entre comas y así sucesivamente.
         System.out.printf("El resultado en %s es: %.2f%s%n",uNombreLargo,cResultado,uNombreCorto);
-
-        sc.close();
 
     }
 }

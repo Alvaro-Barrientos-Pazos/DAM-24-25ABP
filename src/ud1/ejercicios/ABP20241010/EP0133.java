@@ -1,6 +1,7 @@
-/* Desarrolla un programa en Java que convierta unidades de almacenamiento entre 
-bytes, kilobytes, megabytes y gigabytes. Solicita al usuario la cantidad de datos
-y la unidad de origen y destino */
+/* 
+Desarrolla un programa en Java que convierta unidades de almacenamiento entre bytes, kilobytes, megabytes y gigabytes. 
+Solicita al usuario la cantidad de datos y la unidad de origen y destino 
+*/
 
 package ud1.ejercicios.ABP20241010;
 
@@ -31,6 +32,7 @@ public class EP0133 {
 
         System.out.println("Introduce la unidad de destino:\nMB = 0\nKB = 1\nGB = 2");
         uDestino = sc.nextInt();
+        sc.close();
 
         cMegas = uOrigen == 0 ? cOrigen : uOrigen == 1 ? cOrigen*KILOBYTES : cOrigen * GIGABYTES;
         cDestino = uDestino == 0 ? cMegas : uDestino == 1 ?  cMegas/KILOBYTES : cMegas/GIGABYTES;
