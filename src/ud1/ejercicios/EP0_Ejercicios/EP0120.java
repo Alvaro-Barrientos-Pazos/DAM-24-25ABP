@@ -14,12 +14,12 @@ public class EP0120 {
         
         Scanner sc = new Scanner(System.in);
 
-        final int   UMBRAL_BONO  = 100;
-        final float DESCUENTO    = 0.05f;
+        final int   UMBRAL_BONO = 100;
+        final float DESCUENTO   = 0.05f;
 
         // Precios
-        final float P_INFANTIL = 15.50f;
-        final float P_ADULTO   = 20;
+        final float P_INFANTIL  = 15.50f;
+        final float P_ADULTO    = 20;
 
         // Coste total
         float cTotal_infantil; 
@@ -35,7 +35,7 @@ public class EP0120 {
         sc.close();
 
         // Guardamos este valor en una variable, porque de no ser así tendríamos que hacer esta cuenta múltiples veces.
-        cTotal_tickets = cTotal_adulto+cTotal_infantil;
+        cTotal_tickets = cTotal_adulto + cTotal_infantil;
 
         // Si el precio es mayor o igual que 100, aplica el descuento si restamos 0.05 a 1 y multiplicamos el resultado por el precio total es lo mismo que restar un 5%. 
         float cTotal_descuento = cTotal_tickets >= UMBRAL_BONO ? cTotal_adulto * (1-DESCUENTO) : cTotal_adulto;
@@ -44,7 +44,7 @@ public class EP0120 {
         String mensaje = cTotal_tickets >= UMBRAL_BONO ? "\nTOTAL DESCUENTO: %.2f euros (-%.2f euros)" : "\nNo se aplica descuento a cantidades menores a 100 euros";
         
         // \t introduce un espacio de tabulador, para alinear los textos.
-        System.out.printf("Los precios son:\n- Infantes:\t %.2f euros\n- Adultos:\t %.2f euros\nTOTAL:\t\t %.2f euros"+mensaje,cTotal_infantil,cTotal_adulto,cTotal_tickets, cTotal_descuento, (cTotal_tickets)-cTotal_descuento);
+        System.out.printf("Los precios son:\n- Infantes:\t %.2f euros\n- Adultos:\t %.2f euros\nTOTAL:\t\t %.2f euros" + mensaje, cTotal_infantil, cTotal_adulto, cTotal_tickets, cTotal_descuento, (cTotal_tickets)-cTotal_descuento);
         
     }
 }
