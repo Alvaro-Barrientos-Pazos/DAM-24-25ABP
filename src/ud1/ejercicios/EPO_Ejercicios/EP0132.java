@@ -44,7 +44,7 @@ public class EP0132 {
 
         m2 = uOrigen == 0 ? cOrigen : uOrigen == 1 ? cOrigen * HECTAREA_M2 : cOrigen / PIES_M2; 
 
-        cDestino = uDestino == 0 ? m2 : uOrigen == 1 ? m2 / HECTAREA_M2 : m2 * PIES_M2;
+        cDestino = uDestino == 0 ? m2 : uDestino == 1 ? m2 / HECTAREA_M2 : m2 * PIES_M2;
 
         oLetra = uOrigen == 0 ? "m2" : uOrigen == 1 ? "ht" : "p2";
         dLetra = uDestino == 0 ? "m2" : uDestino == 1 ? "ht" : "p2";
