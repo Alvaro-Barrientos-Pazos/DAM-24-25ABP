@@ -5,7 +5,7 @@ Farenheit, mostrando el resultado por pantalla.
 
 */
 
-package ud1.ejercicios.EP0_Ejercicios;
+package ud1.ejercicios.EPO_Ejercicios;
 
 import java.util.Scanner;
 

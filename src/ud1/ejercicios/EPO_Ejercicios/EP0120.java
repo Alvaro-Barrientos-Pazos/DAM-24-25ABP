@@ -5,7 +5,7 @@ Existen dos tipos de entrada: infantiles, que cuestan 15,50 €; y de adultos, q
 En el caso de que el importe total sea igual o superior a 100 €, se aplicará automáticamente un bono descuento del 5%.
  */
 
-package ud1.ejercicios.EP0_Ejercicios;
+package ud1.ejercicios.EPO_Ejercicios;
 
 import java.util.Scanner;
 

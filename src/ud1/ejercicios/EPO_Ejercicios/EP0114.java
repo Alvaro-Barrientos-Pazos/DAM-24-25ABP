@@ -1,7 +1,7 @@
 /* 
 Convertir un número de horas, minutos y segundos introducidos por teclado en un número total de segundos. 
 */
-package ud1.ejercicios.EP0_Ejercicios;
+package ud1.ejercicios.EPO_Ejercicios;
 
 import java.util.Scanner;
 

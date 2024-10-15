@@ -3,7 +3,7 @@ Repite el programa anterior para convertir entre litros y galones:
     1 galón (estadounidense) = 3.78541 litros
  */
 
-package ud1.ejercicios.EP0_Ejercicios;
+package ud1.ejercicios.EPO_Ejercicios;
 
 import java.util.Scanner;
 

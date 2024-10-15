@@ -8,7 +8,7 @@ que tienen en total todos los animales capturados durante una jornada de trabajo
 La aplicación debe mostrar el número total de patas.
  */
 
-package ud1.ejercicios.EP0_Ejercicios;
+package ud1.ejercicios.EPO_Ejercicios;
 
 import java.util.Scanner;
 
