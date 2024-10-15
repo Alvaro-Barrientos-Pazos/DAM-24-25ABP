@@ -1,12 +1,7 @@
 /* 
-Examen DAM Curso 2023 - 2024  Ejercicio 3
+Examen DAM Curso 2023 - 2024  Ejercicio 2
 
-Realiza un programa que simule el funcionamiento de un cajero automático. El programa solicitará al usuario el importe en efectivo que desea retirar, que será un número 
-entero de euros (€). El programa calculará el número mínimo de billetes de 50, 20, 10 y 5 euros para obtener dicho importe y presentará la información al usuario.
-
-Si el importe introducido por el usuario no es múltiplo de 5 se informará también al usuario del importe que el cajero no es capaz de satisfacer por no disponer de billetes 
-de esa cantidad. Por ejemplo, si el usuario introduce 78 €, el programa informará de que se retirarán 75 € en los billetes que corresponda y que 3 € no se pueden retirar por 
-no existir billetes tan pequeños.
+Escribe un programa que lea 3 números por teclado e indique si están ordenados o no, de menor a mayor, y de mayor a menor.
 
  */
 
@@ -16,42 +11,41 @@ import java.util.Scanner;
 
 public class ExamenE3 {
     public static void main(String[] args) {
-        
-        final int CINCUENTA = 50;        
-        final int VEINTE    = 20;
-        final int DIEZ      = 10;
-        final int CINCO     = 5;
-        
         Scanner sc = new Scanner(System.in);
-       
-        int importe;
 
-        System.out.print("Introduce el importe a extraer: ");
-        importe = sc.nextInt();
+        int d1, d2, d3;
+        int esMayoraMenor;
+        boolean estaOrdenado = false;
+
+
+        System.out.print("Introduce el primer dígito: ");
+        d1 = sc.nextInt();
+
+        System.out.print("Introduce el segundo dígito: ");
+        d2 = sc.nextInt();
+
+        System.out.print("Introduce el tercero dígito: ");
+        d3 = sc.nextInt();
+
+        System.out.print("¿Que orden quieres comprobar?\n\"mayor a menor\" = 0\n\"menor a mayor\" = 1\n");
+        esMayoraMenor = sc.nextInt();
         sc.close();
 
 
-        // Dividimos para entre el valor del billete y eliminamos los decimales
-        // Utilizamos el operador modulo para quedarnos con el resto de la división.
-        // Repetimos el proceso hasta quedarnos sin billetes.
+        // Comparamos si el usuario está preguntando 
+        estaOrdenado = esMayoraMenor == 0 ? 
+                        d1>d2 && d2>d3 ? true : false
+                        
+                        : d2<d3 && d1<d2 ? true : false;
 
-        int b50 = importe/CINCUENTA;    
-        importe = importe%CINCUENTA;           
 
-        int b20 = importe/VEINTE;
-        importe = importe%VEINTE;
+        String mVerdad = estaOrdenado == true ? "Está ordenado": "No está ordenado";
+        String mOrden  = esMayoraMenor == 0 ? "de mayor a menor": "de menor a mayor";
 
-        int b10 = importe/DIEZ;
-        importe = importe%DIEZ;
+        System.out.printf("%s %s",mVerdad,mOrden);
 
-        int b5 = importe/CINCO;
 
-        System.out.printf("billetes de 50:\t%d\nbilletes de 20:\t%d\nbilletes de 10:\t%d\nbilletes de 5:\t%d\n",b50,b20,b10,b5);
-
-        String mensaje = importe%5 == 0 ? "No sobra nada" : "No es posible extraer el de: " + importe%5 + " euros";
         
-        System.err.println(mensaje);
-
     }
 
 }
