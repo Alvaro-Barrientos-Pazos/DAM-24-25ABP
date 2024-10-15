@@ -6,7 +6,7 @@ de la comida y que tenga como salida la cantidad a pagar por cada comensal. Tant
 hasta 2 decimales.
  */
 
-package ud1.ejercicios.EPO_Ejercicios;
+package ud1.ejercicios.Examen2023_2024;
 
 import java.util.Scanner;
 
