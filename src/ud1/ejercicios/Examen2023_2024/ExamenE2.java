@@ -32,14 +32,22 @@ public class ExamenE2 {
         sc.close();
 
 
+        // Comparamos si el usuario está preguntando 
         estaOrdenado = esMayoraMenor == 0 ? 
-                        d2>d3 && d1>d2 ? true : false
+                        d1>d2 && d2>d3 ? true : false
                         
                         : d2<d3 && d1<d2 ? true : false;
 
 
-        String mOrden = esMayoraMenor == 0 ? "de mayor a menor": "de menor a mayor";
-        String mVerdad = estaOrdenado? "Está ordenado": "No está ordenado";
+        String mVerdad = estaOrdenado == true ? "Está ordenado": "No está ordenado";
+        String mOrden  = esMayoraMenor == 0 ? "de mayor a menor": "de menor a mayor";
+       
+
+        // %s = String / Chars
+        // %d = digitos int long byte 
+        // %f = floats doubles
+        //\n
+
 
         System.out.printf("%s %s",mVerdad,mOrden);
 

@@ -17,40 +17,41 @@ import java.util.Scanner;
 public class ExamenE3 {
     public static void main(String[] args) {
         
-        final double CINCUENTA = 50.0;        
-        final double VEINTE    = 20.0;
-        final double CINCO     = 5.0;
+        final int CINCUENTA = 50;        
+        final int VEINTE    = 20;
+        final int DIEZ      = 10;
+        final int CINCO     = 5;
         
         Scanner sc = new Scanner(System.in);
        
-        double importe;
+        int importe;
 
         System.out.print("Introduce el importe a extraer: ");
         importe = sc.nextInt();
-
-
-        int b50 = (int)(importe/CINCUENTA);
-        importe = importe%CINCUENTA;
-
-        int b20 = (int)(importe/VEINTE);
-        importe = importe%VEINTE;
-
-        int b5 = (int)(importe/CINCO);
-
-        System.out.printf("billetes de 50:\t%d\nbilletes de 20:\t%d\nbilletes de 5:\t%d\n",b50,b20,b5);
-
-        String mensaje = importe%5 == 0 ? "No sobra nada" : "No es posible extraer el de: " + (int)(importe%5) + " euros";
-
-        System.err.println(mensaje);
-
-
-
-
-
-        
         sc.close();
 
+
+        // Dividimos para entre el valor del billete y eliminamos los decimales
+        // Utilizamos el operador modulo para quedarnos con el resto de la división.
+        // Repetimos el proceso hasta quedarnos sin billetes.
+
+        int b50 = importe/CINCUENTA;    
+        importe = importe%CINCUENTA;           
+
+        int b20 = importe/VEINTE;
+        importe = importe%VEINTE;
+
+        int b10 = importe/DIEZ;
+        importe = importe%DIEZ;
+
+        int b5 = importe/CINCO;
+
+        System.out.printf("billetes de 50:\t%d\nbilletes de 20:\t%d\nbilletes de 10:\t%d\nbilletes de 5:\t%d\n",b50,b20,b10,b5);
+
+        String mensaje = importe%5 == 0 ? "No sobra nada" : "No es posible extraer el de: " + importe%5 + " euros";
         
+        System.err.println(mensaje);
+
     }
 
 }
