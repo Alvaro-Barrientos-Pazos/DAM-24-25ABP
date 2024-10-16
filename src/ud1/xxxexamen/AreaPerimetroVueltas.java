@@ -35,8 +35,7 @@ public class AreaPerimetroVueltas {
         double vueltas;
         int resto;
 
-        System.out.println();
-
+        
         System.out.print("Introduce la medida del largo: ");
         largo = sc.nextDouble();
 
