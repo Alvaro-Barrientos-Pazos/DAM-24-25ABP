@@ -20,7 +20,7 @@ public class AreaPerimetroVueltas {
 
     public static void main(String[] args) {
 
-        final double METROS_MARATON = 21.097;
+        final int METROS_MARATON = 21097;
 
         Scanner sc = new Scanner(System.in);
 
