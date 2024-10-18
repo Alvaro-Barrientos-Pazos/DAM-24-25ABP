@@ -1,5 +1,6 @@
 # Arquivos de configuración do IDE
 .vscode/
+.xxxexamen/
 
 # Arquivos de compilación
 *.class
