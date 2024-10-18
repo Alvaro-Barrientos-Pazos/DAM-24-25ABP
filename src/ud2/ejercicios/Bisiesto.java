@@ -19,12 +19,13 @@ public class Bisiesto {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        sc.close();
+        
 
         System.out.println("Introduce un número de años: ");
-        int nYears = sc.nextInt();
+        int Years = sc.nextInt();
+        sc.close();
 
-        if (nYears%4 == 0 && nYears%100 == 0 && nYears%400 == 0){
+        if (Years%4 == 0 && Years%100 != 0 || Years%400 == 0){
             System.out.println("El año es bisiesto");
         }
         else{
