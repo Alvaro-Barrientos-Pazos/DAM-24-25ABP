@@ -17,10 +17,13 @@ public class E0209 {
         
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Introduce un valor entre 0 y 99999: ");
-        int num = sc.nextInt();
-        int resto;   
         int nDigitos;
+        int num;
+
+        System.out.print("Introduce un valor entre 0 y 99999: ");
+        num = sc.nextInt(); 
+        sc.close();
+        
 
         if (num/10000. >= 1.){
             nDigitos = 5;

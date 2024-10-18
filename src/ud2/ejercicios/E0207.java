@@ -12,42 +12,47 @@ public class E0207 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        double d1;
-        double d2;
-        double d3;
+        double n1;
+        double n2;
+        double n3;
 
         System.out.println("Introduce un valor para el primer número: ");
-        d1 = sc.nextDouble();
+        n1 = sc.nextDouble();
 
         System.out.println("Introduce un valor para el segundo número: ");
-        d2 = sc.nextDouble();
+        n2 = sc.nextDouble();
 
         System.out.printf("Introduce un valor para el tercer número: ");
-        d3 = sc.nextDouble();
+        n3 = sc.nextDouble();
         sc.close();
 
-        double bNum = d1;
-        double mNum = d2;
-        double sNum = d3;
+        double bNum = n1;
+        double mNum = n2;
+        double sNum = n3;
 
-        if ( d2 > bNum ){
-            bNum = d2;
-            mNum = d1;
+        if ( n2 > bNum ){
+            bNum = n2;
+            mNum = n1;
             
-            if ( d3 > bNum ){
-                bNum = d3;
-                mNum = d2;
-                sNum = d1;
+            if ( n3 > bNum ){
+                bNum = n3;
+                mNum = n2;
+                sNum = n1;
             }
+            else if (n3 > mNum){
+                mNum = n3;
+                sNum = n1;
+            }
+
         }
-        else if ( d3 > bNum ){
-            bNum = d3;
-            mNum = d1;
-            sNum = d2;
+        else if ( n3 > bNum ){
+            bNum = n3;
+            mNum = n1;
+            sNum = n2;
         }
-        else if ( d3 > d2 ){
-            mNum = d3;
-            sNum = d2;
+        else if ( n3 > n2 ){
+            mNum = n3;
+            sNum = n2;
         }
 
         System.out.println("El orden de mayor a menor es: "+bNum+" "+mNum+" "+sNum);

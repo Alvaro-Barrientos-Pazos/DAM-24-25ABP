@@ -11,28 +11,28 @@ public class E0206 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        double d1;
-        double d2;
+        double n1;
+        double n2;
 
         String mensaje;
 
         System.out.println("Introduce un valor para el primer número: ");
-        d1 = sc.nextDouble();
+        n1 = sc.nextDouble();
 
         System.out.println("Introduce un valor para el segundo número: ");
-        d2 = sc.nextDouble();
+        n2 = sc.nextDouble();
         sc.close();
 
 
-        if (d1 == d2) {
+        if (n1 == n2) {
             mensaje = "Ambos números tienen el mismo valor";
             
         }
-        else if (d1 > d2) {
-            mensaje = d1+" es mayor que "+d2;
+        else if (n1 > n2) {
+            mensaje = n1+" es mayor que "+n2;
         }
         else {
-            mensaje = d2+" es mayor que "+d1;
+            mensaje = n2+" es mayor que "+n1;
         }
 
         System.out.println(mensaje);
