@@ -25,11 +25,9 @@ public class E0209 {
         if (num/10000. >= 1.){
             nDigitos = 5;
         }
-        
         else if (num/1000. >= 1.){
             nDigitos = 4;
         }
-        
         else if (num/100. >= 1.){
             nDigitos = 3;
         }
