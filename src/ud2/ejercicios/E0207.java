@@ -21,8 +21,8 @@ public class E0207 {
 
         System.out.println("Introduce un valor para el segundo número: ");
         d2 = sc.nextDouble();
-        
-        System.out.println("Introduce un valor para el tercer número: ");
+
+        System.out.printf("Introduce un valor para el tercer número: ");
         d3 = sc.nextDouble();
         sc.close();
 
