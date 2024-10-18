@@ -15,27 +15,25 @@ import java.util.Scanner;
 
 public class Factura {
     public static void main(String[] args) {
-        
         final double IVA       = 0.21;
         final int    THRESHOLD = 100;
         final double DISCOUNT  = 0.05;
 
-        double tPrecio; // Precio sin impuestos
-
-        String mensaje = "";
-
         Scanner sc = new Scanner(System.in);
+
 
         System.out.println("Introduce el número de productos comprados");
         int nItem = sc.nextInt();
 
         System.out.println("Introduce el precio");
-        double price = sc.nextDouble();
+        double tPrecio = sc.nextDouble(); // Precio sin impuestos
         sc.close();
 
+        
         // Precio con impuestos Añadidos
-        double iPrecio = (nItem * price) * (1+IVA);
+        double iPrecio = (nItem * tPrecio) * (1+IVA);
 
+        String mensaje = "";
 
         if (iPrecio > THRESHOLD){
             tPrecio = iPrecio * (1-DISCOUNT);
