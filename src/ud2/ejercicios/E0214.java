@@ -22,9 +22,9 @@ public class E0214 {
     System.out.print("Introduce el año de la fecha: ");
     anho = sc.nextInt();
 
-    
-    int mDia = dia+1;
-    int mMes = mes;
+    // Datos modificados
+    int mDia  = dia+1;
+    int mMes  = mes;
     int mAnho = anho;
 
     boolean bisiesto = false;
@@ -34,7 +34,6 @@ public class E0214 {
         bisiesto = true;
     }
 
-    // Es un coñazo checkear otra vez por fechas invalidas sin funciones asi que solo compruebo lo basico, se quedan fuera los meses de 30 dias. Demasiado escribir.
     if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anho < 1 || (mes == 2 && dia>29 && bisiesto)|| (mes == 2 && dia>28)){
         System.out.println("La fecha es invalida"); 
     }
@@ -46,7 +45,6 @@ public class E0214 {
                     mMes += 1;
                     break;
                 }
-                
 
             case 4,6,9,11:
                 if (mDia > 30){
@@ -54,7 +52,10 @@ public class E0214 {
                     mMes += 1;
                     break;
                 }
+                else if (mDia > 31){
+                    System.out.println("La fecha es invalida");
                 
+                }
 
             case 1,3,5,7,8,10,12:
                 if (mDia > 31){
