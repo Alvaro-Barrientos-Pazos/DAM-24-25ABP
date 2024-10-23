@@ -42,34 +42,39 @@ public class E0214 {
             case 2:
                 if ((mDia > 28 && !bisiesto) || (mDia>29 && bisiesto)){
                     mDia = 1;
-                    mMes += 1;
-                    break;
+                    mMes++;
                 }
+
 
             case 4,6,9,11:
                 if (mDia > 30){
+                    if (mDia > 31){
+                        System.out.println("La fecha es invalida");
+                        break;
+                    }
                     mDia = 1;
-                    mMes += 1;
-                    break;
+                    mMes++;
                 }
-                else if (mDia > 31){
-                    System.out.println("La fecha es invalida");
                 
-                }
 
             case 1,3,5,7,8,10,12:
                 if (mDia > 31){
                     mDia = 1;
-                    mMes += 1;
-                    break;
+                    mMes++;
+                    
+                    if (mMes > 12){
+                        mAnho++;
+                        mMes = 1;
+                    }
                 }
-        }
-        
-        if (mMes > 12){
-            mAnho+=1;
+
+                
+            default:
+                System.out.printf("El día siguiente a %d / %d / %d sería: %d / %d / %d \n",dia,mes,anho,mDia,mMes,mAnho);
+                break;
         }
 
-        System.out.printf("El día siguiente a %d / %d / %d sería: %d / %d / %d \n",dia,mes,anho,mDia,mMes,mAnho);
+        
     }
 
     
