@@ -7,7 +7,7 @@ package ud2.ejercicios;
 
 import java.util.Scanner;
 
-public class E0207 {
+public class E0207v2 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
