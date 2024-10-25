@@ -38,7 +38,7 @@ public class E0213 {
         nHoras = segundosBase / SEGUNDOS_HORA; 
 
         // Divide entre 3600 y si queda resto, dividelo entre 60 para sacar los minutos
-        nMinutos = (segundosBase % SEGUNDOS_HORA) / SEGUNDOS_MINUTOS;
+        nMinutos = segundosBase % SEGUNDOS_HORA / SEGUNDOS_MINUTOS;
 
         // Divide entre 60 y guarda el resto.
         nSegundos = segundosBase % SEGUNDOS_MINUTOS;
