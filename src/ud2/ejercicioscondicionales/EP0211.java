@@ -3,7 +3,7 @@
 Escribe una aplicación que solicite al usuario un número comprendido entre 0 y
 9999. La aplicación tendrá que indicar si el número introducido es capicúa
  */
-package ud2.ejercicios2;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 
@@ -23,6 +23,7 @@ public class EP0211 {
 
         switch (sLongitud) {
             case 1:
+                esCapicua = true;
                 break;
                 
             case 2:
@@ -37,12 +38,9 @@ public class EP0211 {
                 esCapicua = nString.charAt(0) == nString.charAt(3);
                 esCapicua = nString.charAt(1) == nString.charAt(2);
                 break;
-
-            default:
-                break;
         }
 
-        System.out.printf("El número %s %s\n",nString,esCapicua?"es capicúa":"no es capicúa");
+        System.out.printf("El número %s %s\n",nString, esCapicua?"es capicúa":"no es capicúa");
 
 
     }

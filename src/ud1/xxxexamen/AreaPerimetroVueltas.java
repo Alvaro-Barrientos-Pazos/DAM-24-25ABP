@@ -32,7 +32,7 @@ public class AreaPerimetroVueltas {
         double areaTotal;
         double periTotal; // Perímetro Total
 
-        double vueltas;
+        int vueltas;
         int resto;
 
         
@@ -73,17 +73,17 @@ public class AreaPerimetroVueltas {
         // decimales, porq significaria que necesitamos hacer parte de la siguiente vuelta.
         // de esta forma damos a entender que hay que hacer una vuelta mas y 
         // a continuacion calcularemos cuantos metros de esa ultima vuelta han sobrado.
-        vueltas = (int) Math.ceil(METROS_MARATON / periTotal);
+        vueltas = (int)(METROS_MARATON / periTotal);
         String vueltaMensaje = vueltas > 1 ? "vueltas" : "vuelta"; // Pijadas
 
         // Para calcular cuantos metros han sobrado, necesitamos multiplicar el numero
         // de vueltas que necesitamos para terminar el maraton por el numero de metros
         // de cada vuelta (perimetro) y les restamos los metros del maraton. 
         // Ya que este numero siempre sera igual o mas pequeño que los metros recorridos por los corredores.
-        resto = (int) (vueltas * periTotal - METROS_MARATON);
+        resto = (int)Math.ceil(METROS_MARATON - vueltas * periTotal);
 
         System.out.printf(
                 "\nEl perimetro de la pista es de: %.3fm\n  Fue necesario hacer: %d %s\n  En la última vuelta sobraron: %dm de pista\n",
-                periTotal, (int) vueltas, vueltaMensaje, resto);
+                periTotal, vueltas, vueltaMensaje, resto);
     }
 }
