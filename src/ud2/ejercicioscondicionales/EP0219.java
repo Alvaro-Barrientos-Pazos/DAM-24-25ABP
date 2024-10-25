@@ -17,12 +17,9 @@ public class EP0219 {
         double gAngle = sc.nextDouble();
         
         double modAngle = gAngle%360;
-        double rAngle   = Math.PI/180. * modAngle;
+        double rAngle   = Math.PI/180 * modAngle;
 
         System.out.printf("%.2f° son %.2frad\n",modAngle,rAngle);
-
-
-
         
     }
 }

@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class EP0218 {
     public static void main(String[] args) {
 
-        long msStart = System.currentTimeMillis();
-        long msEnd;
+        long msStart = System.currentTimeMillis(); // Hora en milisegundos del comienzo del programa
+        long msEnd;                                // Hora en milisegundos de la finalizacion del programa
 
         final byte MAX = 99;
         final byte MIN = 1;
@@ -25,7 +25,7 @@ public class EP0218 {
         int operator = (int) (Math.random() * N_OPERATORS) + 1;
         int result = -1;
 
-        String sOperator = " + ";
+        char cOperator = '+';
 
         switch (operator) {
             case 1:
@@ -33,24 +33,25 @@ public class EP0218 {
                 break;
 
             case 2:
-                sOperator = " - ";
+                cOperator = '-';
                 result = a - b;
                 break;
 
             case 3:
-                sOperator = " * ";
+                cOperator = '*';
                 result = a * b;
                 break;
         }
 
-        System.out.printf("Cual es el resultado de %d%s%d?\n", a, sOperator, b);
+        System.out.printf("Cual es el resultado de %d %c %d?\n", a, cOperator, b);
         int input = sc.nextInt();
 
         msEnd = System.currentTimeMillis();
 
 
-        final int S_HOUR    = 60*60; // Segundos en una hora
         final int S_MINUTES = 60;    // Segundos en un minuto
+        final int S_HOUR    = S_MINUTES * S_MINUTES; // Segundos en una hora
+        
 
         int seconds = (int)(msEnd-msStart) / 1000 ;
         int minutes = seconds % S_HOUR/S_MINUTES;

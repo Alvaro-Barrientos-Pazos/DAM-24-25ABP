@@ -14,71 +14,45 @@ public class EP0214 {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Introduce un número entero entre el 1 y el 99");
-        String nString = sc.nextLine();
+        String input = sc.nextLine();
 
-        char cUnidad = nString.charAt(1);
-        char cDecena;
-        String unidadString = " Error ";
-        String decenaString = " Error ";
+        boolean hasTens = input.length()>1;
+
+        char cUnits = input.charAt(hasTens? 1:0 );
+        char cTens;
+        String nString = "Error";
         
-        switch (cUnidad) {
-            case '1': unidadString = "uno";    break;
-            case '2': unidadString = "dos";    break;
-            case '3': unidadString = "tres";   break;
-            case '4': unidadString = "cuatro"; break;
-            case '5': unidadString = "cinco";  break;
-            case '6': unidadString = "seis";   break;
-            case '7': unidadString = "siete";  break;
-            case '8': unidadString = "ocho";   break;
-            case '9': unidadString = "nueve";  break;
+
+        switch (cUnits) {
+            case '1': nString = "uno";    break;
+            case '2': nString = "dos";    break;
+            case '3': nString = "tres";   break;
+            case '4': nString = "cuatro"; break;
+            case '5': nString = "cinco";  break;
+            case '6': nString = "seis";   break;
+            case '7': nString = "siete";  break;
+            case '8': nString = "ocho";   break;
+            case '9': nString = "nueve";  break;
 
         }
 
-        // El número no contiene decenas 
-        if (nString.length() == 1){
-            System.out.println("El nombre del número es: "+unidadString);
-        }
+        if (hasTens){
+            cTens = input.charAt(0);
 
-        else{
-            cDecena = nString.charAt(0);
-        
-            // El número contiene y la unidad es 0
-            if (cUnidad == '0') {
-                switch (cDecena) {
-                    case '1': decenaString = "diez";      break;
-                    case '2': decenaString = "veinte";    break;
-                    case '3': decenaString = "treinta";   break;
-                    case '4': decenaString = "cuarenta";  break;
-                    case '5': decenaString = "cincuenta"; break;
-                    case '6': decenaString = "sesenta";   break;
-                    case '7': decenaString = "setenta";   break;
-                    case '8': decenaString = "ochenta";   break;
-                    case '9': decenaString = "noventa";   break;
-    
-                }
-                System.out.println("El nombre del número es: "+decenaString);
-    
+            switch (cTens) {
+                case '1': nString = cUnits == '0'? "diez": cUnits == '6'?"dieciséis":"dieci" + nString;  break;
+                case '2': nString = cUnits == '0'? "veinte":"veinti" + nString;                          break;
+                case '3': nString = cUnits == '0'? "treinta":"treinta y " + nString;                     break;
+                case '4': nString = cUnits == '0'? "cuarenta":"cuarenta y " + nString;                   break;
+                case '5': nString = cUnits == '0'? "cincuenta":"cincuenta y " + nString;                 break;
+                case '6': nString = cUnits == '0'? "sesenta":"sesenta y " + nString;                     break;
+                case '7': nString = cUnits == '0'? "setenta":"setenta y " + nString;                     break;
+                case '8': nString = cUnits == '0'? "ochenta":"ochenta y " + nString;                     break;
+                case '9': nString = cUnits == '0'? "noventa":"noventa y " + nString;                     break;
+
             }
-
-            else {
-                switch (cDecena) {
-                    case '1': decenaString = "dieci";  
-                        if (cUnidad == '6'){
-                            unidadString = "séis";
-                        }
-                        break;
-                    case '2': decenaString = "veinti";      break;
-                    case '3': decenaString = "treinta y ";  break;
-                    case '4': decenaString = "cuarenta y ";  break;
-                    case '5': decenaString = "cincuenta y "; break;
-                    case '6': decenaString = "sesenta y ";   break;
-                    case '7': decenaString = "setenta y ";   break;
-                    case '8': decenaString = "ochenta y ";   break;
-                    case '9': decenaString = "noventa y ";   break;
-                }
-
-                System.out.println("El nombre del número es: "+decenaString+unidadString);   
-            }
-        }
-    }
+         }
+        System.out.println("El nombre del número es: " + nString);
+     }
 }
+
