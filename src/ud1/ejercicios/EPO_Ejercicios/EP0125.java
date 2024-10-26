@@ -15,9 +15,9 @@ public class EP0125 {
         
         Scanner sc = new Scanner(System.in);
         
-        final double MS_EN_KMH  = 0.27778;                                           // Cantidad de m/s en un 1km/h
-        final double MPH_EN_KMH = 1.60934;                                           // Cantidad de km/h en 1 mph
-        final double MPH_EN_MS  = 1.60934 * MS_EN_KMH;                               // Cantidad de m/s en 1 mph
+        final double MS_A_KMH  = 0.27778;                                           // Cantidad de m/s en un 1km/h
+        final double KMH_A_MPH = 1.60934;                                           // Cantidad de km/h en 1 mph
+        final double MS_A_MPH  = KMH_A_MPH * MS_A_KMH;                              // Cantidad de m/s en 1 mph
 
         double c;                                                                    // Cantidad de la unidad de velocidad
         byte u;                                                                      // Unidad de velocidad
@@ -39,12 +39,12 @@ public class EP0125 {
 
 
         cMS = u == 0 ? c 
-            : u == 1 ? c * MS_EN_KMH 
-            : c * MPH_EN_MS ;
+            : u == 1 ? c * MS_A_KMH 
+            : c * MS_A_MPH ;
         
         cDestino = uDestino == 0 ? cMS
-                : uDestino == 1 ? cMS / MS_EN_KMH
-                : cMS / MPH_EN_MS;
+                : uDestino == 1 ? cMS / MS_A_KMH
+                : cMS / MS_A_MPH;
 
 
         // Letra de la unidad a la que se va a convertir

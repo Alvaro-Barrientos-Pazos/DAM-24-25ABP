@@ -23,16 +23,16 @@ public class EP0130 {
         System.out.print("Introduce un número: ");
         int n = sc.nextInt();
 
-        System.out.print("Introduce el número múltiplo: ");
+        System.out.printf("Introduce el número múltiplo %d: ",n);
         int m = sc.nextInt();
 
         sc.close();
 
-        int diff = m-(n%m);
+        int diff = n-(m%n);
         
-        String mensaje = diff == m ? "%d es múltiplo de " + m : "%d necesita sumar %d ser múltiplo de " + m;
+        String mensaje = diff == n ? "%d es múltiplo de " + n : "%d necesita sumar %d ser múltiplo de " + n;
         
-        System.out.printf(mensaje,n,diff);
+        System.out.printf(mensaje,m,diff);
         
     }
 }
