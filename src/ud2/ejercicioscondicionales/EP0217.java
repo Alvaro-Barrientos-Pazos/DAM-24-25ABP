@@ -17,7 +17,7 @@ public class EP0217 {
 
         Scanner sc = new Scanner(System.in);
 
-        // (Math.random() * MAX+1 -1 ) + MIN
+        // (Math.random() * (MAX - MIN + 1) ) + MIN
         int a = (int)(Math.random() * MAX ) + MIN;
         int b = (int)(Math.random() * MAX ) + MIN;
 

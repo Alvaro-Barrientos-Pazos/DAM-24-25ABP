@@ -3,11 +3,11 @@
     El usuario introducirá las edades y terminrá escribiendo un -1.
 */
 
-package ud2.ejerciciosBucle;
+package ud2.ejerciciosbucles;
 
 import java.util.Scanner;
 
-public class EO3_1 {
+public class E03_1 {
 
     public static void main(String[] args) {
         
@@ -31,7 +31,7 @@ public class EO3_1 {
             System.out.printf("El más mayor de los alumnos tiene %d años\nEl más joven de los alumnos tiene: %d años\n",edadMax,edadMin);
             input = sc.nextInt();
         }
-
+        sc.close();
         
     }
 
