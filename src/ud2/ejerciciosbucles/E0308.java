@@ -9,30 +9,21 @@ public class E0308 {
 
     public static void main(String[] args) {
         
-        final byte N_VALUES = 10;
+        final byte N_VALUES = 4;
 
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Introduce números enteros: ");
 
-        int counter = 0, n;
-        String message="";
+        int counter = 0, n = 0 ;
 
-        while (counter <= N_VALUES){
-            n = sc.nextInt();
-            message.format(message+"%d", n);
-
+        while (counter < N_VALUES){
+            n += sc.nextInt();
+            
             counter++;
 
-            if (counter < N_VALUES) {
-                message+=" + ";    
-            }
-
-
-
         }
-
-        System.out.println(message);
+        System.out.printf("La media es: %.2f",(float)(n/counter));
     }
 
 }
