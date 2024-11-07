@@ -26,20 +26,73 @@ public class Util {
         return n >-1 && n<1 ? true : false;
     }
 
-    public static void main(String[] args) {
-        
+    public static int numCifras(){
         Scanner sc = new Scanner(System.in);
+        int num;
+
+        System.out.print("Introduce un númro: ");
         
-        double n = sc.nextDouble();
+        num = sc.nextInt(); 
         sc.close();
-        //System.out.println("Introduce un número");
-        System.out.println(esCasiCero(n)?"Es casi cero":"no es casi cero");
-        //System.out.println(esPar(n)?"Es par":"Es impar");
+        
+        if (num < 1) {
+            return -1;
+        }
+        else if (num < 10) {
+            return 1;
+        }
+        else {
+            int nCeros = 10, nCounter = 1;
 
-        //System.out.println(esBisiesto(n)?"Es bisiesto":"No es bisiesto");
+            while ( num > (10*nCeros)) {
+                nCeros*=10;
+                nCounter++;
+            }
+
+            return nCounter+1;
+        }
+
+    }
+
+    static String notaEnTexto() {
+        
+        System.out.println("Introduce la nota: ");
+        Scanner sc = new Scanner(System.in);
+
+        double nota = sc.nextDouble();
+        sc.close();
+
+        String scoreString = "Nota invalida";
+
+        switch ((int)nota) {
+            case 0,1,2,3,4:
+                scoreString = "Insuficiente";
+                break;
+        
+            case 5:
+                scoreString = "Suficiente";
+                break;
+
+            case 6:
+                scoreString = "Bien";
+                break;
+
+            case 7,8:
+                scoreString = "Notable";
+                break;
+            
+            case 9,10:
+                scoreString = "Sobresaliente";
+                break;
+        }
 
 
+        return scoreString;
+    }
 
+
+    public static void main(String[] args) {
+        numCifras();
 
     }
 
