@@ -4,6 +4,22 @@ import java.util.Scanner;
 
 public class Util {
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Introduce el texto: ");
+        String text = sc.nextLine();
+        System.out.println("Introduce el simbolo para el padding: ");
+        char symbol = sc.nextLine().charAt(0);
+        System.out.println("Introduce el tamaño del padding: ");
+        int padding = sc.nextInt();
+        sc.close();
+
+        cajaTexto(text, symbol, padding);
+        
+
+    }
+
     static boolean esPar(int n) {
         return n%2 == 0;
     }
@@ -90,11 +106,6 @@ public class Util {
         return scoreString;
     }
 
-
-    public static void main(String[] args) {
-        numCifras();
-
-    }
 
     public static String diaSemana(){
         Scanner sc = new Scanner(System.in);
@@ -233,4 +244,43 @@ public class Util {
         }
 
     }
+
+
+    public static void cajaTexto(String str, char symbol) {
+        int n = str.length();
+
+        printSimbolo(n,symbol,2);
+        
+        System.out.printf("%s %s %s\n",symbol,str,symbol);
+
+        printSimbolo(n,symbol,2);
+
+    }
+
+    public static void cajaTexto(String str, char symbol, int padding) {
+        int n = str.length();
+
+        printSimbolo(n,symbol,padding);
+        
+        String message = " "+str+" ";
+
+        for (int i = 1; padding>=i ; i++){
+            message = String.format("%c%s%c",symbol,message,symbol);
+        }
+
+        System.out.println(message);
+
+        printSimbolo(n,symbol,padding);
+
+    }
+
+    
+    public static void printSimbolo(int n, char symbol, int padding) {
+        for (int i = 1; i <= n + (padding+1)*2; i++ ){
+            System.out.print(symbol);
+        }
+        System.out.println();
+    }
+
+
 }
