@@ -96,4 +96,141 @@ public class Util {
 
     }
 
+    public static String diaSemana(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduce un número entero entre 1 y 7: ");
+
+        int diaIndex = sc.nextInt();
+
+        switch (diaIndex) {
+            case 1:
+                return "Lunes";
+        
+            case 2:
+                return "Martes";              
+
+            case 3:
+                return "Miercoles";
+
+            case 4:
+                return "Jueves";                
+
+            case 5:
+                return "Viernes";
+
+            case 6:
+                return "Sabado";
+
+            case 7:
+                return "Domingo";
+
+            default:
+                return "Número de la semana invalido";
+
+        }
+    }
+
+    public static boolean esFechaCorrecta(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduce un el día de la fecha: ");
+        byte dia = sc.nextByte();
+
+        System.out.print("Introduce un el mes de la fecha: ");
+        byte mes = sc.nextByte();
+
+        System.out.print("Introduce un el año de la fecha: ");
+        int anho = sc.nextInt();
+        sc.close();
+
+        String mensaje = "La fecha %d/%d/%d es ";
+
+        if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anho < 1 ){
+            return false;
+        }
+        else{
+            switch (mes) {         
+                case 2:
+                    if (dia > 28){
+                        return false;
+                    }
+    
+                case 4,6,9,11:
+                    if (dia > 30){
+                        return false;
+                    }
+                
+                default:
+                    return true;
+            }
+        }
+    }
+
+
+    public static boolean esHoraCorrecta(){
+        Scanner sc = new Scanner(System.in);
+
+        final byte MAX_HOUR = 23;
+        final byte MAX_SEC_MIN = 59;
+
+        System.out.print("Introduce una hora del día: ");
+        if (esMayor(sc.nextByte(), MAX_HOUR)!= MAX_HOUR){
+            sc.close();
+            return false;
+        }
+
+        System.out.print("Introduce el minuto de la hora del día: ");
+        
+        if (esMayor(sc.nextByte(), MAX_SEC_MIN)!= MAX_SEC_MIN) {
+            sc.close();
+            return false;
+        }
+
+        System.out.print("Introduce el segundo del minuto del día: ");
+        if (esMayor(sc.nextByte(), MAX_SEC_MIN)!= MAX_SEC_MIN) {
+            sc.close();
+            return false;
+        }
+        sc.close();
+
+        return true;
+    }
+
+
+    public static boolean esHoraCorrecta_v2(){
+        Scanner sc = new Scanner(System.in);
+
+        final byte MAX_HOUR = 23;
+        final byte MAX_SEC_MIN = 59;
+
+        boolean flag = true;
+
+        System.out.print("Introduce una hora del día: ");
+        if (esMayorQue(sc.nextByte(), MAX_HOUR)){
+            flag = false;
+        }
+
+        System.out.print("Introduce el minuto de la hora del día: ");
+        if (esMayorQue(sc.nextByte(), MAX_SEC_MIN)){
+            flag = false;
+        }
+
+        System.out.print("Introduce el segundo del minuto del día: ");
+        if (esMayorQue(sc.nextByte(), MAX_SEC_MIN)){
+            flag = false;
+        }
+        sc.close();
+
+        return flag;
+    }
+
+
+    public static boolean esMayorQue(int x,int m){
+        if (x > m){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
 }
