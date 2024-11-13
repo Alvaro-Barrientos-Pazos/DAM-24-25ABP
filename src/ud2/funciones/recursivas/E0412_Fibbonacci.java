@@ -3,7 +3,7 @@
 
     fibonacci(n) = fibonacci(n-1) + fibonacci(n-2)
     fibonacci(1) = 1
-    fibonacci(0) = 1
+    fibonacci(0) = 1   // Esto debe ser 0 en vez de 1
 */
 
 package ud2.funciones.recursivas;

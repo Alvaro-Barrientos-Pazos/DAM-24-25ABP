@@ -13,14 +13,13 @@ public class Supermercado {
         
         Scanner sc = new Scanner(System.in);
         
-        String precio;
+        double precio;
 
-        System.out.println("Introduce el precio de cada producto (solo se aceptan 2 decimales)");
-        precio = sc.nextLine();
+        System.out.println("Introduce el precio de cada producto (con un máximo de 2 decimales)");
+        precio = sc.nextDouble();
 
-        precio.split("\.")
+        precio = Math.floor(precio * 100.0) / 100.0;
 
-        
 
         System.out.println("Introduce la cantidad de productos");
         
