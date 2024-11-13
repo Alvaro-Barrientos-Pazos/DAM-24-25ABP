@@ -9,7 +9,7 @@
             b si a = 0
 */
 
-package ud2.recursivas;
+package ud2.funciones.recursivas;
 
 public class E0411 {
     public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class E0411 {
         System.out.println(mcd(12,30));
     }
 
-    public static int mcd(int a, int b) {
+    static int mcd(int a, int b) {
         int mcd = 0;
         
         if (a==0){

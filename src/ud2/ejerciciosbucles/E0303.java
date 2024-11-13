@@ -10,7 +10,6 @@
 package ud2.ejerciciosbucles;
 
 import java.util.Scanner;
-import java.util.Random;
 
 public class E0303 {
 
@@ -22,6 +21,7 @@ public class E0303 {
 
         int nInput=0, input, randNumber;
         
+        // Math.random() * ( MAX - MIN ) + MIN
         randNumber = (int)(Math.random() * MAX ) + MIN;
 
         System.out.print("Introduce un número del 0 al 100: ");

@@ -16,31 +16,50 @@ public class Util {
         sc.close();
 
         cajaTexto(text, symbol, padding);
-        
-
     }
 
-    static boolean esPar(int n) {
+    public static boolean esPar(int n) {
         return n%2 == 0;
     }
 
-    static boolean esBisiesto(int n) {
+
+    public static boolean esBisiesto(int n) {
         if ( n%400 == 0 || (n % 4 == 0 && n %100 != 0) ){
             return true;
         }
         return false;
     }
 
-    static int esMayor(int a, int b) {
+
+    public static int esMayor(int a, int b) {
         
         int biggest = a>b? a:b;
 
         return biggest;
     }
 
-    static boolean esCasiCero(double n) {
+
+    public static int esMayor(int a, int b, int c) {
+
+        if (a>b){
+            if (a>c){
+                return a;
+            }
+            return c;
+        }
+
+        else if (b>c){
+            return b;
+        }
+
+        return c;
+    }
+
+
+    public static boolean esCasiCero(double n) {
         return n >-1 && n<1 ? true : false;
     }
+
 
     public static int numCifras(){
         Scanner sc = new Scanner(System.in);
@@ -70,7 +89,8 @@ public class Util {
 
     }
 
-    static String notaEnTexto() {
+
+    public static String notaEnTexto() {
         
         System.out.println("Introduce la nota: ");
         Scanner sc = new Scanner(System.in);
@@ -140,6 +160,7 @@ public class Util {
 
         }
     }
+
 
     public static boolean esFechaCorrecta(){
         Scanner sc = new Scanner(System.in);
@@ -216,17 +237,17 @@ public class Util {
         boolean flag = true;
 
         System.out.print("Introduce una hora del día: ");
-        if (esMayorQue(sc.nextByte(), MAX_HOUR)){
+        if (esMayorBoolean(sc.nextByte(), MAX_HOUR)){
             flag = false;
         }
 
         System.out.print("Introduce el minuto de la hora del día: ");
-        if (esMayorQue(sc.nextByte(), MAX_SEC_MIN)){
+        if (esMayorBoolean(sc.nextByte(), MAX_SEC_MIN)){
             flag = false;
         }
 
         System.out.print("Introduce el segundo del minuto del día: ");
-        if (esMayorQue(sc.nextByte(), MAX_SEC_MIN)){
+        if (esMayorBoolean(sc.nextByte(), MAX_SEC_MIN)){
             flag = false;
         }
         sc.close();
@@ -235,14 +256,13 @@ public class Util {
     }
 
 
-    public static boolean esMayorQue(int x,int m){
+    public static boolean esMayorBoolean(int x,int m){
         if (x > m){
             return true;
         }
         else {
             return false;
         }
-
     }
 
 
@@ -257,6 +277,7 @@ public class Util {
 
     }
 
+    
     public static void cajaTexto(String str, char symbol, int padding) {
         int n = str.length();
 

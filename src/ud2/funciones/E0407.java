@@ -6,6 +6,7 @@
 package ud2.funciones;
 
 import java.util.Scanner;
+import ud2.funciones.E0406;;
 
 public class E0407 {
 
@@ -21,12 +22,12 @@ public class E0407 {
     }
 
 
-    public static int nDivisoresPrimos(int n) {
+    static int nDivisoresPrimos(int n) {
         int nPrimos = 0;
 
-        for (int i = n; i==0; i--){
+        for (int i = 1; i < n; i++){
             
-            if (n%i == 0 && i%i == 0){
+            if (n%i == 0 && E0406.esPrimo(i)){
                 nPrimos++;
             }
             

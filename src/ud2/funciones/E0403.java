@@ -17,7 +17,7 @@ public class E0403 {
         boolean isLooping = false;
         Scanner sc = new Scanner(System.in);
 
-        double radius,height;
+        double radius, height;
 
         do {
             
@@ -31,12 +31,12 @@ public class E0403 {
 
             switch (sc.nextInt()) {
                 case 1:
-                    areaCilindro(radius,height);
+                    System.out.printf("El area del cilindro es: %.2f\n",areaCilindro(radius,height));
                     sc.close();
                     break;
 
                 case 2:
-                    volumenCilindro(radius,height);
+                    System.out.printf("El volumen del cilindro es: %.2f\n",volumenCilindro(radius,height));
                     sc.close();
                     break;
             
@@ -50,14 +50,12 @@ public class E0403 {
 
     }
 
-    public static int areaCilindro(double radius,double height){
-        int result = 2 * Math.PI;
-        return result;
+    static double areaCilindro(double radius,double height){
+        return 2 * Math.PI * (height+radius);
     }
 
-    public static int volumenCilindro(double radius,double height){
-        int result = 0;
-        return result;
+    static double volumenCilindro(double radius,double height){
+        return Math.PI * (radius*radius) * height ;
     }
 
 

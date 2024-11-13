@@ -13,7 +13,7 @@ public class E0405 {
     }
 
 
-    public static boolean esVocal(char c){
+    static boolean esVocal(char c){
 
         boolean result = false;
 

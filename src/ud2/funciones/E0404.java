@@ -21,7 +21,7 @@ public class E0404 {
         b = sc.nextInt();
         sc.close();
 
-        System.out.printf("el mayor es: %d\n",Util.esMayorQue(a, b)?a:b);
+        System.out.printf("el mayor es: %d\n",Util.esMayor(a, b));
     }
 
 }
