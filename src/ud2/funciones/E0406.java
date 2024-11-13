@@ -6,7 +6,7 @@
     que devolverá true si n es primo y false en caso contrario.
 */
 
-package ud2.recursivas;
+package ud2.funciones;
 
 import java.util.Scanner;
 

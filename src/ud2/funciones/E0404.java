@@ -3,7 +3,7 @@
     devuelve el máximo de ambos.
 */
 
-package ud2.recursivas;
+package ud2.funciones;
 
 import java.util.Scanner;
 import ud2.Util;
