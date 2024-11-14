@@ -14,7 +14,6 @@ public class EP0213 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-
         double comidaDiaria;
         int numAnimales;
         double kilosPorAnimal;
@@ -29,6 +28,7 @@ public class EP0213 {
 
         System.out.println("Introduce la cantidad de kilos que consume un animal al día: ");
         kilosPorAnimal = sc.nextDouble();
+        sc.close();
 
 
         if (numAnimales <= 0){
@@ -52,8 +52,6 @@ public class EP0213 {
             System.out.println("No hay suficiente comida para todos los animales");
             System.out.printf("Los animales solo podrán consumir: %.2f Kg al día\n",consumoDiarioAjustado);
         }
-              
-
 
     }
 

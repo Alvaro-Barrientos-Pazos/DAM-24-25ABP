@@ -1,21 +1,27 @@
-/*
-Escribe un programa que solicite al usuario un número comprendido entre 1 y 99. 
-El programa debe mostrario con letras, por ejemplo, para 56, se verá: “cincuenta y seis”.
+/* 
+ * NumerosEnTexto. Adapta el ejercicio propuesto EP0214 para imprimir por pantalla los
+    todos los números del 1 al 99 en formato en formato numérico y en formato texto. Por ejemplo:
+        … 
+        88. ochenta y ocho
+        89. ochenta y nueve
+        90. noventa
+        …
+*/
 
- */
+package ud2.ejerciciosbucles;
 
-package ud2.ejercicioscondicionales;
-
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class EP0214v2 {
     public static void main(String[] args) {
         
-        Scanner sc = new Scanner(System.in);
+        for (int i= 1; i<100; i++){
+            System.out.printf("%d. %s\n",i,numeroEnTexto(i));
+        }
+        
+    }
 
-        System.out.println("Introduce un número entero entre el 1 y el 99");
-        int input = sc.nextInt();
-        sc.close();
+    static String numeroEnTexto(int input){
 
         String cUnits =""; 
         String cTens ="";
@@ -70,7 +76,10 @@ public class EP0214v2 {
                 case 9: cUnits = "nueve";             break;    
             }
         }
-        System.out.println("El nombre del número es: " + cTens+cUnits);
+        return cTens+cUnits;
      }
-}
 
+
+
+
+}

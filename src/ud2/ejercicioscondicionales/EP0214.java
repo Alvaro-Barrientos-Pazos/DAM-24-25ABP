@@ -15,6 +15,7 @@ public class EP0214 {
 
         System.out.println("Introduce un número entero entre el 1 y el 99");
         String input = sc.nextLine();
+        sc.close();
 
         boolean hasTens = input.length()>1;
 

@@ -17,6 +17,7 @@ public class E0311 {
         int n,fact = 1;
         
         n = sc.nextInt();
+        sc.close();
 
         for (int i=2; i <=n; i++)  {
             fact*=i;

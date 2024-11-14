@@ -18,6 +18,7 @@ public class EP0211 {
 
         System.out.println("Introduce un número del 0 al 9999");
         nString = sc.nextLine();
+        sc.close();
         sLongitud = nString.length();
 
 

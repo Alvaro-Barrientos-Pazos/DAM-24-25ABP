@@ -30,6 +30,7 @@ public class EP0212 {
 
         System.out.print("Introduce los dígitos del DNI: ");
         nDNI = sc.nextInt();
+        sc.close();
         modDNI = (byte)(nDNI%TAMAÑO_TABLA);
 
 

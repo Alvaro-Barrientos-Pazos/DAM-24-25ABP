@@ -132,6 +132,7 @@ public class Util {
         System.out.print("Introduce un número entero entre 1 y 7: ");
 
         int diaIndex = sc.nextInt();
+        sc.close();
 
         switch (diaIndex) {
             case 1:
@@ -173,8 +174,6 @@ public class Util {
         System.out.print("Introduce un el año de la fecha: ");
         int anho = sc.nextInt();
         sc.close();
-
-        String mensaje = "La fecha %d/%d/%d es ";
 
         if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anho < 1 ){
             return false;

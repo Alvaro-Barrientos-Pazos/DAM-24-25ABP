@@ -12,6 +12,7 @@ public class EP0216 {
 
         System.out.println("Introduce un número para calcular su valor absoluto");
         double n = sc.nextDouble();
+        sc.close();
         
         double nAbs = n < 0 ? n*-1 : n;
 

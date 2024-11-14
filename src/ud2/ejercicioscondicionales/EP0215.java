@@ -18,6 +18,7 @@ public class EP0215 {
 
         System.out.print("Altura en cm: ");
         double altura = sc.nextDouble();
+        sc.close();
 
 
         if (base <1 || altura <1){

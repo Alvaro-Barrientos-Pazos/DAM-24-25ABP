@@ -31,6 +31,7 @@ public class E0408 {
         
         System.out.printf("Introduce el valor de B:   %.2f %s B\n",a,operatorSymbol);
         double b = sc.nextDouble();
+        sc.close();
 
 
         System.out.printf("%.2f %s %.2f = %.2f\n",a,operatorSymbol,b,calculadora(a, b, operator));

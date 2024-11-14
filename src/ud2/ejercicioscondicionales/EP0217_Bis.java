@@ -8,7 +8,7 @@ Pista: Puedes utilizar el método random() de la clase Math o la clase Random.
 package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
-import java.time.LocalTime;
+//import java.time.LocalTime;
 
 public class EP0217_Bis {
     public static void main(String[] args) {
@@ -17,7 +17,10 @@ public class EP0217_Bis {
         final byte MIN = 1;
 
         Scanner sc = new Scanner(System.in);
-        LocalTime horaInicial = LocalTime.now();
+
+        // Alternativa a usar milisegundos usando la libreria LocalTime
+
+        //LocalTime horaInicial = LocalTime.now();
 
         // (Math.random() * (MAX - MIN + 1) ) + MIN
         int a = (int)(Math.random() * MAX ) + MIN;
@@ -26,10 +29,12 @@ public class EP0217_Bis {
         System.out.printf("Cual es el resultado de %d + %d?\n",a,b);
         int resultado = sc.nextInt();
         sc.close();
-        LocalTime horaFinal = LocalTime.now();
+        
 
-        // Alternativa a usar milisegundos usando la libreria LocalTime
-        int dif = horaFinal.toSecondOfDay()-horaInicial.toSecondOfDay();
+        
+        
+        //LocalTime horaFinal = LocalTime.now();
+        //int dif = horaFinal.toSecondOfDay()-horaInicial.toSecondOfDay();
 
 
 

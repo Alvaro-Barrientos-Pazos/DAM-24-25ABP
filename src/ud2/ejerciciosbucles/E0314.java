@@ -12,5 +12,6 @@ public class E0314 {
         
 
         Scanner sc = new Scanner(System.in);
+        sc.close();
     }
 }

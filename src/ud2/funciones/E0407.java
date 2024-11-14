@@ -6,7 +6,6 @@
 package ud2.funciones;
 
 import java.util.Scanner;
-import ud2.funciones.E0406;;
 
 public class E0407 {
 
@@ -15,9 +14,8 @@ public class E0407 {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Introduce un número: ");
-        System.out.println("El número de divisores primos: "+nDivisoresPrimos(sc.nextInt()));
+        System.out.println("El número de divisores primos: " + nDivisoresPrimos(sc.nextInt()));
         sc.close();
-
 
     }
 

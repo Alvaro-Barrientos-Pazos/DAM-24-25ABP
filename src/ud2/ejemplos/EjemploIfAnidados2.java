@@ -11,6 +11,7 @@ public class EjemploIfAnidados2 {
         System.out.println("Introduzca una nota entre 0 y 10: ");
         
         nota = sc.nextDouble();
+        sc.close();
         
         System.out.println("La calificación del alumno es ");
         if (nota < 0 || nota > 10) {

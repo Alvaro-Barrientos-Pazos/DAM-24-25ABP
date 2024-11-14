@@ -15,7 +15,7 @@ public class E0313 {
 
         final byte N_SCORES = 6;
 
-        int c_fails = 0,c_cfails = 0 , score;
+        int c_fails = 0, c_cfails = 0, score;
 
 
         System.out.println("Introduce 6 notas: ");
@@ -31,6 +31,8 @@ public class E0313 {
                 }
             } 
         }
+
+        sc.close();
 
         System.out.printf("Condicionados  |  Suspensos\n");
         System.out.println("---------------------------------------------");
