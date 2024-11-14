@@ -16,44 +16,69 @@ public class Supermercado {
 
         Scanner sc = new Scanner(System.in);
         
-        double price = 0, quantity;
+        double currPrice = 0, totalPrice = 0;
+        int input = 0, quantity = 0, nProductos = 0;
 
-        boolean isValidPrice = false;
+        boolean isValidInput = false;
 
-        while (isValidPrice == false ){
-            isValidPrice = false;
 
-            try{
-                System.out.println("Introduce el precio de cada producto (con un máximo de 2 decimales)");
-                price = sc.nextDouble();
-            } 
-            catch (InputMismatchException e) {
-                System.out.println("Solo se aceptan números");
-                sc.nextLine(); // Limpia el buffer
-                isValidPrice = true;
+        while (input != -1); {
+
+            while (isValidInput == false ){
+                isValidInput = false;
+
+                try{
+                    System.out.println("Introduce el precio de cada producto (con un máximo de 2 decimales)");
+                    currPrice = sc.nextDouble();
+                } 
+                catch (InputMismatchException e) {
+                    System.out.println("Solo se aceptan números positivos");
+                    sc.nextLine(); // Limpia el buffer
+                    isValidInput = true;
+                }
+                
+            } while (isValidInput);
+
+            if (currPrice == -1) {
+                System.out.println("El ha sido finalizado");
+                sc.close();
+                return;
             }
+
+            currPrice = Math.floor(currPrice * 100.0) / 100.0;
+
+            totalPrice += currPrice;
+
+            while (isValidInput == false ){
+                isValidInput = false;
+
+                try{
+                    System.out.println("Introduce la cantidad de productos");
+                    quantity = sc.nextInt();
+                } 
+                catch (InputMismatchException e) {
+                    System.out.println("Solo se aceptan números enteros");
+                    sc.nextLine(); // Limpia el buffer
+                    isValidInput = true;
+                }
+                
+            } while (isValidInput);
+
             
-        } while (isValidPrice);
+            if (quantity == -1) {
+                System.out.println("El ha sido finalizado");
+                sc.close();
+                return;
+            }
 
-        price = Math.floor(price * 100.0) / 100.0;
+            nProductos++;
+            System.out.printf("%d: %.2f x %d\n",nProductos,currPrice,quantity);
 
+            sc.close();
 
-        System.out.println("Introduce la cantidad de productos");
-        try{
-            quantity = sc.nextDouble();
-        } 
-        catch (InputMismatchException e){
-            System.out.println("Solo se aceptan números enteros");
+            
+
         }
-
-        sc.close();
-
-
-
-
-
-
-
     }
 
 }
