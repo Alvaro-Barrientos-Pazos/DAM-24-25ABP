@@ -10,13 +10,13 @@ package ud2.funciones.recursivas;
 
 public class E0412_Fibbonacci {
     public static void main(String[] args) {
-        System.out.println(fibonacci(10));
+        System.out.println(fibonacci(9));
     }
 
     static int fibonacci(int n){
 
         if (n < 2){
-            return n;
+            return 1; // Si se quiere comenzar la serie en 0 se devolveria n
         }
 
         return fibonacci(n - 1) + fibonacci(n - 2);
