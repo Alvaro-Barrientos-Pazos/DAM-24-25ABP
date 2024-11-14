@@ -45,6 +45,7 @@ public class EP0218 {
 
         System.out.printf("Cual es el resultado de %d %c %d?\n", a, cOperator, b);
         int input = sc.nextInt();
+        sc.close();
 
         msEnd = System.currentTimeMillis();
 

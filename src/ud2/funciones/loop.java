@@ -10,6 +10,7 @@ public class loop {
         String txt = sc.nextLine();
         System.out.print("Introduce un symbolo: ");
         char symbol = sc.nextLine().charAt(0);
+        sc.close();
 
         cajaTexto(txt,symbol);
     }

@@ -30,6 +30,7 @@ public class ActivdadPropuesta {
 
         System.out.println("Introduce el precio de las entradas");
         precio = sc.nextDouble();
+        sc.close();
         
         if (aforo <= max_aforo * UMBRAL_CANCELACION){
             System.out.println("El concierto será ser cancelado");    

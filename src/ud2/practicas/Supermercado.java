@@ -17,6 +17,7 @@ public class Supermercado {
 
         System.out.println("Introduce el precio de cada producto (con un máximo de 2 decimales)");
         precio = sc.nextDouble();
+        sc.close();
 
         precio = Math.floor(precio * 100.0) / 100.0;
 

@@ -25,6 +25,7 @@ public class EP0217_Bis {
 
         System.out.printf("Cual es el resultado de %d + %d?\n",a,b);
         int resultado = sc.nextInt();
+        sc.close();
         LocalTime horaFinal = LocalTime.now();
 
         // Alternativa a usar milisegundos usando la libreria LocalTime

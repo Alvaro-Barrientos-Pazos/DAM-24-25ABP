@@ -26,7 +26,6 @@ public class E0207 {
         n3 = sc.nextDouble();
         sc.close();
 
-        double temp;
         double bNum = n1;  // Biggest Number
         double mNum = n2;  // Middle Number
         double sNum = n3;  // Smallest Number

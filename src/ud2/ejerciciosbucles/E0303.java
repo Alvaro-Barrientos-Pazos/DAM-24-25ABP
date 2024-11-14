@@ -26,6 +26,7 @@ public class E0303 {
 
         System.out.print("Introduce un número del 0 al 100: ");
         input = sc.nextInt();
+        sc.close();
 
         String mensaje;
 

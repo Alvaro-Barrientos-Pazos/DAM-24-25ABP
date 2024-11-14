@@ -15,6 +15,7 @@ public class EP0219 {
 
         System.out.println("Introduce el número de grados que tiene un angulo?");
         double gAngle = sc.nextDouble();
+        sc.close();
         
         double modAngle = gAngle%360;
         double rAngle   = Math.PI/180 * modAngle;

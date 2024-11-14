@@ -23,7 +23,7 @@ public class EP0217 {
 
         System.out.printf("Cual es el resultado de %d + %d?\n",a,b);
         int resultado = sc.nextInt();
-
+        sc.close();
 
         System.out.println(resultado == a + b ? "Correcto" : "Incorrecto");
 

@@ -4,13 +4,13 @@
 */
 package ud2.ejerciciosbucles;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class E0310 {
 
     public static void main(String[] args) {
         
 
-        Scanner sc = new Scanner(System.in);
+        //Scanner sc = new Scanner(System.in);
     }
 }

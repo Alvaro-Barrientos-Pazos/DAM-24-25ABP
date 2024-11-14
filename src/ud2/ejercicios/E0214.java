@@ -21,6 +21,7 @@ public class E0214 {
     mes = sc.nextInt();
     System.out.print("Introduce el año de la fecha: ");
     anho = sc.nextInt();
+    sc.close();
 
     // Datos modificados
     int mDia  = dia+1;

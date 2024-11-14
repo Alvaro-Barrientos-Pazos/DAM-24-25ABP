@@ -30,6 +30,7 @@ public class Calculadora {
                 break;
             case 6:
                 System.out.println("El programa se cerrará");
+                sc.close();
                 return;
         
             default:

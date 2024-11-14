@@ -5,7 +5,7 @@
 
 package ud2.funciones.recursivas;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class E0410 {
 

@@ -16,6 +16,7 @@ public class E0211 {
         System.out.print("Introduce un número entero entre 1 y 7: ");
 
         int diaIndex = sc.nextInt();
+        sc.close();
 
         switch (diaIndex) {
             case 1:

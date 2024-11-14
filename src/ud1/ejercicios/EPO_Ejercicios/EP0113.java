@@ -19,7 +19,6 @@ public class EP0113 {
         double b;
         double c;
         double x;
-        double y;
 
         System.out.println("Introduce el valor de A,B,C y X");
         System.out.println("A: ");

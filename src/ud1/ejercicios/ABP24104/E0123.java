@@ -6,7 +6,7 @@ El programa deberá manejar las conversiones automáticamente y mostrar el resul
  */
 package ud1.ejercicios.ABP24104;
 
-import java.util.Locale;
+//import java.util.Locale;
 import java.util.Scanner;
 
 public class E0123 {

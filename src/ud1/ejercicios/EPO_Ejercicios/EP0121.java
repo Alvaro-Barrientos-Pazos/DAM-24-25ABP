@@ -25,6 +25,7 @@ public class EP0121 {
 
         System.out.print("Introduce la cantidad a convertir: ");
         c = sc.nextDouble();
+        sc.close();
 
         // Añadimos un punto a las divisiones con números literales para que no los convierta en números enteros y nos de 0 la división.
         // 5/9 = 0      

@@ -23,6 +23,7 @@ public class E0308 {
             counter++;
 
         }
+        sc.close();
         System.out.printf("La media es: %.2f",(float)(n/counter));
     }
 

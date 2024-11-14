@@ -16,6 +16,7 @@ public class E0304 {
         Scanner sc = new Scanner(System.in);
 
         double cmHeight = sc.nextDouble();
+        sc.close();
 
         while (cmHeight > 0 ) {
             
