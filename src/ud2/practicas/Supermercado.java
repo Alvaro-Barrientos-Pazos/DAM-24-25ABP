@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 public class Supermercado {
 
+    static final String EXIT_MESSAGE = "\n - El programa ha sido finalizado -\n";
+    static final char MONEDA = '€';
+
     public static void main(String[] args) {
         menuPrincipal();
 
@@ -12,73 +15,87 @@ public class Supermercado {
 
     public static void menuPrincipal() {
         
-        final char MONEDA = '€';
+        
 
         Scanner sc = new Scanner(System.in);
         
         double currPrice = 0, totalPrice = 0;
-        int input = 0, quantity = 0, nProductos = 0;
+        int quantity = 0, nProductos = 1;
 
-        boolean isValidInput = false;
+        
 
+        boolean isValidInput = true;
+        boolean isFinished = false;
 
-        while (input != -1); {
+        System.out.println("\nIntroduce el precio y número de productos de la cesta:");
 
-            while (isValidInput == false ){
-                isValidInput = false;
+        do {
 
+            do {
+                
                 try{
-                    System.out.println("Introduce el precio de cada producto (con un máximo de 2 decimales)");
+                    System.out.printf("Introduce el precio del producto #%d\n",nProductos);
                     currPrice = sc.nextDouble();
+                    isValidInput = true;
                 } 
                 catch (InputMismatchException e) {
-                    System.out.println("Solo se aceptan números positivos");
+                    System.out.println("Solo se aceptan números positivos con un máximo de 2 decimales");
                     sc.nextLine(); // Limpia el buffer
-                    isValidInput = true;
+                    isValidInput = false;
                 }
-                
-            } while (isValidInput);
 
-            if (currPrice == -1) {
-                System.out.println("El ha sido finalizado");
-                sc.close();
-                return;
-            }
+                if (currPrice < 0){
+                    if (currPrice == -1){
+                        System.out.println("El programa ha sido finalizado");
+                        sc.close();
+                        return;
+
+                    }
+                }
+            
+            } while (isValidInput == false );
 
             currPrice = Math.floor(currPrice * 100.0) / 100.0;
 
             totalPrice += currPrice;
 
-            while (isValidInput == false ){
-                isValidInput = false;
+            do {
 
                 try{
                     System.out.println("Introduce la cantidad de productos");
                     quantity = sc.nextInt();
+                    isValidInput = true;
                 } 
                 catch (InputMismatchException e) {
                     System.out.println("Solo se aceptan números enteros");
                     sc.nextLine(); // Limpia el buffer
-                    isValidInput = true;
+                    isValidInput = false;
                 }
                 
-            } while (isValidInput);
+            } while (isValidInput == false);
 
             
             if (quantity == -1) {
-                System.out.println("El ha sido finalizado");
-                sc.close();
+                exitProgram(sc);
                 return;
             }
 
-            nProductos++;
-            System.out.printf("%d: %.2f x %d\n",nProductos,currPrice,quantity);
-
-            sc.close();
-
             
 
-        }
+            System.out.printf("%d: %.2f x %d\n",nProductos,currPrice,quantity);
+            nProductos++;
+
+
+        }while (isFinished == false);
+
+        sc.close();
     }
+
+
+    static void exitProgram(Scanner sc){
+        System.out.println(EXIT_MESSAGE);
+        sc.close();
+    }
+    
 
 }
