@@ -146,10 +146,10 @@ public class Supermercado {
         double decimalsBill = (totalPrice-(int)totalPrice);
         double decimals = (balance-integer);
 
-        if (decimalsBill > decimals){
-
+        if ( decimals < decimalsBill ){
+            integer -= 1;
+            decimals += 100;
         }
-        
         
         System.out.printf("\nBilletes de 500%c: %d", COIN_SIGN, integer / FIVE_HUNDRED);
         integer = integer%FIVE_HUNDRED;
@@ -178,7 +178,7 @@ public class Supermercado {
         System.out.printf("\nMonedas de 1%c: %d", COIN_SIGN, integer / ONE);
         integer = integer%ONE;
 
-        System.out.printf("\nMonedas de 1cent: %d", (int)(decimals * 100 + 0.00001));
+        System.out.printf("\nMonedas de 1cent: %d\n", (int)(decimals * 100 + 0.0001));
 
     }
 
