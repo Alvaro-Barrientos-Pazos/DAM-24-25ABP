@@ -20,6 +20,8 @@ public class prueba4 {
             sc.nextLine(); // Limpia el buffer
         }
 
+
+
         int x=0;
 
         if (x == 0 && 10/x > 1) {

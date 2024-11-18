@@ -22,19 +22,14 @@ public class prueba2 {
                 break;
         }
 
-        // total = 10
-        // a = 1
-
 
         total = switch (a){
-            case 0 -> 0;         // case 0: System.out.println("Hola") break;
-            default -> 5;        // ->  == return 
+            case 0 -> 0;        
+            default -> 5;    
         };
 
-        // total = 5
-        // a = 1
 
-        total = switch (total){     // yield == return 
+        total = switch (total){
             case 0 -> {
                 System.out.println("Hola");
                 System.out.println("1");
@@ -52,8 +47,6 @@ public class prueba2 {
             }
         };
 
-        // total = 5
-        // a = 2
 
         switch (a) {
             case 0 -> System.out.print("hola");
