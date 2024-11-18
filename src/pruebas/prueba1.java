@@ -21,7 +21,7 @@ public class prueba1 {
 
     public static void main( String[] args ) {
         int a = 5;
-        resta_A()
+        resta_A();
         System.out.println("A#:" + a);
     }
 
