@@ -10,6 +10,8 @@ public class Recursivas {
         System.out.println("powerTo: "+powerTo(2,4));
         System.out.println("factorial: "+factorial(5));
         System.out.println("nLetterInString: "+nLetterInString("abracadadadabra",'a',0));
+        System.out.println("palindrome: "+palindrome("madam",0));
+        
         
         
         System.out.println("Reverse: "+reverse("hello"));
@@ -76,7 +78,7 @@ public class Recursivas {
         return n * factorial(n-1);
     }
 
-    
+
     static int nLetterInString(String word,char letter,int index){
 
         if (index == word.length()) {
@@ -91,5 +93,20 @@ public class Recursivas {
         }
         
     }
+
+    static boolean palindrome(String text,int index){
+        
+        if (index >= text.length()/2){
+            return true;
+        }
+
+        else if (text.charAt(index) == text.charAt(text.length()-1-index) ){
+            return palindrome(text,index+1);
+        }
+        else{
+            return false;
+        }
+    }
+
 
 }
