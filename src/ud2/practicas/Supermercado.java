@@ -182,6 +182,7 @@ public class Supermercado {
 
     }
 
+    
     static double validateCashPayment(){
         double cash = -1;
         boolean isLooping = false;
