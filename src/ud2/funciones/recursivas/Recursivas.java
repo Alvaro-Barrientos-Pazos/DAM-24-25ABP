@@ -8,8 +8,10 @@ public class Recursivas {
         System.out.println("Suma: "+suma(5));
         System.out.println("nNumbers: "+nNumbers(12345));
         System.out.println("powerTo: "+powerTo(2,4));
+        System.out.println("factorial: "+factorial(5));
+        System.out.println("nLetterInString: "+nLetterInString("abracadadadabra",'a',0));
         
-
+        
         System.out.println("Reverse: "+reverse("hello"));
     }
 
@@ -63,6 +65,31 @@ public class Recursivas {
         }
         
         return reverse(str.substring(1)) + str.charAt(0);
+    }
+
+
+    static int factorial(int n){
+
+        if ( n== 0)
+            return 1;
+
+        return n * factorial(n-1);
+    }
+
+    
+    static int nLetterInString(String word,char letter,int index){
+
+        if (index == word.length()) {
+            return 0;
+        }
+
+        if (word.charAt(index) == letter){
+            return 1 + nLetterInString(word, letter, index+1);
+        }
+        else{
+            return nLetterInString(word, letter, index+1);
+        }
+        
     }
 
 }
