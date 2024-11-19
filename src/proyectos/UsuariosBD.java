@@ -1,6 +1,6 @@
 package poyectos;
 
-import proyectos.util.Conexion;
+import proyectos.Conexion;
 
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
