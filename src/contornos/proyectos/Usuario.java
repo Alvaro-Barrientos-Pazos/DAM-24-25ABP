@@ -1,6 +1,6 @@
-package contornos;
+package contornos.proyectos;
 
-import contornos.Cartera;
+import contornos.proyectos.Cartera;
 
 public class Usuario {
 

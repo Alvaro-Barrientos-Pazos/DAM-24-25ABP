@@ -1,4 +1,4 @@
-package proyectos.util;
+package contornos.proyectos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

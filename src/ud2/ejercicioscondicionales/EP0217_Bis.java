@@ -22,7 +22,7 @@ public class EP0217_Bis {
 
         //LocalTime horaInicial = LocalTime.now();
 
-        // (Math.random() * (MAX - MIN + 1) ) + MIN
+        // Math.random() * (MAX - MIN + 1) ) + MIN
         int a = (int)(Math.random() * MAX ) + MIN;
         int b = (int)(Math.random() * MAX ) + MIN;
 

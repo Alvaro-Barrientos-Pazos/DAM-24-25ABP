@@ -1,6 +1,6 @@
-package poyectos;
+package contornos.proyectos;
 
-import proyectos.Conexion;
+import contornos.proyectos.Conexion;
 
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;

@@ -1,11 +1,8 @@
-package contornos;
+package contornos.proyectos;
 
 public class Cartera {
 
     public static void main(String[] args) {
-        
-
-
 
     }
 

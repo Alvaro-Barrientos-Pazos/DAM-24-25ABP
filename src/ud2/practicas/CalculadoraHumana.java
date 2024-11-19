@@ -1,5 +1,6 @@
 package ud2.practicas;
 
+import java.time.LocalTime;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -7,14 +8,18 @@ public class CalculadoraHumana {
 
     static Scanner sc = new Scanner(System.in);
 
-    static int nPoints = 0, nFails = 0;
+    static int nPoints = 0, nFails = 0, nHP = 0;
+
+    static final byte ANSWER_TIMEOUT = 60;
+
+    static int timer_start;
+
 
     public static void main(String[] args) {
 
         final byte nTries = 7;
 
         boolean isLooping = true;
-        
 
         do {
             chooseQuestion();
@@ -25,7 +30,7 @@ public class CalculadoraHumana {
             }
 
         } while(isLooping);
-        
+
         sc.close();
         
     }
@@ -33,7 +38,7 @@ public class CalculadoraHumana {
 
     static void chooseQuestion(){
         int programID = randNumber(0, 3);
-
+        
         switch (programID) {
             case 0 -> addition();
             case 1 -> substraction();
@@ -46,63 +51,59 @@ public class CalculadoraHumana {
     static int ValidateInput(){
         int input = 0;
         
+        timer_start = LocalTime.now().toSecondOfDay();
+
         try{
             input = sc.nextInt();
         }
         catch (InputMismatchException e){
             System.out.println("Solo se aceptan números enteros");
         }
+        finally{
+            isOutofTime();
+        }
 
         return input;
     }
 
 
-    static boolean addition(){
+    static void addition(){
         int op1 = randNumber(0, 200);
         int op2 = randNumber(0, 200-op1);
         int result = op1+op2;
 
-
-        System.out.printf("%d + %d = ");
-        int answer = ValidateInput();
-
-        return AnswerIsCorrect(answer, result);
+        operationModule(String.format("%d + %d = ",op1,op2), result);
     }
 
 
     // Resultado mínimo de la resta es 0
-    static boolean substraction(){
+    static void substraction(){
         int op1 = randNumber(0, 200);
         int op2 = randNumber(0, op1); 
         int result = op1-op2;
 
-        operationModule(result);
-        
+        operationModule(String.format("%d - %d = ",op1,op2), result);
     }
 
-    static boolean multiplication(){
+
+    static void multiplication(){
         int op1 = randNumber(0, 200);
         int op2 = randNumber(0, 200/op1);
         int result = op1*op2;
 
-        System.out.printf("%d * %d = ");
-        int answer = ValidateInput();
-        return AnswerIsCorrect(answer, result);
+        operationModule(String.format("%d * %d = ",op1,op2), result);
     }
 
-    static boolean division(){
+
+    // Impedir decimales muy pequeños
+    static void division(){
         int op1 = randNumber(0, 200);
-        int op2 = randNumber(0, 200);
+        int op2 = randNumber(0, op1);
         int result = op1/op2;
 
-        System.out.printf("%d / %d = ");
-        int answer = ValidateInput();
-        return AnswerIsCorrect(answer, result);
+        operationModule(String.format("%d / %d = ",op1,op2), result);
     }
 
-    static int randNumber(int min,int max){
-        return (int)Math.random()*(max-min+1)+min;
-    }
 
     static boolean AnswerIsCorrect(int answer, int result){
         sc.nextLine();
@@ -115,16 +116,17 @@ public class CalculadoraHumana {
         nFails++;
         System.out.printf("Incorrecto (Fallos: %d)\n",nFails);
         return false;
+
     }
 
 
-    static void operationModule(int result){
+    static void operationModule(String msg, int result){
         boolean isLooping = true;
 
         do {
             
+            System.out.print(msg);
             isLooping = true;
-            System.out.printf("%d - %d = ");
             int answer = ValidateInput();
 
             if (AnswerIsCorrect(answer, result)){
@@ -132,6 +134,21 @@ public class CalculadoraHumana {
             }
 
         }while(isLooping);
+    }
+
+
+    static int randNumber(int min,int max){
+        return (int)(Math.random()*(max-min+1)+min);
+    }
+
+    
+    static void isOutofTime(){
+        int timer_end = LocalTime.now().toSecondOfDay();        
+
+        if (timer_end-timer_start >= ANSWER_TIMEOUT){
+            System.out.println("El tiempo se habia acabado, has sido eliminado");
+            System.exit(0);
+        }
     }
 
 }
