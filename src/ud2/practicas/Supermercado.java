@@ -61,7 +61,6 @@ public class Supermercado {
                 
             } while (isValidInput == false);
 
-
             earlyExit(quantity);
 
             System.out.printf("Se ha registrado el producto #%d: %.2f%c x %d\n", nProductos, currPrice, COIN_SIGN, quantity);
@@ -282,6 +281,4 @@ public class Supermercado {
             System.exit(0);
         }
     }
-
-
 }
