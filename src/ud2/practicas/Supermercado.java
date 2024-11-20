@@ -46,6 +46,8 @@ public class Supermercado {
             //FIX: Algunos decimales pierden precisión por lo que sumamos una pequeña cantidad para intentar compensar.
             currPrice = Math.floor(currPrice * 100.0 + 0.00001)/100.0;
 
+            isValidInput = false;
+
             do {
 
                 System.out.printf("Cantidad de producto #%d por %.2f%c: ", nProductos, currPrice, COIN_SIGN);

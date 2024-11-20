@@ -12,10 +12,10 @@ public class Recursivas {
         System.out.println("nLetterInString: "+nLetterInString("abracadadadabra",'a',0));
         System.out.println("palindrome: "+palindrome("madam",0));
         
-        
-        
+            
         System.out.println("Reverse: "+reverse("hello"));
     }
+
 
     static int tribonacci(int n){
 
@@ -27,18 +27,17 @@ public class Recursivas {
         }
 
         return tribonacci(n-1) + tribonacci(n-2) + tribonacci(n-3);
-        
     }
 
-    //Suma. Escribe un programa que sume los números enteros desde 1 hasta n utilizando recursividad.
 
+    //Suma. Escribe un programa que sume los números enteros desde 1 hasta n utilizando recursividad.
     static int suma(int n){
         if (n == 1){
             return 1;
         }
         return n + suma(n-1);
-
     }
+
 
     // NumDigitos. Escribe un programa que cuente la cantidad de dígitos en un número entero utilizando recursividad.
     static int nNumbers(int n){
@@ -49,6 +48,7 @@ public class Recursivas {
         return 1 + nNumbers(n/10);
     }
 
+
     // Potencia. Escribe un programa que calcule la potencia de un número elevado a otro utilizando recursividad.
     static int powerTo(int n, int p){
     
@@ -56,7 +56,6 @@ public class Recursivas {
             return 1;
 
         return n * powerTo(n, p-1);
-    
     }
 
 
@@ -91,10 +90,10 @@ public class Recursivas {
         else{
             return nLetterInString(word, letter, index+1);
         }
-        
     }
 
-    static boolean palindrome(String text,int index){
+
+    static boolean palindrome(String text, int index){
         
         if (index >= text.length()/2){
             return true;
@@ -107,6 +106,5 @@ public class Recursivas {
             return false;
         }
     }
-
 
 }
