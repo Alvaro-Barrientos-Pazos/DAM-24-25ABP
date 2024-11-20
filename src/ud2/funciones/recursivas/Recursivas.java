@@ -2,7 +2,6 @@ package ud2.funciones.recursivas;
 
 public class Recursivas {
 
-
     public static void main(String[] args) {
         System.out.println("Tribonacci: "+tribonacci(15));
         System.out.println("Suma: "+suma(5));
@@ -18,7 +17,7 @@ public class Recursivas {
 
 
     static int tribonacci(int n){
-
+        
         if (n == 0){
             return 0;
         }
@@ -32,6 +31,7 @@ public class Recursivas {
 
     //Suma. Escribe un programa que sume los números enteros desde 1 hasta n utilizando recursividad.
     static int suma(int n){
+        
         if (n == 1){
             return 1;
         }
@@ -51,7 +51,7 @@ public class Recursivas {
 
     // Potencia. Escribe un programa que calcule la potencia de un número elevado a otro utilizando recursividad.
     static int powerTo(int n, int p){
-    
+
         if (p == 0)
             return 1;
 
