@@ -2,18 +2,20 @@
 
 package ud2.abpexamen_corregido;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.Test;
+
 public class AbpChicles_corregido {
 
-    public static void main(String[] args) {
-        System.out.println(totalChicles(25,5, 1));
-        System.out.println(totalChicles(5,5, 1));
-        System.out.println(totalChicles(100,10, 1));
-        System.out.println(totalChicles(100,0, 0));
-        System.out.println(totalChicles(20,2, 5));
-        System.out.println(totalChicles(10,-1, 0));
-        
+    @Test
+    public void ChiclesRegaloTest() {
+        assertEquals(31, totalChicles(25, 5, 1));
+        assertEquals(6, totalChicles(5, 5, 1 ));
+        assertEquals(111, totalChicles(100, 10, 1));
+        assertEquals(100, totalChicles(100, 0, 0));
+        assertEquals(-1, totalChicles(20, 2, 5));
+        assertEquals(-1, totalChicles(10, -1, 0));
     }
-
 
     static int totalChicles (int nComprados, int nEnvoltorios,  int nRegalo){
 

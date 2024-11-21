@@ -2,31 +2,44 @@
 
 package ud2.abpexamen_corregido;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.Test;
+
 public class AbpBombillas_corregido {
-
-    public static void main(String[] args) {
-        System.out.println(causaFinBombilla(1000,200,10));
-        System.out.println(causaFinBombilla(1000,100,1));
-        System.out.println(causaFinBombilla(1000,100,10));
-        System.out.println(causaFinBombilla(100,100,100));
-        System.out.println(causaFinBombilla(1000,-10,10));
-        System.out.println(causaFinBombilla(1000,10,0));
-
+    
+    @Test
+    
+    public void causaFinBombillaTest() {
+        assertEquals("ERROR", causaFinBombilla(100, 100, 100));
+        assertEquals("ERROR", causaFinBombilla(1000, -10, 10));
+        assertEquals("ERROR", causaFinBombilla(0, 10, 10));
+        assertEquals("ERROR", causaFinBombilla(1000, 10, 0));
+        assertEquals("ENCENDIDOS", causaFinBombilla(500, 400, 1));
+        assertEquals("HORAS", causaFinBombilla(1000, 10000, 1));
+        assertEquals("HORAS", causaFinBombilla(1000, 200, 10));
+        assertEquals("HORAS", causaFinBombilla(2000, 700, 3));
+        assertEquals("ENCENDIDOS", causaFinBombilla(2000, 600, 3));
+        assertEquals("ENCENDIDOS", causaFinBombilla(1000, 100, 1));
+        assertEquals("ENCENDIDOS", causaFinBombilla(1000, 100, 9));
+        assertEquals("ENCENDIDOS + HORAS", causaFinBombilla(1000, 100, 10));
     }
 
-    static String causaFinBombilla(double maxHours, double maxUses, double HoursPerUse){
+    
+    static String causaFinBombilla(int maxHours, int maxUses, int HoursPerUse){
 
-        String msg = "Error";
+        String msg = "ERROR";
 
         if ( HoursPerUse >10 || maxHours <=0 || maxUses <=0 || HoursPerUse <=0){
-            msg =  "Error";    
+            msg =  "ERROR";    
         }
         else{
-            if ( maxHours > HoursPerUse * maxUses){
-                msg = "ENCENDIDOS";
 
+            int totalUseHours = HoursPerUse * maxUses;
+
+            if ( maxHours > totalUseHours ){
+                msg = "ENCENDIDOS";
             }
-            else if ( maxHours < HoursPerUse * maxUses ){
+            else if ( maxHours < totalUseHours ){
                 msg = "HORAS";
             }
             else{
@@ -35,7 +48,6 @@ public class AbpBombillas_corregido {
         }
 
         return msg;
-
 
     }
 
