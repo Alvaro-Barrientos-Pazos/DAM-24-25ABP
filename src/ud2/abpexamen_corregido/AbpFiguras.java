@@ -1,7 +1,6 @@
 /* Autor: Álvaro Barrientos Pazos */
 
-
-package ud2.abpexamen;
+package ud2.abpexamen_corregido;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -38,7 +37,7 @@ public class AbpFiguras {
             }
 
             if (nInvalidInputs >= 3 || input == 0){
-                System.out.println("El programa a terminado");
+                System.out.println("El programa ha terminado");
                 return;
             }
 
@@ -115,6 +114,7 @@ public class AbpFiguras {
         }
 
     }
+    
     
     static int getValidInput(){
         int input = -1;
