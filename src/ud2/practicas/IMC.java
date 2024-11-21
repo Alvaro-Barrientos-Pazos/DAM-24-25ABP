@@ -35,11 +35,6 @@ public class IMC {
     }
 
 
-    public static void main(String[] args) {     
-        imc(getValidWeight(), getValidHeight());
-    }
-
-
     static double imc(double kg, int cm) {
         
         if (kg<20|| kg>300 || cm < 50 || cm > 250){
@@ -48,48 +43,71 @@ public class IMC {
         }
 
         double m = cm * 0.01;
-        return kg/(m*m);
+        double imcValue = kg/(m*m);
+
+        String msg = "Normal";
+
+        if (imcValue < 18.5){
+            msg = "Bajo peso";
+        }
+        else if (imcValue >= 25){
+            msg = "Sobrepeso";
+
+        }
+        else if (imcValue >= 30){
+            msg = "Obesidad";
+        }
+
+
+        System.out.println("Clasificación: "+msg);
+
+        
+
+        return imcValue;
     }
 
 
-    static double getValidWeight(String msg){
+    static double getValidWeight(){
         Scanner sc = new Scanner(System.in);
 
         double input = -1;
         boolean isLoop = true;
 
         do {
+            System.out.println("Introduce el peso en kg");
             try{
                 input = sc.nextDouble();
                 isLoop = false;
             }
             catch (InputMismatchException e){
-                System.out.println("Valor Invalido: Introduce el peso en kg puedes usar números decimales");
+                System.out.println("Valor Invalido: Debes usar números enteros o decimales");
                 isLoop = true;
             }
         }while (isLoop);
+        sc.close();
 
         return input;
     }
 
 
-    static double getValidHeight(String msg){
+    static int getValidHeight(){
         Scanner sc = new Scanner(System.in);
 
         int input = -1;
         boolean isLoop = true;
 
         do {
-            
+            System.out.println("Introduce la altura en cm");
             try{
                 input = sc.nextInt();
                 isLoop = false;
             }
             catch (InputMismatchException e){
-                System.out.println("Valor Invalido: Introduce un número entero");
+                System.out.println("Valor Invalido: Solo se aceptan números enteros");
                 isLoop = true;
             }
         }while (isLoop);
+        sc.close();
 
         return input;
     }
