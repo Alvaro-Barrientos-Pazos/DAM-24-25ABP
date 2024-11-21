@@ -1,8 +1,5 @@
 /* Autor: Álvaro Barrientos Pazos */
 
-
-// error = -1
-
 package ud2.abpexamen_corregido;
 
 public class AbpChicles_corregido {

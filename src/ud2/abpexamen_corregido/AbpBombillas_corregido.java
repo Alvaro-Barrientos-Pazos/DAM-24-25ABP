@@ -1,12 +1,4 @@
-/* Autor: Álvaro Barrientos Pazos
- * 
- * 
- * 
- */
-
-// 0 es negativo
-
-// error = "ERROR"
+/* Autor: Álvaro Barrientos Pazos */
 
 package ud2.abpexamen_corregido;
 
