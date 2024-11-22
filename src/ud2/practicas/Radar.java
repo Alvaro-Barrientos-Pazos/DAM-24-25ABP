@@ -2,6 +2,9 @@ package ud2.practicas;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import org.junit.jupiter.api.Test;
 
 public class Radar {
@@ -31,25 +34,54 @@ public class Radar {
         assert multaInfraccion(100, 61) == 500;
         assert multaInfraccion(110, 71) == 600;
         assert multaInfraccion(120, 1) == 100;
-        
+    }
 
+
+    public static void main(String[] args) {
+        final int DISTANCE    = 10;
+        final int SPEED_LIMIT = 120;
+
+        System.out.println(multaInfraccion(SPEED_LIMIT, excesoVelocidade(DISTANCE, getValidTime(), SPEED_LIMIT ) ));
+    }
+
+
+    static int getValidTime(){
+        Scanner sc = new Scanner(System.in);
+
+        int input = -1;
+        boolean isLoop = true;
+
+        do {
+            System.out.println("Introduce el tiempo en segundos");
+            try{
+                input = sc.nextInt();
+                isLoop = false;
+            }
+            catch (InputMismatchException e){
+                System.out.println("Valor Invalido: Solo se aceptan números enteros");
+                isLoop = true;
+            }
+        }while (isLoop);
+        sc.close();
+
+        return input;
     }
 
 
     static int excesoVelocidade(int distance, int sec, int limit ){
-        final int DISTANCE    = 10;
-        final int SPEED_LIMIT = 120;
-        
+
         double hours = sec/3600.;
         double averageSpeed = distance/hours;
 
         if (averageSpeed <= limit) {
+            System.out.println("Velocidade dentro do límite");
             return 0;
         }
 
         return (int)averageSpeed-limit;
     }
     
+
     static int multaInfraccion(int limit, double exceedingSpeed){
         int multa = 0;
         if (limit <= 50 && exceedingSpeed > 0) {
@@ -79,6 +111,8 @@ public class Radar {
                 multa = 600;
             }
         }
+
+        System.out.printf("Infracción por exceso de velocidade!! Multa de %d €!!\n",multa);
         return multa;
 
     }
