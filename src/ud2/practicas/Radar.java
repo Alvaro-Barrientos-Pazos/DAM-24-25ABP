@@ -37,7 +37,9 @@ public class Radar {
 
 
     static int excesoVelocidade(int distance, int sec, int limit ){
-
+        final int DISTANCE    = 10;
+        final int SPEED_LIMIT = 120;
+        
         double hours = sec/3600.;
         double averageSpeed = distance/hours;
 
@@ -49,11 +51,36 @@ public class Radar {
     }
     
     static int multaInfraccion(int limit, double exceedingSpeed){
-        final int DISTANCE    = 10;
-        final int SPEED_LIMIT = 120;
+        int multa = 0;
+        if (limit <= 50 && exceedingSpeed > 0) {
+            if (exceedingSpeed <= 20 ) {
+                multa = 100;
+            } else if (exceedingSpeed > 20 && exceedingSpeed <= 30) {
+                multa = 300;
+            } else if (exceedingSpeed > 30 && exceedingSpeed <= 40) {
+                multa = 400;
+            } else if (exceedingSpeed > 40 && exceedingSpeed <= 50) {
+                multa = 500;
+            } else {
+                multa = 600;
+            }
+        }
 
-        final int FIFTY = 70;
-        final int SIXTY = 90;
+        if (limit >= 60 && exceedingSpeed > 0) {
+            if (exceedingSpeed <= 30) {
+                multa = 100;
+            } else if (exceedingSpeed > 30 && exceedingSpeed <= 50) {
+                multa = 300;
+            } else if (exceedingSpeed > 50 && exceedingSpeed <= 60) {
+                multa = 400;
+            } else if (exceedingSpeed > 60 && exceedingSpeed <= 70) {
+                multa = 500;
+            } else {
+                multa = 600;
+            }
+        }
+        return multa;
+
     }
 
 
