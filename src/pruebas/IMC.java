@@ -1,4 +1,4 @@
-package ud2.practicas;
+package pruebas;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -92,7 +92,7 @@ public class IMC {
                     
                 }
                 else {
-                    loopString+=
+                    //loopString+=
                 }
 
                 System.out.printf(baseString,loopString);
