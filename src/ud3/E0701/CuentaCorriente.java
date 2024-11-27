@@ -4,7 +4,7 @@ public class CuentaCorriente {
 
     String dni;
     String nombreTitular;
-    int saldo;
+    double saldo;
 
 
     CuentaCorriente(String dni, int saldoInicial, String nombreTitular) {
@@ -12,7 +12,7 @@ public class CuentaCorriente {
         this.nombreTitular = nombreTitular;
     }
 
-    CuentaCorriente(String dni, int saldoInicial) {
+    CuentaCorriente(String dni, double saldoInicial) {
         this.saldo = 0;
         this.dni = dni;
         this.saldo = saldoInicial;
