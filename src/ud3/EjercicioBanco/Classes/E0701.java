@@ -3,9 +3,7 @@
     titular, asi como el saldo. Las operaciones típicas con una cuenta corriente son:
  */
 
-package ud3.E0701;
-
-import ud3.E0701.CuentaCorriente;
+package ud3.EjercicioBanco.Classes;
 
 public class E0701 {
 
@@ -14,7 +12,11 @@ public class E0701 {
    
       System.out.println(cCorriente.sacarDinero(1));
       cCorriente.ingresarSaldo(120);
-      cCorriente.mostrarInfo();
+      //cCorriente.mostrarInfo();
+      
+      System.out.println(cCorriente.saldo);
+      System.out.println(cCorriente.nombreTitular);
+      System.out.println(cCorriente.dni);
    
    }
 }
