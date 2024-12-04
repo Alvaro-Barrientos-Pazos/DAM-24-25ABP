@@ -6,10 +6,6 @@ public class Bombilla {
    private boolean _state = false;
 
 
-   public Bombilla(){
-      _state = true;
-   }
-
    public Bombilla(boolean is_on){
       _state = is_on;
    }
