@@ -10,7 +10,6 @@ public class Bombilla {
       _state = true;
    }
 
-
    public Bombilla(boolean is_on){
       _state = is_on;
    }
@@ -18,10 +17,8 @@ public class Bombilla {
    public void setState(boolean is_on){
       _state = is_on;
    }
-
-
-   public static void printState(Bombilla bulp){
-      System.out.println(bulp._state == false? "Apagada":"Encendida");
+   
+   public boolean getState(){
+      return _state;
    }
-
 }

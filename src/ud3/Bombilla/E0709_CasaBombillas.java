@@ -16,30 +16,32 @@ import ud3.Bombilla.Bombilla;
 
 public class E0709_CasaBombillas {
 
-    public static Bombilla bombilla1,bombilla2,bombilla3;
+    public static Bombilla b1,b2,b3;
+    public static boolean global_switch = true;
 
 
     public static void main(String[] args) {
-        bombilla1 = new Bombilla(false);
-        bombilla2 = new Bombilla(true);
-        bombilla3 = new Bombilla(false);
+        b1 = new Bombilla(false);
+        b2 = new Bombilla(true);
+        b3 = new Bombilla(false);
 
-        Bombilla.printState(bombilla1);
-        Bombilla.printState(bombilla2);
-        Bombilla.printState(bombilla3);
+        printBulpState(b1);
+        printBulpState(b2);
+        printBulpState(b3);
 
         globalSwitch(false);
 
-        Bombilla.printState(bombilla1);
-        Bombilla.printState(bombilla2);
-        Bombilla.printState(bombilla3);
-
+        printBulpState(b1);
+        printBulpState(b2);
+        printBulpState(b3);
     }
 
     public static void globalSwitch(boolean is_on){
-        bombilla1.setState(is_on);
-        bombilla2.setState(is_on);
-        bombilla3.setState(is_on);
+        global_switch = is_on;
+    }
+
+    public static void printBulpState(Bombilla b){
+        System.out.println(global_switch && b.getState() == false? "Apagada":"Encendida");
     }
 
 }
