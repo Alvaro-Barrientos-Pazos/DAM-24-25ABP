@@ -40,6 +40,7 @@ public class UsuariosBD {
             resultado.close();
             sentencia.close();
             conexion.close();
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
