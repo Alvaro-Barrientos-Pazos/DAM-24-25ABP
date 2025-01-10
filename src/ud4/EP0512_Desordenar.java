@@ -5,36 +5,34 @@ import java.util.Random;
 
 public class EP0512_Desordenar {
     public static void main(String[] args) {
-        int[]a = {1,2,3,4};
+        int[]a = {1,2,3,4,5,6,7,8,9,10};
+
+        System.out.println(Arrays.toString(a));
         desordenar(a);
 
     }
 
+
     static void desordenar(int t[]){
 
-        Random rng = new Random();
-
-        int[] indexes = new int[t.length];
-
+        
         int tmp = 0;
-
         int rng_value = 0;
+
+        Random rng = new Random();
+        int[] indexes = new int[t.length];
 
         boolean flag = true;
 
         for (int i = 0; i<t.length-1; i++){
 
-            tmp = t[i];
-
             while (flag) {
-                rng_value = rng.nextInt(t.length-1);  
-                
-                if (!hasValue(indexes,rng_value)){
-                    flag = false;
-                }
+                rng_value = rng.nextInt(t.length);  
+                flag = hasValue(indexes,rng_value);
 
             }
 
+            tmp = t[i];
             t[i] = t[rng_value];
             t[rng_value] = tmp;
 
@@ -49,6 +47,7 @@ public class EP0512_Desordenar {
 
 
     }
+
 
     static boolean hasValue(int[]a, int value){
 

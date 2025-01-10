@@ -14,8 +14,6 @@ public class EP0514_Sueldos {
 
         int[] salaries = new int[1];
 
-
-
         do{
             System.out.print("Introduce numero: ");
             input = sc.nextInt();
@@ -39,7 +37,7 @@ public class EP0514_Sueldos {
 
         double avg = salaries[0];
 
-        for (int i = 1; i < salaries.length-1; i++){
+        for (int i = 1; i < salaries.length; i++){
             if (max < salaries[i]){
                 max = salaries[i];
             }
