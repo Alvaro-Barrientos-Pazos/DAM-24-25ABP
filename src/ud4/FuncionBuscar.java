@@ -6,8 +6,9 @@ import java.util.Arrays;
 public class FuncionBuscar {
 
     public static void main(String[] args) {
-        
-        int[] a = randomArray(5, 1, 40);
+
+        /*int[] a = randomArray(10, 1, 10);
+         
         System.out.println(Arrays.toString(a));
         System.out.println(contar( a, 4));
         System.out.println(Arrays.toString(buscarVarios(a, 4)));
@@ -15,19 +16,38 @@ public class FuncionBuscar {
         ArrayprintReverse(a);
         System.out.println(maximo(a));
         System.out.println(Arrays.toString(averageNaverageP(a)));
+        */
+        //System.out.println( Arrays.toString(rellenaPares(10, 10) ) );
+        //System.out.println(Arrays.toString(a));
+        //System.out.println(buscarUltimo(a,5));
+
+        int[]a1 = randomArray(5,1,5);
+        int[]a2 = randomArray(5,1,5);
+
+        System.out.println(Arrays.toString(a1));
+        //System.out.println(Arrays.toString(a2));
+
+        int[]a3 = {1,2,3,4,5};
+
+        System.out.println(Arrays.toString(a3));
+
+        System.out.println(numAciertos(a1,a3));
+
     }
 
 
-    static int[] randomArray(int x, int min_range, int max_range){
+    static int[] randomArray(int length, int min_range, int max_range){
         Random rng = new Random();
-        int[] a = new int[x];
+        int[] a = new int[length];
 
-        for (int i = 0; i< x ;i++){
+        for (int i = 0; i< length ;i++){
             a[i] = rng.nextInt(max_range - min_range +1) + min_range;
         }
         
         return a;
     }
+
+
 
 
     static int contar(int t[], int clave){
@@ -102,6 +122,7 @@ public class FuncionBuscar {
 
     static double[] averageNaverageP(int[]t){
 
+
         int[] a = randomArray(10,-10,10);
 
         int[] pAverage = new int[10];
@@ -136,5 +157,87 @@ public class FuncionBuscar {
         return Results;
 
     }
+
+    static int[] randomEvenArray(int x, int min_range, int max_range){
+        Random rng = new Random();
+        int[] a = new int[x];
+        int value = 0;
+
+        for (int i = 0; i< x ;i++){
+            value = rng.nextInt(max_range - min_range +1) + min_range; 
+           
+            if (value%2 != 0){
+               
+                if (value+1 > max_range){
+                    value-=1;
+                } 
+                else{
+                    value+=1;
+                }
+            }
+
+            a[i] = value;
+
+        }
+        
+        return a;
+    }
+
+    static int[] rellenaPares(int length, int end){
+        int[] a = randomEvenArray(length, 2, end);
+        
+        Arrays.sort(a);
+
+        return a;
+    }
+
+    static int[] rellenaParesOscar(int length, int end){
+        int[] a = randomEvenArray(length, 2, end);
+        
+        Arrays.sort(a);
+
+        return a;
+    }
+
+    static int buscarUltimo(int[] a, int value){
+
+        for (int i=a.length-1; i >= 0; i--){
+            if (a[i] == value){
+                return i;
+            }
+            
+        }
+        return -1;
+
+    }
+
+    static int numAciertosOscar(int[] apuesta, int[] ganadora){
+        int i = 0;
+
+        for (int num_apuesta : apuesta){
+            if (Arrays.binarySearch(ganadora, num_apuesta) >= 0){
+                i++;
+            }
+        }
+
+        return i; 
+    }
+
+
+    static int numAciertos(int[] apuesta, int[] ganadora){
+        int i = 0;
+
+        for (int num_apuesta : apuesta){
+            for ( int num_ganador : ganadora){
+                if (num_apuesta == num_ganador){
+                    i++;
+                    break;
+                }
+            }
+        }
+
+        return i; 
+    }
+
 
 }
