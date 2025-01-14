@@ -1,37 +1,13 @@
-package ud4;
+package ud4.arraysejercicios;
 
 import java.util.Random;
 import java.util.Arrays;
 
-public class FuncionBuscar {
+public class UtilArray {
 
     public static void main(String[] args) {
 
-        /*int[] a = randomArray(10, 1, 10);
-         
-        System.out.println(Arrays.toString(a));
-        System.out.println(contar( a, 4));
-        System.out.println(Arrays.toString(buscarVarios(a, 4)));
-        sumar(a);
-        ArrayprintReverse(a);
-        System.out.println(maximo(a));
-        System.out.println(Arrays.toString(averageNaverageP(a)));
-        */
-        //System.out.println( Arrays.toString(rellenaPares(10, 10) ) );
-        //System.out.println(Arrays.toString(a));
-        //System.out.println(buscarUltimo(a,5));
-
-        int[]a1 = randomArray(5,1,5);
-        int[]a2 = randomArray(5,1,5);
-
-        System.out.println(Arrays.toString(a1));
-        //System.out.println(Arrays.toString(a2));
-
-        int[]a3 = {1,2,3,4,5};
-
-        System.out.println(Arrays.toString(a3));
-
-        System.out.println(numAciertos(a1,a3));
+        int[]a = {1,2,4,5};
 
     }
 
@@ -47,6 +23,27 @@ public class FuncionBuscar {
         return a;
     }
 
+
+    static public int[] insertarOrdenado(int[] t, int num){
+        
+        
+        int[] arrTemp = t.clone();
+        int[] arrResults = new int[t.length+1];
+
+        Arrays.sort(arrTemp);
+
+        int index = -Arrays.binarySearch(arrTemp, num)-1;
+
+        arrTemp[index] = num;
+
+
+        System.arraycopy(arrTemp, 0, arrResults, 0, index+1);
+
+        System.arraycopy(t, index, arrResults, index + 1, t.length - index);
+
+        return arrResults;
+
+    }
 
 
 
@@ -95,15 +92,15 @@ public class FuncionBuscar {
     }
     
 
-    static void ArrayprintReverse(int[] t){
+    static int[] InvertArray(int[] t){
 
-        int[] reversedArray = new int[t.length];
+        int[] invertedArray = new int[t.length];
 
         for(int i = t.length-1; i >= 0; i--){
-            reversedArray[(i-(t.length-1))*-1] = t[i];
+            invertedArray[(i-(t.length-1))*-1] = t[i];
         }
 
-        System.out.println(Arrays.toString(reversedArray));
+        return invertedArray;
     }
         
 
