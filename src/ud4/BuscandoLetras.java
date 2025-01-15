@@ -17,6 +17,9 @@ public class BuscandoLetras {
 
 
     public static int[] buscarLetra(String cadena, char letra){
+
+        // Si no queremos distinguir entre mayúsculas y minúsculas
+        cadena = cadena.toLowerCase(); 
         
         char[] arrChar = cadena.toCharArray();
         int[] indexes = new int[arrChar.length];

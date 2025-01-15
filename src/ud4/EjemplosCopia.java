@@ -15,9 +15,7 @@ public class EjemplosCopia {
             b[i] = a[i];
         }
 
-
         // b = Arrays.copyOf(a, a.length);
-
 
         return b;
     }
