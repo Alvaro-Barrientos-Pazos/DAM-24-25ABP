@@ -23,10 +23,8 @@ public class UtilArray {
         return a;
     }
 
-
     static public int[] insertarOrdenado(int[] t, int num){
-        
-        
+
         int[] arrTemp = t.clone();
         int[] arrResults = new int[t.length+1];
 
@@ -35,7 +33,6 @@ public class UtilArray {
         int index = -Arrays.binarySearch(arrTemp, num)-1;
 
         arrTemp[index] = num;
-
 
         System.arraycopy(arrTemp, 0, arrResults, 0, index+1);
 

@@ -15,6 +15,86 @@ public class E0511 {
     
     }
 
+    static int[] generate_worddle_numbers(int num_length){
+
+        Random rng = new Random();
+
+        int[]arr = new int[num_length];
+
+        for (int i = 0; i < num_length; i++){
+            arr[i]=rng.nextInt(6)+1;
+        }
+        
+        System.out.println("Solucion: "+Arrays.toString(arr));
+
+        return arr;
+        
+    }
+
+
+    static void worddle(int num_length){
+
+        int[] arr = generate_worddle_numbers(num_length);
+
+        String curr_str_guess;
+        char curr_char;
+
+        String console_response = "";
+
+        boolean isFinished = true;
+
+        System.out.println("\nIntroduce tus respuesta:");
+
+        do{
+            isFinished = true;
+            curr_str_guess = sc.nextLine();
+            console_response = "";
+            
+            if (curr_str_guess.length() > arr.length){
+                isFinished = false;
+                System.out.println("El número no es tan largo");
+            }
+
+            else{
+
+                if (curr_str_guess.length() < arr.length){
+                    isFinished = false;
+                    System.out.println("El número es más largo");
+
+                    for (int i = 0; i< (arr.length - curr_str_guess.length()+2); i++){
+                        curr_str_guess+="0";
+                    }
+                }
+
+                for (int i = 0; i< curr_str_guess.length();i++){
+                    curr_char = curr_str_guess.charAt(i);
+    
+                    if (Character.getNumericValue(curr_char) > arr[i]){
+                        console_response += "-";
+                        isFinished = false;
+    
+                    }
+                    else if (Character.getNumericValue(curr_char) < arr[i]){
+                        console_response += "+";
+                        isFinished = false;
+                    }
+                    else{
+                        console_response += curr_str_guess.charAt(i);
+                    }
+    
+                }
+    
+                System.out.println(console_response);
+                System.out.println();
+            }
+        
+        }while(isFinished == false);
+
+
+        sc.close();
+        System.out.println("Has Ganado!!");
+    }
+
 
     static int inputInt(){
 
@@ -42,76 +122,7 @@ public class E0511 {
     }
 
 
-    static void worddle(int num_length){
-
-        int[] arr = generate_worddle_numbers(num_length);
-
-        String curr_str_guess;
-        char curr_guess;
-
-        String console_response = "";
-
-        boolean isFinished = true;
-
-        System.out.println("\nIntroduce tus respuesta:");
-
-        do{
-            isFinished = true;
-            curr_str_guess = sc.nextLine();
-            console_response = "";
-            
-            if (curr_str_guess.length() > arr.length){
-                isFinished = false;
-                System.out.println("El número no es tan largo");
-            }
-            else{
-
-                for (int i = 0; i< curr_str_guess.length();i++){
-                    curr_guess = curr_str_guess.charAt(i);
-    
-                    if (Character.getNumericValue(curr_guess) > arr[i]){
-                        console_response += "-";
-                        isFinished = false;
-    
-                    }
-                    else if (Character.getNumericValue(curr_guess) < arr[i]){
-                        console_response += "+";
-                        isFinished = false;
-                    }
-                    else{
-                        console_response += curr_str_guess.charAt(i);
-                    }
-    
-                }
-    
-                System.out.println(console_response);
-                System.out.println();
-            }
-        
-        }while(isFinished == false);
-
-
-        sc.close();
-        System.out.println("Has Ganado!!");
-
-
-    }
-
-    static int[] generate_worddle_numbers(int num_length){
-
-        Random rng = new Random();
-
-        int[]arr = new int[num_length];
-
-        for (int i = 0; i < num_length; i++){
-            arr[i]=rng.nextInt(6)+1;
-        }
-        
-        //System.out.println("Solucion: "+Arrays.toString(arr));
-
-        return arr;
-        
-    }
+   
 
     
 

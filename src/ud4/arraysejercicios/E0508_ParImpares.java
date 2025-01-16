@@ -4,19 +4,18 @@ import java.util.Arrays;
 
 import ud4.arraysejercicios.UtilArray;
 
-public class E0508 {
+public class E0508_ParImpares {
     public static void main(String[] args) {
         
         int[]arr1 = UtilArray.randomArray(10,0,9);
         
-
         int[]arrEvenNumbers = getPares(arr1);
         int[]arrOddNumbers = getImpares(arr1);
         
         Arrays.sort(arrEvenNumbers);
         Arrays.sort(arrOddNumbers);
         
-
+        System.out.println("Random: "+Arrays.toString(arr1));
         System.out.println("Pares: "+Arrays.toString(arrEvenNumbers));
         System.out.println("Impares: "+Arrays.toString(arrOddNumbers));
 
