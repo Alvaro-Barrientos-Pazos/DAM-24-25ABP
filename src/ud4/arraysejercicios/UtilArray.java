@@ -14,8 +14,8 @@ public class UtilArray {
 
         int[]arr3 =borrarTodosOrdenado(arr1, 3);
 
-
     }
+
 
     static public int[] borrarOrdenado(int[] t, int num){
         int[] arr = t.clone();
@@ -41,10 +41,8 @@ public class UtilArray {
         //*/
 
         return Arrays.copyOf(arr, arr.length-1);
-
-        
-
     }
+
 
     static public int[] borrarTodosOrdenado(int[] t, int num){
         int[]arr = new int[t.length];
@@ -66,7 +64,6 @@ public class UtilArray {
     }
 
 
-
     static int[] randomArray(){
         int length = 10;
         int min_range = 0;
@@ -82,6 +79,7 @@ public class UtilArray {
         return a;
     }
 
+
     static int[] randomArray(int length, int min_range, int max_range){
         Random rng = new Random();
         int[] a = new int[length];
@@ -92,6 +90,7 @@ public class UtilArray {
         
         return a;
     }
+
 
     static public int[] insertarOrdenado(int[] t, int num){
 
@@ -111,7 +110,6 @@ public class UtilArray {
         return arrResults;
 
     }
-
 
 
     static int contar(int t[], int clave){
@@ -222,6 +220,8 @@ public class UtilArray {
 
     }
 
+
+
     static int[] randomEvenArray(int x, int min_range, int max_range){
         Random rng = new Random();
         int[] a = new int[x];
@@ -247,6 +247,7 @@ public class UtilArray {
         return a;
     }
 
+
     static int[] rellenaPares(int length, int end){
         int[] a = randomEvenArray(length, 2, end);
         
@@ -254,6 +255,7 @@ public class UtilArray {
 
         return a;
     }
+
 
     static int[] rellenaParesOscar(int length, int end){
         int[] a = randomEvenArray(length, 2, end);
@@ -275,6 +277,7 @@ public class UtilArray {
 
     }
 
+    
     static int numAciertosOscar(int[] apuesta, int[] ganadora){
         int i = 0;
 
@@ -301,6 +304,13 @@ public class UtilArray {
         }
 
         return i; 
+    }
+
+
+    static boolean esValidoDNI(int numero, char letra){
+        char[] letras = { 'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
+
+        return letras[numero%23] == letra;
     }
 
 
