@@ -7,7 +7,7 @@ import ud4.arraysejercicios.UtilArray;
 public class E0508_ParImpares {
     public static void main(String[] args) {
         
-        int[]arr1 = UtilArray.randomArray(10,0,9);
+        int[]arr1 = UtilArray.randomArray();
         
         int[]arrEvenNumbers = getPares(arr1);
         int[]arrOddNumbers = getImpares(arr1);

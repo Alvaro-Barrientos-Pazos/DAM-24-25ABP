@@ -6,9 +6,10 @@ public class BuscandoLetras {
 
     public static void main(String[] args) {
         String cadena = "HolaooH";
+        char testChar = 'z';
+        //testChar = 'o';
         
-        //int[]results = buscarLetra(cadena,'o');
-        int[]results = buscarLetra(cadena,'z');
+        int[]results = buscarLetra(cadena,testChar);
 
         System.out.println(Arrays.toString(results));
 
@@ -16,6 +17,9 @@ public class BuscandoLetras {
 
 
     public static int[] buscarLetra(String cadena, char letra){
+
+        // Si no queremos distinguir entre mayúsculas y minúsculas
+        cadena = cadena.toLowerCase(); 
         
         char[] arrChar = cadena.toCharArray();
         int[] indexes = new int[arrChar.length];

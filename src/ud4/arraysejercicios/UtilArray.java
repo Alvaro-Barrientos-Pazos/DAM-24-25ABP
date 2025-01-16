@@ -7,10 +7,80 @@ public class UtilArray {
 
     public static void main(String[] args) {
 
-        int[]a = {1,2,4,5};
+        int[]arr1 = {1,2,4,5};
+        arr1 = randomArray(10,1,3);
+
+        int[]arr2 = borrarOrdenado(arr1, 3);
+
+        int[]arr3 =borrarTodosOrdenado(arr1, 3);
+
 
     }
 
+    static public int[] borrarOrdenado(int[] t, int num){
+        int[] arr = t.clone();
+
+        boolean isFound = false;
+        int index = 0;
+
+        for (int i= 0; i< arr.length; i++){
+            
+            if (isFound){
+                arr[i-1] = arr[i];
+            }
+
+            else if(arr[i] == num){
+                isFound = true;
+                index = i;
+            }
+        }
+
+        /* 
+        System.arraycopy(t, 0, arr,0, index);
+        System.arraycopy(t, index+1, arr, index+1, t.length-1-index); 
+        //*/
+
+        return Arrays.copyOf(arr, arr.length-1);
+
+        
+
+    }
+
+    static public int[] borrarTodosOrdenado(int[] t, int num){
+        int[]arr = new int[t.length];
+
+        int counter = 0;
+
+        for (int i= 0; i < t.length; i++){
+
+            if (t[i] == num){
+                counter++;
+            }
+            else {
+                arr[i-counter] = t[i];
+            }
+            
+        }
+
+        return Arrays.copyOf(arr, t.length-counter);
+    }
+
+
+
+    static int[] randomArray(){
+        int length = 10;
+        int min_range = 0;
+        int max_range = 9;
+
+        Random rng = new Random();
+        int[] a = new int[length];
+
+        for (int i = 0; i< length ;i++){
+            a[i] = rng.nextInt(max_range - min_range +1) + min_range;
+        }
+        
+        return a;
+    }
 
     static int[] randomArray(int length, int min_range, int max_range){
         Random rng = new Random();

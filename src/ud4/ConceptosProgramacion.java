@@ -26,7 +26,6 @@ public class ConceptosProgramacion {
         Scanner sc = new Scanner(System.in);
 
         char input = '\0';
-
         
 
         do{
@@ -35,21 +34,17 @@ public class ConceptosProgramacion {
 
             if (searchResults.length==0){
                 System.out.println("Fallaste");
+                sc.close();
                 return;
             }
 
-            System.out.println("La letra aparece en las posiciones: "+Arrays.toString(searchResults));
-        System.out.println("La letra aparece nº de veces: "+searchResults.length);
-
+        System.out.println("La letra aparece en las posiciones: "+Arrays.toString(searchResults));
+        System.out.printf("La letra aparece %s de veces\n",searchResults.length);
 
 
         }while(true);
-
-
-
-
-
     }
+    
 
     static String fraseAleatoria(String[] t){
         Random rng = new Random();
