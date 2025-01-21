@@ -31,7 +31,7 @@ public class BuscarColumnaSumaMayor {
                 acc += a[j][i];
             }
             
-            System.out.println("acc: "+acc);
+            System.out.println("["+i+"] acc: "+acc);
             if (i == 0 || acc > max_acc){
                 max_acc = acc;
                 column_id = i;
@@ -39,6 +39,7 @@ public class BuscarColumnaSumaMayor {
 
         }
 
+        System.out.print("\n["+column_id+"] arr: ");
         for (int i = 0; i< a.length;i++){
             max_column[i]= a[i][column_id];
         }
