@@ -7,12 +7,19 @@ public class UtilArray {
 
     public static void main(String[] args) {
 
+        /*
         int[]arr1 = {1,2,4,5};
         arr1 = randomArray(10,1,3);
 
         int[]arr2 = borrarOrdenado(arr1, 3);
 
         int[]arr3 =borrarTodosOrdenado(arr1, 3);
+        */
+        
+        //int[][]matrix1 = randomMatrix(10,-100,100);
+        int[][]matrix1 = randomMatrix();
+
+        printMatrix(matrix1);
 
 
     }
@@ -66,8 +73,40 @@ public class UtilArray {
     }
 
 
+    static public int[][] randomMatrix(){
+        int length = 10;
+        int min_range = 0;
+        int max_range = 9;
 
-    static int[] randomArray(){
+        Random rng = new Random();
+        int[][] a = new int[length][length];
+
+        for (int i = 0; i< length ;i++){
+            for (int j = 0; j< a[i].length ;j++){
+                a[i][j] = rng.nextInt(max_range - min_range +1) + min_range;
+            }
+            
+        }
+        
+        return a;
+    }
+
+    static public int[][] randomMatrix(int length, int min_range, int max_range){
+        Random rng = new Random();
+        int[][] a = new int[length][length];
+
+        for (int i = 0; i< length ;i++){
+            for (int j = 0; j< a[i].length ;j++){
+                a[i][j] = rng.nextInt(max_range - min_range +1) + min_range;
+            }
+            
+        }
+        
+        return a;
+    }
+
+
+    static public int[] randomArray(){
         int length = 10;
         int min_range = 0;
         int max_range = 9;
@@ -82,7 +121,7 @@ public class UtilArray {
         return a;
     }
 
-    static int[] randomArray(int length, int min_range, int max_range){
+    static public int[] randomArray(int length, int min_range, int max_range){
         Random rng = new Random();
         int[] a = new int[length];
 
@@ -117,7 +156,7 @@ public class UtilArray {
 
 
 
-    static int contar(int t[], int clave){
+    static public int contar(int t[], int clave){
         int n = 0;
 
         for (int i = 0; i < t.length; i++ ){
@@ -130,7 +169,7 @@ public class UtilArray {
     }
 
 
-    static int[] buscarVarios(int t[], int clave){
+    static public int[] buscarVarios(int t[], int clave){
         int n = 0;
         int[] nArray = new int[t.length];
 
@@ -148,7 +187,7 @@ public class UtilArray {
     }
 
 
-    static int sumar(int[] t){
+    static public int sumar(int[] t){
         int i = 0;
 
         for(int n : t){
@@ -162,7 +201,7 @@ public class UtilArray {
     }
     
 
-    static int[] InvertArray(int[] t){
+    static public int[] InvertArray(int[] t){
 
         int[] invertedArray = new int[t.length];
 
@@ -174,7 +213,7 @@ public class UtilArray {
     }
         
 
-    static int maximo(int t[]){
+    static public int maximo(int t[]){
         int max = t[0];
 
         for (int n = 1; n < t.length; n++){
@@ -187,7 +226,7 @@ public class UtilArray {
     }
 
 
-    static double[] averageNaverageP(int[]t){
+    static public double[] averageNaverageP(int[]t){
 
 
         int[] a = randomArray(10,-10,10);
@@ -225,7 +264,7 @@ public class UtilArray {
 
     }
 
-    static int[] randomEvenArray(int x, int min_range, int max_range){
+    static public int[] randomEvenArray(int x, int min_range, int max_range){
         Random rng = new Random();
         int[] a = new int[x];
         int value = 0;
@@ -250,7 +289,29 @@ public class UtilArray {
         return a;
     }
 
-    static int[] rellenaPares(int length, int end){
+
+    static public void printMatrix(int[][]a){
+        for (int i = 0; i< a.length; i++){
+            for (int j = 0; j< a[i].length; j++){
+                System.out.printf("%2d",a[i][j]);
+            }
+            System.out.println();
+            
+        }
+    }
+
+    static public void printMatrix(int[][]a, int field_width){
+        for (int i = 0; i< a.length; i++){
+            for (int j = 0; j< a[i].length; j++){
+                System.out.printf("%"+field_width+"d",a[i][j]);
+            }
+            System.out.println();
+            
+        }
+    }
+
+
+    static public int[] rellenaPares(int length, int end){
         int[] a = randomEvenArray(length, 2, end);
         
         Arrays.sort(a);
@@ -258,7 +319,7 @@ public class UtilArray {
         return a;
     }
 
-    static int[] rellenaParesOscar(int length, int end){
+    static public int[] rellenaParesOscar(int length, int end){
         int[] a = randomEvenArray(length, 2, end);
         
         Arrays.sort(a);
@@ -266,7 +327,7 @@ public class UtilArray {
         return a;
     }
 
-    static int buscarUltimo(int[] a, int value){
+    static public int buscarUltimo(int[] a, int value){
 
         for (int i=a.length-1; i >= 0; i--){
             if (a[i] == value){
@@ -278,7 +339,7 @@ public class UtilArray {
 
     }
 
-    static int numAciertosOscar(int[] apuesta, int[] ganadora){
+    static public int numAciertosOscar(int[] apuesta, int[] ganadora){
         int i = 0;
 
         for (int num_apuesta : apuesta){
@@ -291,7 +352,7 @@ public class UtilArray {
     }
 
 
-    static int numAciertos(int[] apuesta, int[] ganadora){
+    static public int numAciertos(int[] apuesta, int[] ganadora){
         int i = 0;
 
         for (int num_apuesta : apuesta){
