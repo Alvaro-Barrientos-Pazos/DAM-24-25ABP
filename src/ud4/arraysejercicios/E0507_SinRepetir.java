@@ -2,7 +2,7 @@ package ud4.arraysejercicios;
 
 import java.util.Arrays;
 
-public class E0507 {
+public class E0507_SinRepetir {
     public static void main(String[] args) {
         int[] results = sinRepetidos(new int[]{ 1,2,6,2,3,1,5 });
 

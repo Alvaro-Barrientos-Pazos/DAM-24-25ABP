@@ -24,6 +24,7 @@ public class UtilArray {
 
     }
 
+
     static public int[] borrarOrdenado(int[] t, int num){
         int[] arr = t.clone();
 
@@ -48,10 +49,8 @@ public class UtilArray {
         //*/
 
         return Arrays.copyOf(arr, arr.length-1);
-
-        
-
     }
+
 
     static public int[] borrarTodosOrdenado(int[] t, int num){
         int[]arr = new int[t.length];
@@ -134,8 +133,7 @@ public class UtilArray {
 
 
     static public int[] insertarOrdenado(int[] t, int num){
-        
-        
+
         int[] arrTemp = t.clone();
         int[] arrResults = new int[t.length+1];
 
@@ -144,7 +142,6 @@ public class UtilArray {
         int index = -Arrays.binarySearch(arrTemp, num)-1;
 
         arrTemp[index] = num;
-
 
         System.arraycopy(arrTemp, 0, arrResults, 0, index+1);
 
@@ -365,6 +362,13 @@ public class UtilArray {
         }
 
         return i; 
+    }
+
+
+    static boolean esValidoDNI(int numero, char letra){
+        char[] letras = { 'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
+
+        return letras[numero%23] == letra;
     }
 
 

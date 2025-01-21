@@ -29,7 +29,7 @@ public class BuscandoLetras {
         for (int i=0;i< arrChar.length; i++) {
             if (arrChar[i] == letra){
                 indexes[counter] = i;
-                counter++; 
+                counter++;
             }
         }
         return Arrays.copyOf(indexes, counter);
