@@ -10,7 +10,7 @@ public class E0605 {
     static String invertirCadena(String cad){
         String invertedString = "";
         
-        for (int i = cad.length()-1; i>= 0 ;i--){
+        for (int i = cad.length()-1; i >= 0 ; i--){
             invertedString += cad.charAt(i);
         }
 
