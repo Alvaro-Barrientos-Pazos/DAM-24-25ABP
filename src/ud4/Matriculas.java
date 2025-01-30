@@ -37,8 +37,9 @@ public class Matriculas {
 
         if (m1.substring(4, 7).equals(m2.substring(4, 7))){
             if (Integer.parseInt(m1.substring(0, 4)) > Integer.parseInt(m2.substring(0, 4))){
-                
+                return -1;
             }
+            return 1;
         }
 
         boolean isOlder = true;
