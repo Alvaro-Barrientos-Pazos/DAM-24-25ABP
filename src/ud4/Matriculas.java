@@ -23,7 +23,33 @@ public class Matriculas {
 
         System.out.println(nextMatricula);
 
+        comparaMatriculas(matricula1,matricula3);
+
     }
+
+
+    static int comparaMatriculas(String m1, String m2){
+
+        if (m1.equals(m2)){
+            return 0;
+        }
+
+        boolean isOlder = true;
+
+        for (int i = 4; i < m1.length(); i++) {
+            if (m1.charAt(i) < m2.charAt(i)){
+                isOlder = false;
+                break;
+            }
+
+
+
+        }
+
+        return 0;
+
+    }
+
 
     static boolean esMatriculaValida(String matricula) {
 
