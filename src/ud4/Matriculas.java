@@ -34,16 +34,22 @@ public class Matriculas {
             return 0;
         }
 
+
+        if (m1.substring(4, 7).equals(m2.substring(4, 7))){
+            if (Integer.parseInt(m1.substring(0, 4)) > Integer.parseInt(m2.substring(0, 4))){
+                
+            }
+        }
+
         boolean isOlder = true;
 
+        // ZB
+        // BC
+        
         for (int i = 4; i < m1.length(); i++) {
-            if (m1.charAt(i) < m2.charAt(i)){
-                isOlder = false;
+            if (m1.charAt(i) >= m2.charAt(i)){
                 break;
             }
-
-
-
         }
 
         return 0;
@@ -94,8 +100,8 @@ public class Matriculas {
         }
 
         return letters;
-
     }
+
 
     static String addToLetter(int num, String letters) {
 
