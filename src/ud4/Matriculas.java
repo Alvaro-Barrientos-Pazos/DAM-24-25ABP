@@ -1,7 +1,8 @@
-// 4 num
-// 3 letras (sin vocales, ñ, q)
+package ud4;
 
 import java.util.Arrays;
+
+import org.junit.Test;
 
 public class Matriculas {
 
@@ -9,54 +10,60 @@ public class Matriculas {
     static char[] whiteList = new char[] { 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't',
             'v', 'w', 'x', 'y', 'z' };
 
+    //@Test
+
     public static void main(String[] args) {
         String matricula1 = "12A4BBB";
-        String matricula2 = "1234BB.";
-        String matricula3 = "9999BBZ";
+        String matricula2 = "9999BZZ";
+        String matricula3 = "9999DBB";
 
         // boolean result = esMatriculaValida(matricula1);
         // boolean result = esMatriculaValida(matricula2);
-        boolean result = esMatriculaValida(matricula3);
+        boolean result = esMatriculaValida(matricula2);
         System.out.println(result);
 
         String nextMatricula = siguienteMatricula(matricula3);
 
         System.out.println(nextMatricula);
 
-        comparaMatriculas(matricula1,matricula3);
+        int resultComparation = comparaMatriculas(matricula2, matricula3);
+        System.out.println("Comparation: " + resultComparation);
 
     }
 
+    static int comparaMatriculas(String m1, String m2) {
 
-    static int comparaMatriculas(String m1, String m2){
+        final int M1 = -1;
+        final int M2 = 1;
 
-        if (m1.equals(m2)){
+        if (m1.equals(m2)) {
             return 0;
         }
 
-
-        if (m1.substring(4, 7).equals(m2.substring(4, 7))){
-            if (Integer.parseInt(m1.substring(0, 4)) > Integer.parseInt(m2.substring(0, 4))){
-                return -1;
+        if (m1.substring(4, 7).equals(m2.substring(4, 7))) {
+            if (Integer.parseInt(m1.substring(0, 4)) > Integer.parseInt(m2.substring(0, 4))) {
+                return M1;
             }
-            return 1;
+            return M2;
         }
 
-        boolean isOlder = true;
+        int m1Total = 0, m2Total = 0;
 
-        // ZB
-        // BC
-        
-        for (int i = 4; i < m1.length(); i++) {
-            if (m1.charAt(i) >= m2.charAt(i)){
-                break;
-            }
+        for (int i = 0; i < 3; i++) {
+            m1Total += (int) m1.charAt(m1.length() - 1 - i) * Math.pow(whiteList.length+blackList.length, i);
+            m2Total += (int) m2.charAt(m1.length() - 1 - i) * Math.pow(whiteList.length+blackList.length, i);
         }
 
-        return 0;
+        System.out.println(m1Total);
+        System.out.println(m2Total);
+
+        if (m1Total > m2Total) {
+            return M1;
+        } else {
+            return M2;
+        }
 
     }
-
 
     static boolean esMatriculaValida(String matricula) {
 
@@ -87,6 +94,7 @@ public class Matriculas {
 
     }
 
+
     static String siguienteMatricula(String matricula) {
         matricula = matricula.toLowerCase();
 
@@ -97,7 +105,7 @@ public class Matriculas {
             letters = addToLetter(num, letters);
         } else {
             num++;
-            letters = Integer.toString(num)+letters;
+            letters = Integer.toString(num) + letters;
         }
 
         return letters;
@@ -106,7 +114,7 @@ public class Matriculas {
 
     static String addToLetter(int num, String letters) {
 
-        if (letters.equals("ZZZ")){
+        if (letters.equals("ZZZ")) {
             return "0000BBB";
         }
 
@@ -114,23 +122,13 @@ public class Matriculas {
 
         char[] arr = letters.toCharArray();
 
-        boolean isFlag = false;
-
         for (int i = arr.length - 1; i >= 0; i--) {
-            if (isFlag) {
-                break;
-            }
-
             for (int j = 0; j < whiteList.length; j++) {
-                if (arr[i] == whiteList[whiteList.length-1]) {
-                    continue;
-                }
-
                 if (arr[i] == whiteList[j]) {
                     arr[i] = whiteList[(j + 1) % whiteList.length];
+                    
                     if (j + 1 < whiteList.length) {
-                        isFlag = true;
-                        break;
+                        return numString + String.copyValueOf(arr).toUpperCase();
                     }
 
                     break;
@@ -138,8 +136,6 @@ public class Matriculas {
             }
         }
 
-        System.out.println(Arrays.toString(arr));
-
-        return numString+String.copyValueOf(arr).toUpperCase();
+        return numString + String.copyValueOf(arr).toUpperCase();
     }
 }
