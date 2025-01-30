@@ -41,7 +41,6 @@ public class E0613 {
         }
 
 
-
         for (int i = 0; i < arrABC.length; i++) {
             for (int j = 0; j < str.length(); j++) {
                 if (arrABC[i] == str.charAt(j)){

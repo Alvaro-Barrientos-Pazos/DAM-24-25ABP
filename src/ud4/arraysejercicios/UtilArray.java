@@ -1,4 +1,4 @@
-package ud4.arraysejercicios;
+package arraysejercicios;
 
 import java.util.Random;
 import java.util.Arrays;
@@ -284,6 +284,17 @@ public class UtilArray {
         }
         
         return a;
+    }
+
+
+    static public void printMatrix(byte[][]a){
+        for (int i = 0; i< a.length; i++){
+            for (int j = 0; j< a[i].length; j++){
+                System.out.printf("%2d",a[i][j]);
+            }
+            System.out.println();
+            
+        }
     }
 
 
