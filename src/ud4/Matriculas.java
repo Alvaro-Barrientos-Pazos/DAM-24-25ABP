@@ -2,8 +2,6 @@ package ud4;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.Arrays;
-
 import org.junit.Test;
 
 public class Matriculas {
@@ -91,12 +89,7 @@ public class Matriculas {
         System.out.println(m1Total);
         System.out.println(m2Total);
 
-        if (m1Total > m2Total) {
-            return M1;
-        } else {
-            return M2;
-        }
-
+        return m1Total > m2Total ? M1 : M2;
     }
 
 
@@ -125,7 +118,7 @@ public class Matriculas {
             }
         }
         
-        return M1;
+        return -2;
     }
     
 
