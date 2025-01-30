@@ -107,8 +107,6 @@ public class Matriculas {
             return num1 > num2? M1 : M2;
         }
 
-        int m1Total = 0, m2Total = 0;
-
         for (int i = N_LETTERS+1; i < PLATE_SIZE; i++) {
             char c1 = m1.charAt(i);
             char c2 = m2.charAt(i);
