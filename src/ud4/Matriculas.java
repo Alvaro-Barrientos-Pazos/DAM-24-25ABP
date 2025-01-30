@@ -66,17 +66,19 @@ public class Matriculas {
 
     }
 
-    static int comparaMatriculas(String m1, String m2) {
+    // Ver.1
+    static int comparaMatriculas2(String m1, String m2) {
 
         if (m1.equals(m2)) {
             return 0;
         }
 
-        if (m1.substring(N_NUMBERS, 7).equals(m2.substring(N_NUMBERS, PLATE_SIZE))) {
-            if (Integer.parseInt(m1.substring(0, N_NUMBERS)) > Integer.parseInt(m2.substring(0, N_NUMBERS))) {
-                return M1;
-            }
-            return M2;
+        if (m1.substring(N_NUMBERS, PLATE_SIZE).equals(m2.substring(N_NUMBERS, PLATE_SIZE))) {
+            
+            int num1 = Integer.parseInt(m1.substring(0, N_NUMBERS));
+            int num2 = Integer.parseInt(m2.substring(0, N_NUMBERS));
+
+            return num1 > num2? M1 : M2;
         }
 
         int m1Total = 0, m2Total = 0;
@@ -96,6 +98,38 @@ public class Matriculas {
         }
 
     }
+
+
+    static int comparaMatriculas(String m1, String m2) {
+
+        if (m1.equals(m2)) {
+            return 0;
+        }
+
+        if (m1.substring(N_NUMBERS, PLATE_SIZE).equals(m2.substring(N_NUMBERS, PLATE_SIZE))) {
+            
+            int num1 = Integer.parseInt(m1.substring(0, N_NUMBERS));
+            int num2 = Integer.parseInt(m2.substring(0, N_NUMBERS));
+
+            return num1 > num2? M1 : M2;
+        }
+
+        int m1Total = 0, m2Total = 0;
+
+        for (int i = N_LETTERS+1; i < PLATE_SIZE; i++) {
+            char c1 = m1.charAt(i);
+            char c2 = m2.charAt(i);
+    
+            if (c1 != c2) {
+                return c1 > c2 ? M1 : M2;
+            }
+        }
+        
+        return M1;
+    }
+    
+
+
 
     static boolean esMatriculaValida(String matricula) {
 
