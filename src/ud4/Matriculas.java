@@ -1,5 +1,3 @@
-package ud4;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
@@ -8,6 +6,7 @@ public class Matriculas {
 
     static char[] blackList = new char[] { 'A', 'E', 'I', 'O', 'U', 'Q', 'Ñ' };
     static char[] whiteList = new char[] { 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T','V', 'W', 'X', 'Y', 'Z' };
+    static String whiteList2 = "BCDFGHJKLMNPRSTVWXYZ";
 
     static final int N_NUMBERS = 4;
     static final int N_LETTERS = 3;
@@ -118,13 +117,11 @@ public class Matriculas {
         
         return -2;
     }
-    
-
 
 
     static boolean esMatriculaValida(String matricula) {
 
-        if (matricula.length() != PLATE_SIZE) {
+        if (matricula == null || matricula.length() != PLATE_SIZE){
             return false;
         }
 
@@ -169,7 +166,8 @@ public class Matriculas {
     }
 
 
-    static String addToLetter(int num, String letters) {
+    //Ver.1
+    static String addToLetter2(int num, String letters) {
 
         if (letters.equals("ZZZ")) {
             return "0000BBB";
@@ -195,4 +193,30 @@ public class Matriculas {
 
         return numString + String.copyValueOf(arr);
     }
+
+
+    static String addToLetter(int num, String letters) {
+
+        if (letters.equals("ZZZ")) {
+            return "0000BBB";
+        }
+
+        String numString = "0000";
+
+        char[] arr = letters.toCharArray();
+
+        int index;
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            index = whiteList2.indexOf(letters.charAt(i));
+            arr[i] = whiteList2.charAt((index + 1) % whiteList.length);
+
+            if (index + 1 < whiteList.length) {
+                return numString + String.copyValueOf(arr);    
+            }
+        }
+
+        return numString + String.copyValueOf(arr);
+    }
+
 }
