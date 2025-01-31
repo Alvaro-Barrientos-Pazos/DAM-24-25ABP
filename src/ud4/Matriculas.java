@@ -216,7 +216,6 @@ public class Matriculas {
             }
         }
 
-        return numString + String.copyValueOf(arr);
+        return numString + String.valueOf(arr);
     }
-
 }
