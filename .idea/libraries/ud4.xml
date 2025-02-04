@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ud4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ud4.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
