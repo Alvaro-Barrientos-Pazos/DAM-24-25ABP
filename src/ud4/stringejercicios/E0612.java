@@ -1,4 +1,4 @@
-package stringejercicios;
+package ud4.stringejercicios;
 
 import java.util.Arrays;
 

@@ -1,3 +1,4 @@
+package ud4;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -59,7 +60,6 @@ public class BuscaminasBien {
             if ( field[row][column] == 1 ){
                 return 1;
             }
-            
             
             nCleanTiles--;
 

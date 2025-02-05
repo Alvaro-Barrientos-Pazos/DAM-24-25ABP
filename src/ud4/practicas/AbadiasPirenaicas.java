@@ -1,4 +1,4 @@
-package pruebaExamen;
+package ud4.practicas;
 
 import java.util.Arrays;
 import java.util.Scanner;
