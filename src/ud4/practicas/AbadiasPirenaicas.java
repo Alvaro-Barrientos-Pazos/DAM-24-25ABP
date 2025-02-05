@@ -1,4 +1,4 @@
-package ud4.practicas;
+package practicas;
 
 import java.util.Arrays;
 import java.util.Scanner;
