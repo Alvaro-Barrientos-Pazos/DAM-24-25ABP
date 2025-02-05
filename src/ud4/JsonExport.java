@@ -1,17 +1,15 @@
 
-
 public class JsonExport {
     public static void main(String[] args) {
-        String abc = "ABCD";
-        String asd = "AABC";
-        String bsd = "BABC";
-        String zvc = "ZZBC";
+        String abcd = "ABCD";
+        String aabc = "AABC";
+        String babc = "BABC";
+        String zzbc = "ZZBC";
 
-        System.out.println(asd.compareTo(abc));
-        System.out.println(asd.compareTo(zvc));
-        System.out.println(abc.compareTo(zvc));
-        System.out.println(bsd.compareTo(zvc));
-        System.out.println(zvc.compareTo(abc));
-        System.out.println(zvc.contains("C"));
+        System.out.println(aabc.compareTo(abcd));
+        System.out.println(aabc.compareTo(zzbc));
+        System.out.println(abcd.compareTo(zzbc));
+        System.out.println(babc.compareTo(zzbc));
+        System.out.println(zzbc.compareTo(abcd));
     }
 }
