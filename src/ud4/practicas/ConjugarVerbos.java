@@ -1,11 +1,9 @@
 package ud4.practicas;
 
-import java.util.Arrays;
-
 public class ConjugarVerbos {
 
     public static void main(String[] args) {
-        conjugarTiempoVerbal("vivir","preterito Perfecto simple");
+        conjugarTiempoVerbal("vivir","futuro simple");
     }
 
 
@@ -13,156 +11,113 @@ public class ConjugarVerbos {
         String[] verbT = new String[6];
        
         for (int i = 0; i < arr.length; i++) {
-            verbT[i]=pVerb+arr[i];
+            verbT[i] = pVerb + arr[i];
         } 
         
         return verbT;
     }
 
 
-    static void printVerbs(String[] verbPresent){
-        final String[] pronouns = new String[]{"Yo","Tú","É/Ella/Usted","Nosotros/Nostoras","Vosotros/Vosotras","Ellos/Ellas/Ustedes"};
+    static void printVerbsAndPronouns(String[] verbPresent){
+        final String[] pronouns = new String[]{"Yo","Tú","Él/Ella/Usted","Nosotros/Nostoras","Vosotros/Vosotras","Ellos/Ellas/Ustedes"};
 
         for (int i = 0; i < pronouns.length; i++) {
-            System.out.println(pronouns[i]+" "+verbPresent[i]);
+            System.out.printf("%s %s\n",pronouns[i],verbPresent[i]);
         }
 
     }
 
 
     static String[] conjugarTiempoVerbal(String verbo, String tiempoVerbal){
-        
-        final int P_SIMPLE = 0;
-        final int PP_SIMPLE = 1;
-        final int F_SIMPLE = 2;
 
+        if (verbo.isEmpty()){
+            return null;
+        }
+            
+
+            
         tiempoVerbal = tiempoVerbal.toLowerCase();
 
-        int verbTime = -1;
-
-        switch (tiempoVerbal) {
-            case "presente simple":
-                verbTime = P_SIMPLE;
-                break;
+        String[]result = switch (tiempoVerbal) {
+            case "presente simple" -> conjugarPresente(verbo);
             
-            case "preterito perfecto simple":
-                verbTime = PP_SIMPLE;
-                break;
+            case "preterito perfecto simple" -> conjugarPPsimple(verbo);
 
-            case "futuro simple":
-                verbTime = F_SIMPLE;
-                break;
+            case "futuro simple" -> conjugarFsimple(verbo);
         
-            default:
-                return null;
-        }
+            default -> null;
+        };
 
-
-        switch (verbo.substring(verbo.length()-2, verbo.length())) {
-
-            case "ar","er","ir":
-                break;
-
-            default:
-                return null;
-        }
-
-        String[] result = null;
-
-        if (verbTime == P_SIMPLE)
-            result = conjugarPresente(verbo);
-        else if (verbTime == PP_SIMPLE)
-            result = conjugarPPsimple(verbo);
-        else if (verbTime == F_SIMPLE)
-            result = conjugarFsimple(verbo);
-
-            printVerbs(result);
+        printVerbsAndPronouns(result);
         
-        return null;
+        return result;
     }
 
 
     static String[] conjugarPPsimple(String verbo){
+        
         final String[] ar = new String[]{"é","aste","ó","amos","ásteis","aron"};
         final String[] er = new String[]{"í","iste","ó","imos","ísteis","eron"};
 
-        String[] verbPP = new String[6];
-        
         String pVerb = verbo.substring(0, verbo.length()-2);
+        String sVerb = verbo.substring(verbo.length()-2,verbo.length() );
 
-        String[] verbSuffixes = null;
+        return switch (sVerb) {
 
-        switch (verbo.substring(verbo.length()-2, verbo.length())) {
-
-            case "ar":
-                verbSuffixes = ar.clone();
-                break;
+            case "ar" -> forgeVerb(pVerb, ar);
             
-            case "er","ir":
-                verbSuffixes = er.clone();
-                break;
+            case "er","ir" -> forgeVerb(pVerb, er);
 
-            default:
-                return null;
-        }
-
-        for (int i = 0; i < verbPP.length; i++) {
-            verbPP[i]=pVerb+verbSuffixes[i];
-        }
-
-        //System.out.println(Arrays.toString(verbPP));
-        return verbPP;
+            default -> null;
+        };
     }
 
 
     static String[] conjugarFsimple(String verbo){
-        final String[] ar = new String[]{"é","aste","ó","amos","ásteis","aron"};
 
-        String[] verbPP = new String[6];
+        final String[] ar = new String[]{"aré","arás","ará","aremos","aréis","arán"};
+        final String[] er = new String[]{"eré","erás","erá","eremos","eréis","erán"};
+        final String[] ir = new String[]{"iré","irás","irá","iremos","iréis","irán"};
+
         String pVerb = verbo.substring(0, verbo.length()-2);
+        String sVerb = verbo.substring(verbo.length()-2,verbo.length() );
 
-        for (int i = 0; i < verbPP.length; i++) {
-            verbPP[i]=pVerb+ar[i];
-        }
+        return switch (sVerb) {
 
-        //System.out.println(Arrays.toString(verbPP));
-        return verbPP;
+            case "ar" -> forgeVerb(pVerb, ar);
+            
+            case "er" -> forgeVerb(pVerb, er);
+            
+            case "ir" -> forgeVerb(pVerb, ir);
+
+            default -> null;
+        };
     }
 
+
     static String[] conjugarPresente(String verbo){
+
+        if (verbo.isEmpty()){
+            return null;
+        }
 
         final String[] ar = new String[]{"o","as","a","amos","áis","an"};
         final String[] er = new String[]{"o","es","e","emos","éis","en"};
         final String[] ir = new String[]{"o","es","e","imos","ís","en"};
-
-        String[] verbPresent = new String[6];
         
         String pVerb = verbo.substring(0, verbo.length()-2);
-        String sVerb = verbo.substring(verbo.length()-2, verbo.length());
+        String sVerb = verbo.substring(verbo.length()-2,verbo.length() );
 
-        String[] verbSuffixes = null;
+        return switch (sVerb) {
 
-        if(sVerb.equals("ar")){
-            verbSuffixes = ar.clone();
-        }
-        else if (sVerb.endsWith("er")){
-            verbSuffixes = er.clone();
-        }
-        else if (sVerb.endsWith("ir")){
-            verbSuffixes = ir.clone();
-        }
+            case "ar" -> forgeVerb(pVerb, ar);
+            
+            case "er" -> forgeVerb(pVerb, er);
+            
+            case "ir" -> forgeVerb(pVerb, ir);
 
-        if (sVerb.isEmpty()){
-            return null;
-        }
-
-        for (int i = 0; i < verbPresent.length; i++) {
-            verbPresent[i]=pVerb+verbSuffixes[i];
-        }
-
-        //System.out.println(Arrays.toString(verbPresent));
-
-        return verbPresent;
+            default -> null;
+        };
     }
 
 
