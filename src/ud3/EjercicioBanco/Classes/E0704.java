@@ -1,4 +1,4 @@
-package ud3.EjercicioBanco.Classes;
+package ud3.ejercicioBanco.classes;
 
 /*
     Todas las cuentas corrientes con las que se va a trabajar pertenecen al mismo

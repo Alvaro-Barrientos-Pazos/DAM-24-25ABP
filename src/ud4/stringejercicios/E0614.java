@@ -1,4 +1,4 @@
-package ud4.stringejercicios;
+package stringejercicios;
 
 import java.util.Arrays;
 import java.util.Random;

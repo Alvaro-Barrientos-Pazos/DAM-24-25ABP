@@ -6,7 +6,7 @@ Repite el programa anterior para convertir entre kilómetros por hora (km/h), me
 
 */
 
-package ud1.ejercicios.EPO_Ejercicios;
+package ud1.ejercicios.epo_ejercicios;
 
 import java.util.Scanner;
 

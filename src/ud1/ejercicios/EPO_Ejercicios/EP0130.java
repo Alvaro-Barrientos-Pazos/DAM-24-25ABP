@@ -12,7 +12,7 @@ A 14 no hay que sumarle nada (0) para que sea múltiplo de 7
 
 */
 
-package ud1.ejercicios.EPO_Ejercicios;
+package ud1.ejercicios.epo_ejercicios;
 
 import java.util.Scanner;
 

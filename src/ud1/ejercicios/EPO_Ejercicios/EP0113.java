@@ -6,7 +6,7 @@ Dado el siguiente polinomio de segundo grado:
 Crea un programa que pida los coeficientes a, b y c, así como el valor de x, y calcula el valor correspondiente de y.
  */
 
-package ud1.ejercicios.EPO_Ejercicios;
+package ud1.ejercicios.epo_ejercicios;
 
 import java.util.Scanner;
 

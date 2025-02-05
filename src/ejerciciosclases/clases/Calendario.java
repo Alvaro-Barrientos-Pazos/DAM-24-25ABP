@@ -15,42 +15,31 @@ public class Calendario {
     }
     
     int getMes(){
-        return date.getMonth();
+        return date.getMonthValue();
     }
 
     int getAño(){
-        return año;
+        return date.getYear();
     }
 
     void incrementarDia(){
-
+        date.plusDays(1);
     }
 
     void incrementarMes(){
-
+        date.plusMonths(1);
     }
 
     void incrementarAño(int cantidad){
-        if (año + cantidad<= 0){
-            return;
-        }
-
-        año += cantidad;
+        date.plusYears(1);
     }
 
     void mostrar(){
-
+        System.out.println(date);
     }
 
     boolean iguales(Calendario otraFecha){
-        if (otraFecha.dia != dia)
-            return false;
-        if (otraFecha.mes != mes)
-            return false;
-        if (otraFecha.año != año)
-            return false;
-        
-        return true;
+        return otraFecha.equals(date);
     }
 
 

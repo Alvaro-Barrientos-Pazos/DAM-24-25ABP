@@ -1,4 +1,4 @@
-package ud3.EjercicioBanco.Classes;
+package ud3.ejercicioBanco.classes;
 
 public class CuentaCorriente {
 
@@ -63,6 +63,10 @@ public class CuentaCorriente {
 
     public void addAcounter(String nombreGestor, int telefono, int importeMaximo){
         gestor = new Gestor(nombreBanco, telefono, importeMaximo);
+    }
+
+    public double getSaldo(){
+        return saldo;
     }
 
 }

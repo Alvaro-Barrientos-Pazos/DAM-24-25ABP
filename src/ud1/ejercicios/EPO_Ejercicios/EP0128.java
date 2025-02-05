@@ -2,7 +2,7 @@
 Pide dos números al usuario: a y b. Deberá mostrarse true si ambos números son iguales y false en caso contrario.
 */
 
-package ud1.ejercicios.EPO_Ejercicios;
+package ud1.ejercicios.epo_ejercicios;
 
 import java.util.Scanner;
 

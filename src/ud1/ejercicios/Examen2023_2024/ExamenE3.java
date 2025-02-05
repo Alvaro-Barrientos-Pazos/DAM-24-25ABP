@@ -5,7 +5,7 @@ Escribe un programa que lea 3 números por teclado e indique si están ordenados
 
  */
 
-package ud1.ejercicios.Examen2023_2024;
+package ud1.ejercicios.examen2023_2024;
 
 import java.util.Scanner;
 

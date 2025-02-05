@@ -7,7 +7,7 @@ Solicita al usuario tres distancias:
 Diseña un programa que muestre la suma de las tres longitudes introducidas (medida en
 centimetros).
  */
-package ud1.ejercicios.ABP24104;
+package ud1.ejercicios.abp24104;
 
 import java.util.Scanner;
 

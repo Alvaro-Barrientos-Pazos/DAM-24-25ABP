@@ -1,4 +1,4 @@
-package ud4.arraysejercicios;
+package arraysejercicios;
 
 public class E0518 {
     public static void main(String[] args) {

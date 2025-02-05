@@ -10,7 +10,7 @@ no existir billetes tan pequeños.
 
  */
 
-package ud1.ejercicios.Examen2023_2024;
+package ud1.ejercicios.examen2023_2024;
 
 import java.util.Scanner;
 

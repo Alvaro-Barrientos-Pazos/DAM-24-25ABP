@@ -4,7 +4,7 @@ Escribe un programa que convierta unidades de masa entre kilogramos y libras o v
     1 libra = 453.592 gramos
 El programa deberá manejar las conversiones automáticamente y mostrar el resultado al usuario. Utiliza el operador ternario para evaluar la unidad de medida introducida por el usuario. El programa mostrará por pantalla el resultado con la unidad de medida adecuada.
  */
-package ud1.ejercicios.ABP24104;
+package ud1.ejercicios.abp24104;
 
 import java.util.Scanner;
 

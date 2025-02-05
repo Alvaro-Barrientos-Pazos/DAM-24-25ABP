@@ -3,7 +3,7 @@ Crea un programa que pida la base y la altura de un triángulo y muestre su áre
     Área Triángulo = (base * altura) / 2
 
  */
-package ud1.ejercicios.EPO_Ejercicios;
+package ud1.ejercicios.epo_ejercicios;
 
 import java.util.Scanner;
 

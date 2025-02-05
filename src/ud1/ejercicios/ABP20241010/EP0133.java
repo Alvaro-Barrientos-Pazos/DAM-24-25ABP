@@ -3,7 +3,7 @@ Desarrolla un programa en Java que convierta unidades de almacenamiento entre by
 Solicita al usuario la cantidad de datos y la unidad de origen y destino 
 */
 
-package ud1.ejercicios.ABP20241010;
+package ud1.ejercicios.abp20241010;
 
 import java.util.Scanner;
 

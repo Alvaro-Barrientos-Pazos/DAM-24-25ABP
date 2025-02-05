@@ -1,7 +1,7 @@
-package ud4.arraysejercicios;
+package arraysejercicios;
 
 import java.util.Arrays;
-import ud4.arraysejercicios.UtilArray;
+import arraysejercicios.UtilArray;
 import java.util.Scanner;
 
 public class E0509 {

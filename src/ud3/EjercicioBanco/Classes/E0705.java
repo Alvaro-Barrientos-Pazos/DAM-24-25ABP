@@ -1,4 +1,4 @@
-package ud3.EjercicioBanco.Classes;
+package ud3.ejercicioBanco.classes;
 
 /*
 

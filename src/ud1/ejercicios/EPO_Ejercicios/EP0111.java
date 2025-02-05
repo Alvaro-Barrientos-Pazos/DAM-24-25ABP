@@ -4,7 +4,7 @@ La aplicación debe solicitar la base imponible y el IVA que se debe aplicar.
 Muestra en pantalla el importe correspondiente al IVA y al total.
  */
 
-package ud1.ejercicios.EPO_Ejercicios;
+package ud1.ejercicios.epo_ejercicios;
 
 import java.util.Scanner;
 

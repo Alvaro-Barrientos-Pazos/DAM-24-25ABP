@@ -9,7 +9,7 @@ El programa deberá realizar la conversión y mostrar el resultado.
 
 */
 
-package ud1.ejercicios.EPO_Ejercicios;
+package ud1.ejercicios.epo_ejercicios;
 
 import java.util.Scanner;
 

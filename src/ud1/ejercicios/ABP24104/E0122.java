@@ -3,7 +3,7 @@ Convertir una temperatura introducida por teclado en grados Farenheit a grados C
     C = 5/9 * (f-32)
 */
 
-package ud1.ejercicios.ABP24104;
+package ud1.ejercicios.abp24104;
 
 import java.util.Scanner;
 

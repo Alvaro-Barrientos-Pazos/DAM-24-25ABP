@@ -1,6 +1,7 @@
 import java.security.PublicKey;
 
 import clases.Punto;
+import clases.Jugador;
 
 public class EP0716_Punto {
     public static void main(String[] args) {

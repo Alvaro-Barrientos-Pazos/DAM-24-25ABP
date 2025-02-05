@@ -1,13 +1,11 @@
-package ud4.arraysejercicios;
+package arraysejercicios;
 
 import java.util.Arrays;
-
-import ud4.arraysejercicios.UtilArray;
 
 public class E0508_ParImpares {
     public static void main(String[] args) {
         
-        int[]arr1 = UtilArray.randomArray();
+        int[]arr1 = arraysejercicios.UtilArray.randomArray();
         
         int[]arrEvenNumbers = getPares(arr1);
         int[]arrOddNumbers = getImpares(arr1);

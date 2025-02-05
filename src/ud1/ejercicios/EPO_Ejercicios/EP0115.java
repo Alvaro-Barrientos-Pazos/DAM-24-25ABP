@@ -2,7 +2,7 @@
 Convertir un número de segundos introducido por teclado en horas, minutos y segundos. 
 */
 
-package ud1.ejercicios.EPO_Ejercicios;
+package ud1.ejercicios.epo_ejercicios;
 
 import java.util.Scanner;
 

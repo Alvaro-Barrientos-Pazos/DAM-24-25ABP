@@ -8,7 +8,7 @@ Realiza un programa que solicite la longitud (en metros) de un lanzamiento y mue
 
 */
 
-package ud1.ejercicios.EPO_Ejercicios;
+package ud1.ejercicios.epo_ejercicios;
 
 import java.util.Scanner;
 

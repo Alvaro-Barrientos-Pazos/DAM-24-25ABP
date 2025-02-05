@@ -10,9 +10,7 @@
     activado y además hay luz general.
 */
 
-package ud3.Bombilla;
-
-import ud3.Bombilla.Bombilla;
+package ud3.bombilla;
 
 public class E0709_CasaBombillas {
 

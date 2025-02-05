@@ -3,7 +3,7 @@ Solicita al usuario un número real y calcula su raíz cuadrada. Implementa el p
 en lugar de utilizar ninguna importación.
 */
 
-package ud1.ejercicios.EPO_Ejercicios;
+package ud1.ejercicios.epo_ejercicios;
 
 public class EP0126 {
     public static void main(String[] args) {

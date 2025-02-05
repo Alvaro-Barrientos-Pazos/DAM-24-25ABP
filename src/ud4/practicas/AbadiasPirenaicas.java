@@ -9,22 +9,23 @@ public class AbadiasPirenaicas {
 
         int[] arr = new int[] { 6000, 3500, 7000, 3100, 3200 };
 
-        /*
-         * Scanner sc = new Scanner(System.in);
-         * 
-         * int[] arr = new int[0];
-         * int input = 0;
-         * 
-         * while (arr.length < 1000 && input >= 0) {
-         * 
-         * input = sc.nextInt();
-         * 
-         * if (input >= 0){
-         * arr = Arrays.copyOf(arr, arr.length+1);
-         * arr[arr.length-1] = input;
-         * }
-         * }
-         */
+        /* Ver. Scanner
+        
+        Scanner sc = new Scanner(System.in);
+        
+        int[] arr = new int[0];
+        int input = 0;
+        
+        while (arr.length < 1000 && input >= 0) {
+        
+            input = sc.nextInt();
+            
+            if (input >= 0){
+                arr = Arrays.copyOf(arr, arr.length+1);
+                arr[arr.length-1] = input;
+            }
+        }
+            */
 
         System.out.println("La medida de las montañas es de: " + Arrays.toString(arr));
         int[] validHeights = findValidHeights(arr);

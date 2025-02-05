@@ -1,5 +1,4 @@
-
-package ud3.Bombilla;
+package ud3.bombilla;
 
 public class Bombilla {
 

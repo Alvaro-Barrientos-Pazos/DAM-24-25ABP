@@ -1,4 +1,4 @@
-package ArraysEstadisticas;
+package arraysEstadisticas;
 import java.util.Arrays;
 
 public class ArraysEstadisticas {

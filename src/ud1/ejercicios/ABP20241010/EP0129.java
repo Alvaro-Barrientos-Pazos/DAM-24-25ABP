@@ -3,7 +3,7 @@ Escribe un programa que tome como entrada un número entero e indique
 qué cantidad hay que sumarle para que el resultado sea múltiplo de 7 
 */
 
-package ud1.ejercicios.ABP20241010;
+package ud1.ejercicios.abp20241010;
 
 import java.util.Scanner;
 
