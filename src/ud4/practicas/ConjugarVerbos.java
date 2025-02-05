@@ -7,7 +7,7 @@ public class ConjugarVerbos {
     }
 
 
-    static String[] forgeVerb(String pVerb,String[] arr){
+    static String[] forgeVerb(String pVerb, String[] arr){
         String[] verbT = new String[6];
        
         for (int i = 0; i < arr.length; i++) {
@@ -55,7 +55,7 @@ public class ConjugarVerbos {
 
 
     static String[] conjugarPPsimple(String verbo){
-        
+
         final String[] ar = new String[]{"é","aste","ó","amos","ásteis","aron"};
         final String[] er = new String[]{"í","iste","ó","imos","ísteis","eron"};
 

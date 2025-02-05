@@ -5,9 +5,8 @@ import org.junit.Test;
 
 public class Matriculas {
 
-    static char[] blackList = new char[] { 'A', 'E', 'I', 'O', 'U', 'Q', 'Ñ' };
     static char[] whiteList = new char[] { 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T','V', 'W', 'X', 'Y', 'Z' };
-    static String whiteList2 = "BCDFGHJKLMNPRSTVWXYZ";
+    static String whiteListString = "BCDFGHJKLMNPRSTVWXYZ";
 
     static final int N_NUMBERS = 4;
     static final int N_LETTERS = 3;
@@ -61,35 +60,6 @@ public class Matriculas {
 
         int resultComparation = comparaMatriculas(matricula2, matricula1);
         System.out.println("Comparation: " + resultComparation);
-
-    }
-
-    // Ver.1
-    static int comparaMatriculas2(String m1, String m2) {
-
-        if (m1.equals(m2)) {
-            return 0;
-        }
-
-        if (m1.substring(N_NUMBERS, PLATE_SIZE).equals(m2.substring(N_NUMBERS, PLATE_SIZE))) {
-            
-            int num1 = Integer.parseInt(m1.substring(0, N_NUMBERS));
-            int num2 = Integer.parseInt(m2.substring(0, N_NUMBERS));
-
-            return num1 > num2? M1 : M2;
-        }
-
-        int m1Total = 0, m2Total = 0;
-
-        for (int i = 0; i < N_LETTERS; i++) {
-            m1Total += (int) m1.charAt(m1.length() - 1 - i) * Math.pow(whiteList.length+blackList.length, i);
-            m2Total += (int) m2.charAt(m1.length() - 1 - i) * Math.pow(whiteList.length+blackList.length, i);
-        }
-
-        System.out.println(m1Total);
-        System.out.println(m2Total);
-
-        return m1Total > m2Total ? M1 : M2;
     }
 
 
@@ -136,11 +106,8 @@ public class Matriculas {
                 if (!Character.isLetter(matricula.charAt(i))) {
                     return false;
                 }
-
-                for (char c : blackList) {
-                    if (matricula.charAt(i) == c) {
-                        return false;
-                    }
+                if (!whiteListString.contains(Character.toString(matricula.charAt(i)))){
+                    return false;
                 }
             }
         }
@@ -158,7 +125,8 @@ public class Matriculas {
 
         if (num == 9999) {
             letters = addToLetter(num, letters);
-        } else {
+        } 
+        else {
             num++;
             letters = Integer.toString(num) + letters;
         }
@@ -167,7 +135,7 @@ public class Matriculas {
     }
 
 
-    //Ver.1
+    //Ver.1 Usando la array whitelist
     static String addToLetter2(int num, String letters) {
 
         if (letters.equals("ZZZ")) {
@@ -196,6 +164,7 @@ public class Matriculas {
     }
 
 
+    //Ver.2 Usando la whiteListString
     static String addToLetter(int num, String letters) {
 
         if (letters.equals("ZZZ")) {
@@ -209,8 +178,8 @@ public class Matriculas {
         int index;
 
         for (int i = arr.length - 1; i >= 0; i--) {
-            index = whiteList2.indexOf(letters.charAt(i));
-            arr[i] = whiteList2.charAt((index + 1) % whiteList.length);
+            index = whiteListString.indexOf(letters.charAt(i));
+            arr[i] = whiteListString.charAt((index + 1) % whiteList.length);
 
             if (index + 1 < whiteList.length) {
                 return numString + String.copyValueOf(arr);    
