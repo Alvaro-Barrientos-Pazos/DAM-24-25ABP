@@ -5,19 +5,25 @@ import java.util.Arrays;
 public class RecorridoRobot {
 
     static char[][] wMap;
-    static int[] coords;
+    static int[] coords;  // [0] = Y   [1] = X
+    
+    static int turn = 1;  // Solo para la visualizacion
 
     public static void main(String[] args) {
         String[] mapa = {
-                "Z  ",
-                "*  ",
-                "** ",
-                "   ",
-                "A  "
+            "  Z       ",
+            " *        ",
+            "  *  *    ",
+            "          ",
+            " A        "
         };
 
-        // System.out.println(recorridoRobot(mapa,"ARAALAAALAA"));
-        System.out.println(recorridoRobot(mapa, "ARAALAAALAA"));
+        //System.out.println(recorridoRobot(mapa, "AALARAARAA"));                             // Llegas a la meta
+        System.out.println(recorridoRobot(mapa, "AALARAALLAAAALAAAAAAAAALAAAALAAAAAA"));    // Llegas a la meta
+        
+        //System.out.println(recorridoRobot(mapa, "RAAALAALARA"));                            // No llegas a la meta
+        //System.out.println(recorridoRobot(mapa, "RALAA"));                                  // Mina
+        //System.out.println(recorridoRobot(mapa, "AALARAAAAAAA"));                           // Sales del mapa por arriba
 
     }
 
@@ -30,40 +36,10 @@ public class RecorridoRobot {
                 if (wMap[i][j] == 'A') {
                     coords = new int[] { i, j };
                 }
-                System.out.print(mapa[i].charAt(j) + " ");
+                System.out.print(mapa[i].charAt(j));
             }
             System.out.println();
         }
-    }
-
-    static boolean printUpdatedMap(char[][] wMap) {
-
-        if (coords[0] >= wMap.length) {
-            return false;
-        }
-        if (coords[1] >= wMap.length) {
-            return false;
-        }
-
-        for (int i = 0; i < wMap.length; i++) {
-            for (int j = 0; j < wMap[i].length; j++) {
-                if (wMap[i][j] == 'A') {
-                    wMap[i][j] = ' ';
-                }
-
-                if (i == coords[0] && j == coords[1]) {
-                    if (wMap[i][j] == ' ') {
-                        wMap[i][j] = 'A';
-                    }
-                }
-
-                System.out.print(wMap[i][j] + " ");
-            }
-
-            System.out.println();
-        }
-
-        return true;
     }
 
     static boolean recorridoRobot(String[] mapa, String instrucciones) {
@@ -72,14 +48,13 @@ public class RecorridoRobot {
         System.out.println();
         System.out.println();
 
+        // Mejor crear un enumerador
         String[] dir = new String[] { "arriba", "derecha", "abajo", "izquierda" };
-
         int currDir = 0;
-
-        System.out.println(Arrays.toString(coords));
 
         for (int i = 0; i < instrucciones.length(); i++) {
 
+            System.out.println("\n\nInstruccion: "+instrucciones.charAt(i));
             switch (instrucciones.charAt(i)) {
                 case 'A':
                     switch (dir[currDir]) {
@@ -97,7 +72,6 @@ public class RecorridoRobot {
                             break;
                     }
 
-                    System.out.println(Arrays.toString(coords)+"\n");
                     printUpdatedMap(wMap);
 
                     switch (checkMapCoord(wMap)) {
@@ -131,7 +105,7 @@ public class RecorridoRobot {
                     break;
 
                 case 'L':
-                    currDir = currDir - 1 < 0 ? dir.length - 1 : (currDir - 1) % dir.length;
+                    currDir = currDir - 1 < 0 ? dir.length - 1 : currDir - 1;
                     break;
 
                 default:
@@ -143,44 +117,61 @@ public class RecorridoRobot {
     }
 
 
-    static int[] findRobotCood(String[] map) {
-
-        for (int i = 0; i < map.length; i++) {
-            for (int k = 0; k < map[i].length(); k++) {
-                if (map[i].charAt(k) == 'A') {
-                    return new int[] { i, k };
-                }
-            }
-        }
-        return null;
-    }
-
-
     static int checkMapCoord(char[][] wMap) {
 
-        if (wMap.length >= coords[0])
+        int posY = coords[0];
+        int posX = coords[1];
+
+        if (posY <0 || posX <0)
             return -1;
 
-        if (wMap[0].length >= coords[1])
+        if (posY >= wMap.length || posX >= wMap[0].length)
             return -1;
 
-        System.out.println("------------------------------------");
+
+        switch (wMap[posY][posX]) {
+            case '*':
+                return 0;
+
+            case 'Z':
+                return 2;
+
+            default:
+                break;
+        }
+
+        return 1;
+    }
+
+    // Solo se usa para visualizar
+    static boolean printUpdatedMap(char[][] wMap) {
+
+        System.out.printf("Turn %d\nCoords: %s\n",turn,Arrays.toString(coords));
+        turn++;
 
         for (int i = 0; i < wMap.length; i++) {
             for (int j = 0; j < wMap[i].length; j++) {
-                switch (wMap[i][j]) {
-                    case '*':
-                        return 0;
-
-                    case 'Z':
-                        return 2;
-
-                    default:
-                        break;
+                if(j==0){
+                    System.out.print("|");
                 }
+
+                if (wMap[i][j] == 'A') {
+                    wMap[i][j] = ' ';
+                }
+
+                if (i == coords[0] && j == coords[1]) {
+                    if (wMap[i][j] == ' ') {
+                        wMap[i][j] = 'A';
+                    }
+                }
+
+                System.out.print(wMap[i][j]);
             }
+            System.out.print("|\n");
+
         }
-        return 1;
+
+        return true;
     }
 
 }
