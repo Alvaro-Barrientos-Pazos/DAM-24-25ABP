@@ -7,9 +7,9 @@ public class AbadiasPirenaicas {
 
     public static void main(String[] args) {
 
-        int[] arr = new int[] { 6000, 3500, 7000, 3100, 3200 };
+        //int[] arr = new int[] { 6000, 3500, 7000, 3100, 3200 };
 
-        /* Ver. Scanner
+        //* Ver. Scanner
         
         Scanner sc = new Scanner(System.in);
         
@@ -25,7 +25,7 @@ public class AbadiasPirenaicas {
                 arr[arr.length-1] = input;
             }
         }
-            */
+            //*/
 
         System.out.println("La medida de las montañas es de: " + Arrays.toString(arr));
         int[] validHeights = findValidHeights(arr);

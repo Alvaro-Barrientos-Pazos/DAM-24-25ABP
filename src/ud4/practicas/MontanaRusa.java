@@ -54,7 +54,7 @@ public class MontanaRusa {
     }
 
 
-    static int contarPicos(int[] alturas){
+    static int contarPicos(int[] alturas){              // { 4,10,3,2};      // 1
         int nPeaks = 0;
         int nValue = 0;
         int pValue = 0;

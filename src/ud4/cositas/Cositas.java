@@ -10,9 +10,9 @@ public class Cositas {
         metodosParaParsearUnaString();    
     }
 
+
     static void metodosParaParsearUnaString(){
         String str1 = "Ah! Hola que tal";
-
 
         MetodoCharAt(str1);
 
@@ -20,16 +20,15 @@ public class Cositas {
 
         BuscarLetra(str1);
 
-
-
     }
+
 
     static void MetodoCharAt(String str){
 
-        // caracteres de la string de 0 a str.lenght-1;
+        // Seleccionar un caracteres de la string en una posicion de 0 a str.lenght-1;
         char c1 = str.charAt(0);
 
-        // usando un for loop usando la longitud de la array y el metodo charAt
+        // Usando un for loop usando la longitud de la array y el metodo charAt
         for (int i = 0; i < str.length(); i++) {
             System.out.println( str.charAt(i) );
         }
@@ -66,6 +65,14 @@ public class Cositas {
 
         arrPos = Arrays.copyOf(arrPos, counter); // Recortamos la array a el numero de veces que se encontro la letra
         System.out.println(Arrays.toString(arrPos));
+        
+        // { 1,2,3,4,5,6,7,8,9 }
+
+        // { 0,2,3,4,5,6,7,8,9,0 }
+        int[] arrN = new int[10];
+        System.arraycopy(arrChar, 2, arrPos, 1,arrPos.length-2 );
+
+        System.out.println(Arrays.toString(arrN));
 
     }
 
@@ -87,12 +94,6 @@ public class Cositas {
                 System.out.printf("Encontrada letra %s en posicion: %d\n",letra,i);
             }
         }
-
-
-
-        
-
-
 
 
 

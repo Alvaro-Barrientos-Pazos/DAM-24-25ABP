@@ -45,7 +45,6 @@ public class ArraysEstadisticas {
             if (n < min){
                 min = n;
             }
-            
         }
         
         return min;
@@ -91,46 +90,38 @@ public class ArraysEstadisticas {
 
     static int moda(int[] numeros){
         
-        int[] a = Arrays.copyOf(numeros, numeros.length);
+        int[] a = numeros.clone();
         Arrays.sort(a);
         System.out.println(Arrays.toString(a));
         
-        int max_num1 = -1, max_num2 = Integer.MIN_VALUE;
+        int max_num = -1;
         int count = 0;
-        int max_count = 0;
-        int num = numeros[0];
-
-        for (int n : a) {
+        int max_count = 0;     
+        int num = numeros[0];  // num = numeros[0] = 1
+                                
+                                
+                // counter:      1
+        for (int n : a) {   // { 1,3,3,4,4,5,6}
             
-            if (n != num){
+            if (n != num){   // n != num // counter = 1
                 num = n;
                 count = 1;
             }
             else {
-                count+=1;
+                count+=1;       
 
-                if( count > max_count){
-                    max_count = count;
-                    max_num1 = num;
-                    max_num2 = Integer.MIN_VALUE;
-                }
-    
-                else if (count == max_count){
-                    if (n != max_num1){
-                        System.out.println("n: "+n);
-                        max_num2 = n;
-                    }
+                if (count == max_count){
+                    max_num = -1;
                 }
 
+                if( count > max_count){           // i = 0
+                    max_count = count;            // max_count = 1
+                    max_num = num;               // max_num1 = 1
+                }
             }
-
         }
 
-        if (max_num2!=Integer.MIN_VALUE){
-            return -1;
-        }
-
-        return max_num1;
+        return max_num;
         
     }
 

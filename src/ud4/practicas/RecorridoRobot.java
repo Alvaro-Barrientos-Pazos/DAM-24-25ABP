@@ -11,15 +11,18 @@ public class RecorridoRobot {
 
     public static void main(String[] args) {
         String[] mapa = {
-            "  Z       ",
-            " *        ",
-            "  *  *    ",
-            "          ",
-            " A        "
+            "  Z       ",  // 0
+            " *        ",  // 1
+            "  *  *    ",  // 2
+            "          ",  // 3
+            " A        "   // 4
+           //0123456789
         };
 
-        //System.out.println(recorridoRobot(mapa, "AALARAARAA"));                             // Llegas a la meta
-        System.out.println(recorridoRobot(mapa, "AALARAALLAAAALAAAAAAAAALAAAALAAAAAA"));    // Llegas a la meta
+
+
+        System.out.println(recorridoRobot(mapa, "AALARAARAA"));                             // Llegas a la meta
+        //System.out.println(recorridoRobot(mapa, "AALARAALLAAAALAAAAAAAAALAAAALAAAAAA"));    // Llegas a la meta
         
         //System.out.println(recorridoRobot(mapa, "RAAALAALARA"));                            // No llegas a la meta
         //System.out.println(recorridoRobot(mapa, "RALAA"));                                  // Mina
@@ -48,7 +51,10 @@ public class RecorridoRobot {
         System.out.println();
         System.out.println();
 
+
         // Mejor crear un enumerador
+        // dir[0] -> arriba
+
         String[] dir = new String[] { "arriba", "derecha", "abajo", "izquierda" };
         int currDir = 0;
 
@@ -99,6 +105,20 @@ public class RecorridoRobot {
                             return false;
                     }
                     break;
+
+
+
+
+                // int x = 0
+                //  dir { "arriba", "derecha", "abajo", "izquierda" }
+
+                // currDir = "izquierda" -> 1
+                /*
+                 
+                    if (curDir +1 >= dir.length )
+                        curDir = 0;
+
+                 */
 
                 case 'R':
                     currDir = (currDir + 1) % dir.length;

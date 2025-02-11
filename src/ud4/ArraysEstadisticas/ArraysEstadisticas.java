@@ -74,7 +74,7 @@ public class ArraysEstadisticas {
     }
 
     static double mediana(int[] numeros){
-        int[] a = Arrays.copyOf(numeros, numeros.length);
+        int[] a = numeros.clone();
 
         Arrays.sort(a);
         System.out.println(Arrays.toString(a));
@@ -91,7 +91,7 @@ public class ArraysEstadisticas {
 
     static int moda(int[] numeros){
         
-        int[] a = Arrays.copyOf(numeros, numeros.length);
+        int[] a = numeros.clone();
         Arrays.sort(a);
         System.out.println(Arrays.toString(a));
         

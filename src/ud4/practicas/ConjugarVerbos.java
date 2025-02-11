@@ -9,6 +9,14 @@ public class ConjugarVerbos {
 
     static String[] forgeVerb(String pVerb, String[] arr){
         String[] verbT = new String[6];
+
+        //   0   1   2     3      4    5
+        // {"o","as","a","amos","áis","an"}
+
+        // Viv
+        // viv + arr[0]  o =   vivo
+        // viv + arr[1]  as =  vivas
+        // viv + arr[2]  a =   viva
        
         for (int i = 0; i < arr.length; i++) {
             verbT[i] = pVerb + arr[i];
@@ -21,10 +29,13 @@ public class ConjugarVerbos {
     static void printVerbsAndPronouns(String[] verbPresent){
         final String[] pronouns = new String[]{"Yo","Tú","Él/Ella/Usted","Nosotros/Nostoras","Vosotros/Vosotras","Ellos/Ellas/Ustedes"};
 
+
+        // pronouns[0] = yo + " " + vivo
+        // verbPresent[0] = vivo
+
         for (int i = 0; i < pronouns.length; i++) {
             System.out.printf("%s %s\n",pronouns[i],verbPresent[i]);
         }
-
     }
 
 
@@ -97,16 +108,21 @@ public class ConjugarVerbos {
 
     static String[] conjugarPresente(String verbo){
 
-        if (verbo.isEmpty()){
-            return null;
-        }
-
         final String[] ar = new String[]{"o","as","a","amos","áis","an"};
         final String[] er = new String[]{"o","es","e","emos","éis","en"};
         final String[] ir = new String[]{"o","es","e","imos","ís","en"};
         
+        // 12345
+        // 01234
+        // Viv
+
+        //pVerb = Viv
+        //sVerb = ir
+
         String pVerb = verbo.substring(0, verbo.length()-2);
         String sVerb = verbo.substring(verbo.length()-2,verbo.length() );
+
+
 
         return switch (sVerb) {
 
