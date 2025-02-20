@@ -4,22 +4,18 @@ import java.util.Scanner;
 
 public class AppCombateSingular {
 
+    static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         
-        Scanner sc = new Scanner(System.in);
+        
 
-        Personaje p1 = new Personaje("Hans");
-        Personaje p2 = new Personaje("Ivan");
-
-
-        int dmg_taken;
+        Personaje p1 = new Personaje();
+        Personaje p2 = new Personaje();
 
         boolean COMBATANTS_ALIVE = true;
 
         while (COMBATANTS_ALIVE) {
-            
-            sc.nextLine();
 
             COMBATANTS_ALIVE = unitClash(p1, p2);
 
@@ -32,6 +28,7 @@ public class AppCombateSingular {
 
 
 
+    // Returns false if the defender unit has died
     static boolean unitClash(Personaje attacker, Personaje defender){
 
 
@@ -39,11 +36,16 @@ public class AppCombateSingular {
 
         System.out.printf("%s ataca a %s por %d puntos de daño",attacker.getName(),defender.getName(),dmg_taken);
 
+        sc.nextLine();
+
         if ( dmg_taken > 0 ){
+
             if (defender.perderVida(dmg_taken)){
+                System.out.printf("%s a perdido la vida", defender.getName());
                 return false;
             }
             else{
+                System.out.printf("%s tiene (%d/%d) puntos de vida", defender.getName(), defender.getCurr_health(), defender.getMax_health());
                 return false;
             }
             
