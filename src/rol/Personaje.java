@@ -6,6 +6,8 @@ public class Personaje {
 
     public enum RAZA { HUMANO, ELFO, ENANO, HOBBIT, ORCO, TROLL }
 
+    protected final int EXP_THRESHOLD = 1000;
+
     protected String name;
     protected RAZA raza;
     
@@ -90,6 +92,16 @@ public class Personaje {
 
     byte sumarExperiencia(int puntos){
 
+        int acc = 0;
+
+        experiencia += puntos;
+
+        if ( experiencia > EXP_THRESHOLD * nivel ) {
+            experiencia = experiencia- EXP_THRESHOLD * nivel;
+        }
+
+        acc = setNivel(nivel+1);
+
         return 1;
     }
 
@@ -103,9 +115,13 @@ public class Personaje {
 
 
     boolean perderVida(int puntos){
+        
         if ((curr_health - puntos) > 0){
+            curr_health -= puntos;
             return false;
         }
+
+        curr_health = 0;
         
         return true;
     }
