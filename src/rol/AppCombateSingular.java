@@ -13,6 +13,10 @@ public class AppCombateSingular {
         Personaje p1 = new Personaje();
         Personaje p2 = new Personaje();
 
+        p1.mostrar();
+        p2.mostrar();
+
+        System.out.println("\n\nComienza el combate: \n");
         boolean COMBATANTS_ALIVE = true;
 
         while (COMBATANTS_ALIVE) {
@@ -34,27 +38,39 @@ public class AppCombateSingular {
 
         int dmg_taken = attacker.atacar(defender);
 
-        System.out.printf("%s ataca a %s por %d puntos de daño",attacker.getName(),defender.getName(),dmg_taken);
+        System.out.printf("\n\n%s ataca a %s",attacker.getName(), defender.getName());
 
-        sc.nextLine();
 
-        if ( dmg_taken > 0 ){
+        if ( dmg_taken < 0 ){
+            System.out.printf("\nLa defensa de %s supera por %d puntos el ataque de %s",defender.getName(), dmg_taken*-1, attacker.getName());
+        }
+
+        else if ( dmg_taken > 0 ){
+
+            System.out.printf("\n%s pierde %d puntos de vida",defender.getName(), dmg_taken);
+
+            attacker.sumarExperiencia(dmg_taken);
 
             if (defender.perderVida(dmg_taken)){
-                System.out.printf("%s a perdido la vida", defender.getName());
+                System.out.printf("\n%s a perdido la vida", defender.getName());
                 return false;
             }
             else{
-                System.out.printf("%s tiene (%d/%d) puntos de vida", defender.getName(), defender.getCurr_health(), defender.getMax_health());
-                return false;
+                defender.sumarExperiencia(dmg_taken);
             }
             
-        }
-        else{
             
         }
 
-        return false;
+        else{
+            System.out.printf("\nLa defensa de %s fue la justa para mitigar todo el daño del ataque de %s", defender.getName(), attacker.getName());
+        }
+
+        System.out.printf("\n%s puntos de vida", defender);
+        //attacker.mostrar();
+        //defender.mostrar();
+
+        return true;
     }
 
 
