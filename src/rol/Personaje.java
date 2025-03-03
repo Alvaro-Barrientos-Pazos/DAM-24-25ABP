@@ -16,6 +16,8 @@ public class Personaje {
     int nivel;
     int experiencia;
 
+    final int BASE_HEALTH = 50;
+
     int max_health;
     int curr_health;
 
@@ -25,19 +27,20 @@ public class Personaje {
     }
 
     public Personaje(String name){
-    
-        this.name = name;
-        raza = RAZA.HUMANO;
-
-        Random rng = new Random();
-
-        setAttributes(rng.nextInt(100)+1,rng.nextInt(100)+1,rng.nextInt(100)+1, 1, 0);
+        this(name, RAZA.HUMANO);
     }
 
 
     public Personaje(String name, RAZA raza){
-        this(name);
+        this.name = name;
         this.raza = raza;
+
+        int fuerza       = (int)Math.random()*100+1;
+        int agilidad     = (int)Math.random()*100+1;
+        int constitucion = (int)Math.random()*100+1;
+
+        setAttributes(fuerza, agilidad, constitucion, 1, 0);
+
     }
 
 
@@ -71,25 +74,25 @@ public class Personaje {
     }
 
 
-    public void setFuerza(int fuerza) throws Exception {
+    public void setFuerza(int fuerza) {
         if (fuerza < 1) {
-            throw new Exception("No se puede asociar el valor 0 al atributo fuerza");
+            throw new IllegalArgumentException("No se puede asociar el valor 0 al atributo fuerza");
         }
         else{
             this.fuerza = fuerza;
         }
     }
-    public void setAgilidad(int agilidad) throws Exception {
+    public void setAgilidad(int agilidad) {
         if (agilidad < 1) {
-            throw new Exception("No se puede asociar un valor menor a 1 al atributo agilidad");
+            throw new IllegalArgumentException("No se puede asociar un valor menor a 1 al atributo agilidad");
         }
         else{
             this.agilidad = agilidad;
         }
     }
-    public void setContitucion(int constitucion) throws Exception {
+    public void setContitucion(int constitucion) {
         if (constitucion < 1){
-            throw new Exception("No se puede asociar un valor menor a 1 al atributo constitucion");
+            throw new IllegalArgumentException("No se puede asociar un valor menor a 1 al atributo constitucion");
         }
         else{
             this.constitucion = constitucion;
@@ -98,9 +101,9 @@ public class Personaje {
         setMax_health(constitucion);
     }
 
-    public void setNivel(int nivel) throws Exception {
+    public void setNivel(int nivel) {
         if (nivel < 1){
-            throw new Exception("No se puede asociar un valor menor a 1 al atributo nivel");
+            throw new IllegalArgumentException("No se puede asociar un valor menor a 1 al atributo nivel");
         }
         else{
             this.nivel = nivel;            
@@ -108,14 +111,16 @@ public class Personaje {
     }
 
     public void setExperiencia(int experiencia) {
-        if (experiencia >= 0) {
+        if (experiencia < 0) {
+            throw new IllegalArgumentException("No se puede asociar un valor menor a 0 al atributo experiencia");
+        }
+        else{
             this.experiencia = experiencia;    
         }
-        
     }
 
-    public void setMax_health(int plus_health) {
-        this.max_health = 50 + plus_health;
+    public void setMax_health(int constitucion) {
+        this.max_health = BASE_HEALTH + constitucion;
     }
 
     public void setCurr_health(int curr_health) {
