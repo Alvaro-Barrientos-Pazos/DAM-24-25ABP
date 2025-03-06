@@ -24,7 +24,18 @@ public class PersonajeEx extends Personaje {
 
     @Override
     public void mostrar(){
-        
+
+        super.mostrar();
+
+        Item item = null;
+
+        System.out.println("INVENTARIO");
+
+        for (int i = 0; i < inventory.length; i++) {
+            item = inventory[i];
+
+            System.out.printf("%s (%.2fkg) (%dg)\n",item.getName(),item.getWeight(),item.getPrice());
+        }
     }
 
 }

@@ -2,9 +2,9 @@ package rol;
 
 public class Item {
 
-    String name;
-    double weight;
-    int price;
+    private String name;
+    private double weight;
+    private int price;
 
 
     public Item(String name, double weight, int price){
@@ -12,5 +12,23 @@ public class Item {
         this.weight = weight;
         this.price = price;
     }
+
+
+    public String getName() {
+        return name;
+    }
+
+
+    public double getWeight() {
+        return weight;
+    }
+
+
+    public int getPrice() {
+        return price;
+    }
+
+
+    
 
 }
