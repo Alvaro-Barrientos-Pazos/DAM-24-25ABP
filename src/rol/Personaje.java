@@ -20,8 +20,8 @@ public class Personaje {
 
     protected final int BASE_HEALTH = 50;
 
-    protected double max_health;
-    protected int curr_health;
+    protected double maxHealth;
+    protected int currHealth;
     
     protected int team;
 
@@ -98,7 +98,7 @@ public class Personaje {
             setContitucion(constitucion);
             setNivel(nivel);
             setExperiencia(experiencia);
-            setCurr_health((int)max_health);  
+            setCurr_health((int)maxHealth);  
         } 
         catch (IllegalArgumentException e) {
             e.printStackTrace();
@@ -140,12 +140,12 @@ public class Personaje {
 
     boolean perderVida(int puntos){
 
-        if ((curr_health - puntos) <= 0){
+        if ((currHealth - puntos) <= 0){
             setCurr_health(0);
             return true;
         }
         
-        setCurr_health(curr_health - puntos);
+        setCurr_health(currHealth - puntos);
         return false;
     }
 
@@ -154,6 +154,13 @@ public class Personaje {
     }
 
     int atacar(Personaje enemigo){
+        double rawAttackpow  = d100() + fuerza;
+        double dmgMitigation = d100() + enemigo.agilidad;
+        
+        return (int)(dmgMitigation - rawAttackpow);
+    }
+
+    int atacar(Monstruo enemigo){
         double rawAttackpow  = d100() + fuerza;
         double dmgMitigation = d100() + enemigo.agilidad;
         
@@ -229,11 +236,11 @@ public class Personaje {
     }
 
     public void setMax_health(double constitucion) {
-        this.max_health = (int)(BASE_HEALTH + constitucion);
+        this.maxHealth = (int)(BASE_HEALTH + constitucion);
     }
 
-    public void setCurr_health(int curr_health) {
-        this.curr_health = curr_health;
+    public void setCurr_health(int currHealth) {
+        this.currHealth = currHealth;
     }
     
     public void setTeam(int team){
@@ -273,25 +280,64 @@ public class Personaje {
     }
 
     public double getMax_health() {
-        return max_health;
+        return maxHealth;
     }
 
     public int getCurr_health() {
-        return curr_health;
+        return currHealth;
     }
 
     void mostrar(){
         System.out.printf("\n\nPERSONAJE:\nNombre: %s\nRaza: %s\nFuerza: %d\nAgilidad: %d\nConstitución: %d\nNivel: %d\nExperiencia: %d\nVida Máxima: %d\nVida Actual: %d",
-        name,raza.toString(),(int)fuerza,(int)agilidad,(int)constitucion,nivel,experiencia,(int)max_health,curr_health);
+        name,raza.toString(),(int)fuerza,(int)agilidad,(int)constitucion,nivel,experiencia,(int)maxHealth,currHealth);
     }
     
     public String toString(){
-        return String.format("%s (%d/%d)",name,curr_health,(int)max_health);
+        return String.format("%s (%d/%d)",name,currHealth,(int)maxHealth);
     }
 
+    public boolean equals(Personaje p){
 
+        if (!this.name.equals(p.name)){
+            return false;
+        }
 
+        if (this.raza != p.raza){
+            return false;
+        }
 
+        if (this.currHealth != p.currHealth) {
+            return false;
+        }
 
+        if (this.maxHealth != p.maxHealth) {
+            return false;
+        }
 
+        if (this.fuerza != p.fuerza) {
+            return false;
+        }
+
+        if (this.agilidad != p.agilidad) {
+            return false;
+        }
+
+        if (this.constitucion != p.constitucion) {
+            return false;
+        }
+
+        if (this.nivel != p.nivel) {
+            return false;
+        }
+
+        if (this.experiencia != p.experiencia) {
+            return false;
+        }
+
+        if (this.team != p.team) {
+            return false;
+        }
+
+        return true;
+    }
 }

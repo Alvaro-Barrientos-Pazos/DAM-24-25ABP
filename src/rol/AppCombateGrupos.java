@@ -22,8 +22,8 @@ public class AppCombateGrupos {
             acc++;
         }
 
-        allyTeam = sortTeamMembersByAgility(allyTeam);
-        units = sortTeamMembersByAgility(units);
+        allyTeam = sortAgilidadAsc(allyTeam);
+        units = sortAgilidadAsc(units);
 
         System.out.println("ALLY TEAM");
         for (Personaje ally : allyTeam) {
@@ -153,14 +153,32 @@ public class AppCombateGrupos {
 
     }
 
-    static Personaje[] sortTeamMembersByAgility(Personaje[] team) {
+    static Personaje[] sortAgilidadAsc(Personaje[] personajes) {
 
-        Personaje[] dupTeam = team.clone();
+        Personaje[] dupTeam = personajes.clone();
         Personaje temp;
 
         for (int i = 0; i < dupTeam.length - 1; i++) {
             for (int j = 0; j < dupTeam.length - 1 - i; j++) {
                 if (dupTeam[j].getAgilidad() < dupTeam[j + 1].getAgilidad()) {
+                    temp = dupTeam[j];
+                    dupTeam[j] = dupTeam[j + 1];
+                    dupTeam[j + 1] = temp;
+                }
+            }
+        }
+
+        return dupTeam;
+    }
+
+    static Personaje[] sortAgilidadDesc(Personaje[] personajes) {
+
+        Personaje[] dupTeam = personajes.clone();
+        Personaje temp;
+
+        for (int i = 0; i < dupTeam.length - 1; i++) {
+            for (int j = 0; j < dupTeam.length - 1 - i; j++) {
+                if (dupTeam[j].getAgilidad() > dupTeam[j + 1].getAgilidad()) {
                     temp = dupTeam[j];
                     dupTeam[j] = dupTeam[j + 1];
                     dupTeam[j + 1] = temp;
