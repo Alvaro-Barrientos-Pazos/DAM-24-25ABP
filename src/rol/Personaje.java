@@ -19,6 +19,10 @@ public class Personaje {
     protected int experiencia;
 
     protected final int BASE_HEALTH = 50;
+    protected final int BASE_LOAD = 50;
+
+    protected double maxLoad;
+    protected double currLoad = 0;
 
     protected double maxHealth;
     protected int currHealth;
@@ -98,7 +102,7 @@ public class Personaje {
             setContitucion(constitucion);
             setNivel(nivel);
             setExperiencia(experiencia);
-            setCurr_health((int)maxHealth);  
+            setCurrHealth((int)maxHealth);  
         } 
         catch (IllegalArgumentException e) {
             e.printStackTrace();
@@ -134,23 +138,23 @@ public class Personaje {
 
 
     void curar(){
-        setCurr_health((int)getMax_health());
+        setCurrHealth((int)getMaxHealth());
     }
 
 
     boolean perderVida(int puntos){
 
         if ((currHealth - puntos) <= 0){
-            setCurr_health(0);
+            setCurrHealth(0);
             return true;
         }
         
-        setCurr_health(currHealth - puntos);
+        setCurrHealth(currHealth - puntos);
         return false;
     }
 
     boolean estaVivo(){
-        return getCurr_health() > 0 ? true : false;
+        return getCurrHealth() > 0 ? true : false;
     }
 
     int atacar(Personaje enemigo){
@@ -214,7 +218,8 @@ public class Personaje {
             this.constitucion = constitucion;
         }
         
-        setMax_health(constitucion);
+        setMaxHealth(constitucion);
+        setMaxLoad(constitucion);
     }
 
     public void setNivel(int nivel) {
@@ -235,11 +240,19 @@ public class Personaje {
         }
     }
 
-    public void setMax_health(double constitucion) {
+    public void setMaxLoad(double constitucion) {
+        this.maxLoad = BASE_LOAD + constitucion*2;
+    }
+
+    public void setCurrLoad(double currLoad) {
+        this.currLoad = currLoad;
+    }
+    
+    public void setMaxHealth(double constitucion) {
         this.maxHealth = (int)(BASE_HEALTH + constitucion);
     }
 
-    public void setCurr_health(int currHealth) {
+    public void setCurrHealth(int currHealth) {
         this.currHealth = currHealth;
     }
     
@@ -279,11 +292,20 @@ public class Personaje {
         return experiencia;
     }
 
-    public double getMax_health() {
+    
+    public double getMaxLoad() {
+        return maxLoad;
+    }
+
+    public double getCurrLoad() {
+        return currLoad;
+    }
+
+    public double getMaxHealth() {
         return maxHealth;
     }
 
-    public int getCurr_health() {
+    public int getCurrHealth() {
         return currHealth;
     }
 

@@ -28,6 +28,10 @@ public class Item {
         return price;
     }
 
+    public String toString(){
+        return name;
+    }
+
 
     
 
