@@ -320,45 +320,35 @@ public class Personaje {
 
     public boolean equals(Personaje p){
 
-        if (!this.name.equals(p.name)){
+        if (!this.name.equals(p.name))
             return false;
-        }
 
-        if (this.raza != p.raza){
+        if (this.raza != p.raza)
             return false;
-        }
 
-        if (this.currHealth != p.currHealth) {
+        if (this.currHealth != p.currHealth)
             return false;
-        }
 
-        if (this.maxHealth != p.maxHealth) {
+        if (this.maxHealth != p.maxHealth)
             return false;
-        }
 
-        if (this.fuerza != p.fuerza) {
+        if (this.fuerza != p.fuerza)
             return false;
-        }
 
-        if (this.agilidad != p.agilidad) {
+        if (this.agilidad != p.agilidad)
             return false;
-        }
 
-        if (this.constitucion != p.constitucion) {
+        if (this.constitucion != p.constitucion)
             return false;
-        }
 
-        if (this.nivel != p.nivel) {
+        if (this.nivel != p.nivel)
             return false;
-        }
 
-        if (this.experiencia != p.experiencia) {
+        if (this.experiencia != p.experiencia)
             return false;
-        }
 
-        if (this.team != p.team) {
+        if (this.team != p.team)
             return false;
-        }
 
         return true;
     }

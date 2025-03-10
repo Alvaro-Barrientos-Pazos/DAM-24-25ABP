@@ -32,6 +32,19 @@ public class Item {
         return name;
     }
 
+    public boolean equals(Item item){
+        if (name != item.getName())
+            return false;
+        
+        if (price != item.getPrice())
+            return false;
+        
+        if (weight != item.getWeight())
+            return false;
+
+        return true;
+
+    }
 
     
 
