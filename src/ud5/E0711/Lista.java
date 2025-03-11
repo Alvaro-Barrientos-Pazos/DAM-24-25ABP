@@ -1,4 +1,4 @@
-package ud5.E0711;
+package ud5.e0711;
 
 import java.util.Arrays;
 

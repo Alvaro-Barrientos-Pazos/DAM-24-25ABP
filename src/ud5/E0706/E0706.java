@@ -1,4 +1,4 @@
-package ud5.E0706;
+package ud5.e0706;
 
 public class E0706 {
     public static void main(String[] args) {

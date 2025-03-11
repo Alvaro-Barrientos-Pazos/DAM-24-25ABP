@@ -1,4 +1,4 @@
-package ud5.Interfaces;
+package ud5.interfaces;
 
 public interface Relacionable {
 

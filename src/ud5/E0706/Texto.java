@@ -1,4 +1,4 @@
-package ud5.E0706;
+package ud5.e0706;
 
 import java.time.LocalDate;
 
