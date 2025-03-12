@@ -16,7 +16,6 @@ public class MathUtilsTest {
         assertEquals(40320, MathUtils.factorial(8));
     }
 
-
     @Test
     void testFactorialException(){
         

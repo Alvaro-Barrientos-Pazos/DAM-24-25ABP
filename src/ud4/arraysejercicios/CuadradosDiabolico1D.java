@@ -1,4 +1,4 @@
-package arraysejercicios;
+package ud4.arraysejercicios;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -1,4 +1,4 @@
-package stringejercicios;
+package ud4.stringejercicios;
 
 public class E0605 {
     public static void main(String[] args) {

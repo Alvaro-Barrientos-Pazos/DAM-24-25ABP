@@ -1,4 +1,5 @@
-import clases.Jugador;
+package ejerciciosclases;
+import ejerciciosclases.clases.Jugador;
 
 public class EP0717 {
     public static void main(String[] args) {

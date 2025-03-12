@@ -1,4 +1,4 @@
-package practicas;
+package ud4.practicas;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

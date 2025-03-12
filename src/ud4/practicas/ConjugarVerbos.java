@@ -1,4 +1,4 @@
-package practicas;
+package ud4.practicas;
 
 public class ConjugarVerbos {
 

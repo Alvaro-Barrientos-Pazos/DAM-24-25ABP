@@ -140,9 +140,9 @@ public class AppCombateGrupos {
 
                 if (units[i].estaVivo()) {
 
-                    if (minHealth > units[i].getCurr_health()) {
+                    if (minHealth > units[i].getCurrHealth()) {
 
-                        minHealth = units[i].getCurr_health();
+                        minHealth = units[i].getCurrHealth();
                         target = units[i];
                     }
                 }

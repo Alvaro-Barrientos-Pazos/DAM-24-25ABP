@@ -1,4 +1,4 @@
-package clases;
+package ejerciciosclases.clases;
 
 import java.time.LocalDateTime;
 

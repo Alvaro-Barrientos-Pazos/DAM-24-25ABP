@@ -1,4 +1,4 @@
-package arraysEstadisticas;
+package ud4.arraysEstadisticas;
 
 public class MatricesTriangulares {
 

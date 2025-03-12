@@ -1,8 +1,8 @@
-package matricesejercicios;
+package ud4.matricesejercicios;
 
 import java.util.Arrays;
 
-import arraysejercicios.UtilArray;
+import ud4.arraysejercicios.UtilArray;
 
 public class BuscarColumnaSumaMayor {
 
