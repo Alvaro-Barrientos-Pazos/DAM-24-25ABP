@@ -9,7 +9,7 @@ public class E910 {
     public static void main(String[] args) {
         
         Integer num[] = rngIntegerArr(20,1,100);
-        Arrays.sort(num,Comparator.reverseOrder());
+        Arrays.sort(num, Comparator.reverseOrder());
 
         System.out.println(Arrays.toString(num));
     }
