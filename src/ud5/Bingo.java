@@ -39,10 +39,10 @@ public class Bingo {
     static class Carton {
 
         static final int COLUMNS = 5;
-        static final int ROWS = 5;
+        static final int ROWS = 3;
         
         static int[][] arrNums = new int[COLUMNS][ROWS];
-        static int[][] arrNumsSacados = new int[COLUMNS][ROWS];
+        static int[] arrNumsSacados = new int[COLUMNS*ROWS];
         
 
         Carton(){
@@ -54,9 +54,11 @@ public class Bingo {
                 arrRange[i] = i;
             }
 
-            for (int i = 1; i < COLUMNS; i++) {
+            System.out.println("");
+
+            for (int i = 0; i < COLUMNS; i++) {
                 for (int j = 0; j < ROWS; j++) {
-                    currId = rng.nextInt(MAX_VALUE)+1;
+                    currId = rng.nextInt(arrRange.length);
                     arrNums[i][j] = arrRange[currId];
         
                     arrRange[currId] = arrRange[arrRange.length-1];
@@ -77,7 +79,7 @@ public class Bingo {
                         arrNumsSacados = Arrays.copyOf(arrNumsSacados, arrNumsSacados.length+1);
                         arrNumsSacados[arrNumsSacados.length-1] = num;
                         
-                        if (checkLine(num)){
+                        if (checkLine(num, i, j)){
                             if (checkBingo()) {
                                 return 2;
                             }    
@@ -90,8 +92,37 @@ public class Bingo {
         }
 
         
-        static boolean checkRows(int num){
+        static boolean checkLine(int num, int x, int y){
+            checkCardinal(num, x, y);
+            //checkDiagonal(num);
+            return false;
+        }
+
+        static boolean checkCardinal(int num, int x, int y){
             
+            int linea = 0;
+
+            for (int i = 0; i < arrNums[x].length; i++) {
+                for (int n : arrNumsSacados) {
+                    if (n == num){
+                        linea++;
+                    }
+
+                }                
+            }
+
+            linea = 0;
+
+            for (int i = 0; i < COLUMNS; i++) {
+                for (int n : arrNumsSacados) {
+                    if (n == arrNums[i][y]){
+                        linea++;
+                    }
+
+                }                
+            }
+
+
             for (int i = 0; i < arrNums.length; i++) {
                 for (int j = 0; j < arrNums[i].length; j++) {
                     
@@ -99,13 +130,6 @@ public class Bingo {
 
             }
 
-            return false;
-        }
-
-        static boolean checkLine(int num){
-            checkRows(num);
-            //checkColumns(num);
-            //checkDiagonal(num);
             return false;
         }
 
@@ -121,8 +145,6 @@ public class Bingo {
     static final int MAX_CARTONES = 5;
     static final int MIN_VALUE  = 1;
     static final int MAX_VALUE  = 99;
-    static final int ROWS       = 3;
-    static final int COLUMNS    = 5;
 
 
     static Scanner sc = new Scanner(System.in);
