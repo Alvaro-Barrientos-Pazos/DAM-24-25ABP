@@ -3,76 +3,111 @@ package ud5;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.jar.JarEntry;
 
 public class Bingo {
 
     static class Jugador {
+
         static public String nombre;
         static Carton[] cartones;
-
-        static final int LINEA = 1;
-        static final int BINGO = 2;
 
         Jugador(String nombre){
             this.nombre = nombre;
         }
 
-
         void checkNumber(int num){
             
-            for(Carton c : cartones){
+            for( Carton c : cartones ){
                 switch (c.checkNumber(num)) {
-                    case LINEA:
-                        checkFirstLine();
+                    case 1:
+                        if (primeraLinea == null)
+                            System.out.println("%s Canto la primera linea");    
                         break;
-                    case BINGO:
+                    case 2:
                         
                         break;
                 
                     default:
                         break;
-                };    
+                }
             }
-
-        }
-        
-
-        
-
+        }      
     }
 
 
     static class Carton {
-        static int[][] arrNums;
-        static int[] arrNumsSacados = new int[0];
 
-        static public boolean checkNumber(int num){
+        static final int COLUMNS = 5;
+        static final int ROWS = 5;
+        
+        static int[][] arrNums = new int[COLUMNS][ROWS];
+        static int[][] arrNumsSacados = new int[COLUMNS][ROWS];
+        
+
+        Carton(){
+            int[] arrRange = new int[MAX_VALUE];
+            int newNum = -1, currId;
+            Random rng = new Random(); 
+            
+            for (int i = MIN_VALUE; i < MAX_VALUE; i++) {
+                arrRange[i] = i;
+            }
+
+            for (int i = 1; i < COLUMNS; i++) {
+                for (int j = 0; j < ROWS; j++) {
+                    currId = rng.nextInt(MAX_VALUE)+1;
+                    arrNums[i][j] = arrRange[currId];
+        
+                    arrRange[currId] = arrRange[arrRange.length-1];
+                    arrRange = Arrays.copyOf(arrRange, arrRange.length-1);    
+                }
+                
+            }
+
+            System.out.println(Arrays.deepToString(arrNums));
+
+        }
+
+        
+        public int checkNumber(int num){
             for (int i = 0; i < arrNums.length; i++) {
                 for (int j = 0; j < arrJugadores.length; j++) {
                     if (num == arrNums[i][j]) {
                         arrNumsSacados = Arrays.copyOf(arrNumsSacados, arrNumsSacados.length+1);
                         arrNumsSacados[arrNumsSacados.length-1] = num;
                         
-                        if (checkRows(num)){
-                            checkFirstLine()
-                            return checkBingo();
+                        if (checkLine(num)){
+                            if (checkBingo()) {
+                                return 2;
+                            }    
+                            return 1;
                         }
                     }
                 }
             }
-            return false;
+            return 0;
         }
 
-
+        
         static boolean checkRows(int num){
             
-            for (int i = 0; i < arrJugadores.length; i++) {
-            }
+            for (int i = 0; i < arrNums.length; i++) {
+                for (int j = 0; j < arrNums[i].length; j++) {
+                    
+                }
 
+            }
 
             return false;
         }
 
+        static boolean checkLine(int num){
+            checkRows(num);
+            //checkColumns(num);
+            //checkDiagonal(num);
+            return false;
+        }
 
         static boolean checkBingo(){
             if (arrNumsSacados.length == ROWS*COLUMNS){
@@ -80,7 +115,6 @@ public class Bingo {
             }
             return false;
         }
-       
 
     }
 
@@ -101,6 +135,9 @@ public class Bingo {
 
     public static void main(String[] args) {
         
+        Carton c = new Carton();
+
+        /*
         int nJugadores;
 
         System.out.println("Nº Jugadores");
@@ -109,6 +146,7 @@ public class Bingo {
 
         arrJugadores = new Jugador[nJugadores];
 
+        
         for (int i = 0; i < nJugadores; i++) {
             System.out.printf("Nombre Jugador %d: ",i+1);
             arrJugadores[i] = new Jugador(sc.nextLine());
@@ -118,20 +156,20 @@ public class Bingo {
 
 
         maquinaBingo();
-
+        */
     }
+
 
 
     static boolean maquinaBingo(){
         
         int[] nBombo = new int[MAX_VALUE];
+        int newNum = -1, currId;
+        Random rng = new Random();
 
         for (int i = MIN_VALUE; i < MAX_VALUE; i++) {
             nBombo[i] = i;
         }
-
-        int newNum = -1, currId;
-        Random rng = new Random();
 
         for (int i = 1; i < nBombo.length; i++) {
             currId = rng.nextInt(MAX_VALUE)+1;

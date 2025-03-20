@@ -61,7 +61,6 @@ public class Praia implements Comparable{
         return sorted;
     }
 
-
     /*
     public static Praia[] sortLatitudNorteSur(Praia[] p) {
         Praia[] sorted = p.clone();
