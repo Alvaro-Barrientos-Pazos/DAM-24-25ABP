@@ -1,4 +1,4 @@
-package ud5.interfaces;
+package ud5.interfacesejercicios;
 
 public interface Relacionable {
 

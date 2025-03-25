@@ -1,4 +1,4 @@
-package ud5.interfaces;
+package ud5.interfacesejercicios;
 
 import java.util.Arrays;
 import java.util.Comparator;

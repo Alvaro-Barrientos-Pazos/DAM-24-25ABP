@@ -1,4 +1,4 @@
-package mulleres;
+package ud5.interfacesejercicios.mulleres;
 
 public class Deportista extends MullerTraballadora implements IPioneira{
 

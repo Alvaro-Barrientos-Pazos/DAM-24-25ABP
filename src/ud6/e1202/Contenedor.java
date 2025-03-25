@@ -33,7 +33,9 @@ public class Contenedor<T> {
         list[list.length-1] = nuevo;
     }
     
+    /*
     T extraerDelPrincipio(){
 
     }
+     */
 }

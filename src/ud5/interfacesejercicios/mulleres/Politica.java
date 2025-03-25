@@ -1,4 +1,4 @@
-package mulleres;
+package ud5.interfacesejercicios.mulleres;
 
 public class Politica extends MullerTraballadora implements IActivista{
 

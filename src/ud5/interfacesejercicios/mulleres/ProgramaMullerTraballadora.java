@@ -1,4 +1,4 @@
-package mulleres;
+package ud5.interfacesejercicios.mulleres;
 
 public class ProgramaMullerTraballadora {
     public static void main(String[] args) {
