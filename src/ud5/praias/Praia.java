@@ -61,7 +61,6 @@ public class Praia implements Comparable{
         return sorted;
     }
 
-
     /*
     // Otra posible solución 
     public static Praia[] sortLatitudNorteSur(Praia[] p) {
