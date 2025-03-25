@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Bingo {
-
+    /*
     static class Jugador {
         static public String nombre;
         static Carton[] cartones;
@@ -165,5 +165,5 @@ public class Bingo {
 
         return false;
     }
-
+    */
 }

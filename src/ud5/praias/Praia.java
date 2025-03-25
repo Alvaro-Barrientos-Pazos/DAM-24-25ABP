@@ -55,7 +55,7 @@ public class Praia implements Comparable{
 
     static Praia[] sortProvinciaConcelloNome(Praia[] p){
         Praia[] sorted = p.clone();
-        
+        "".compareTo("a");
         Arrays.sort(sorted, Comparator.comparing(Praia::getNome));
         
         return sorted;
@@ -63,6 +63,7 @@ public class Praia implements Comparable{
 
 
     /*
+    // Otra posible solución 
     public static Praia[] sortLatitudNorteSur(Praia[] p) {
         Praia[] sorted = p.clone();
         Arrays.sort(sorted, Comparator.comparingDouble(Praia::getLat).reversed());

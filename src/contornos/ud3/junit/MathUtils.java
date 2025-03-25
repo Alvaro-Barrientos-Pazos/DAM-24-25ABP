@@ -2,8 +2,6 @@ package contornos.ud3.junit;
 
 public class MathUtils {
 
-
-
     public static int factorial(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("O número debe ser positivo");
