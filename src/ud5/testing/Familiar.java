@@ -1,5 +1,5 @@
 package ud5.testing;
 
-public interface Familiar extends Hijo{
+public interface Familiar extends Comparable{
 
 }
