@@ -24,7 +24,7 @@ public class Supermercado {
             paymentSelector();
 
             isLooping = isUserConfirmationInput("¿Quiere realizar iniciar una nueva cesta?:   (S)i / (N)o");
-        }        
+        }
 
     }
 

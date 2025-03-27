@@ -15,7 +15,7 @@ public class Cliente extends Host {
     }
 
 
-    SO os = SO.WINDOWS;
+    SO os;
     String resolution;
 
 
