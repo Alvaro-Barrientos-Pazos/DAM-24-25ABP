@@ -1,6 +1,7 @@
-package ud6.e1202;
+package ud6.coleccionesejercicios;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class ContenedorLista<T> implements Pila<T>, Cola<T>{
 
@@ -32,9 +33,19 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T>{
         return v;
     }
 
-    void ordenar(){
-        Arrays.sort(list);
+    void ordenar(Comparator<T> c){
+        Arrays.sort(list, c);
     }
+
+    T get(int indice){
+        if (indice < list.length && indice >= 0){
+            return list[indice];
+        }
+        
+        return null;
+    }
+
+
 
     @Override
     public String toString() {

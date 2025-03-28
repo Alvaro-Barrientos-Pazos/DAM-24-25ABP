@@ -9,10 +9,43 @@ public class AppE1203 {
     public static void main(String[] args) {
 
         programaPila();
-        programaCola();
+        //programaCola();
 
     }
 
+    static void programaPila(){
+        
+        System.out.println("Introduce los números de la pila: ");
+
+        int value;
+        boolean isLooping = true;
+
+
+        while (isLooping) {
+            value = sc.nextInt();
+
+            if (value == -1) {
+                isLooping = false;
+            }
+            else{
+                cont.apilar(value);
+            }
+        }
+
+        System.out.println("\nApilar\n============1\n");
+        System.out.println(cont);
+        System.out.println("\nDesapilar\n============1\n");
+
+        
+        int l = cont.list.length;
+        
+        //for (int i = 0; i < cont.list.length; i++) {
+        for (int i = 0; i < l; i++) {
+            cont.desapilar();
+            System.out.println(cont);
+        }
+    }
+    
     static void programaCola(){
         System.out.println("Introduce los números de la cola: ");
 
@@ -42,33 +75,4 @@ public class AppE1203 {
         }
     }
 
-    static void programaPila(){
-        
-        System.out.println("Introduce los números de la pila: ");
-
-        int value;
-        boolean isLooping = true;
-
-
-        while (isLooping) {
-            value = sc.nextInt();
-
-            if (value == -1) {
-                isLooping = false;
-            }
-            else{
-                cont.apilar(value);
-            }
-        }
-
-        System.out.println("\nApilar\n============1\n");
-        System.out.println(cont);
-        System.out.println("\nDesapilar\n============1\n");
-
-        int l = cont.list.length;
-        for (int i = 0; i < l; i++) {
-            cont.desapilar();
-            System.out.println(cont);
-        }
-    }
 }
