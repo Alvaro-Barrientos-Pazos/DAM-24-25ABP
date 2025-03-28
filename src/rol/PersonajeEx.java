@@ -169,7 +169,6 @@ public class PersonajeEx extends Personaje {
 
     @Override
     public void mostrar(){
-
         super.mostrar();
 
         Item item = null;
@@ -181,7 +180,7 @@ public class PersonajeEx extends Personaje {
             System.out.printf("%d. %s (%.2fkg) (%dg)\n",i+1,item.getName(),item.getWeight(),item.getPrice());
         }
 
-        System.out.printf("Carga total transportada: %.2f / %.2f kilos\n", currLoad,maxLoad, getMaxHealth() );
+        System.out.printf("\nCarga total transportada: %.2f / %.2f kilos\n", currLoad,maxLoad, getMaxHealth() );
 
     }
 

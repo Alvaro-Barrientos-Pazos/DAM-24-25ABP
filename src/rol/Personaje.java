@@ -310,7 +310,7 @@ public class Personaje {
     }
 
     void mostrar(){
-        System.out.printf("\n\nPERSONAJE:\nNombre: %s\nRaza: %s\nFuerza: %d\nAgilidad: %d\nConstitución: %d\nNivel: %d\nExperiencia: %d\nVida Máxima: %d\nVida Actual: %d",
+        System.out.printf("\n\nPERSONAJE:\nNombre: %s\nRaza: %s\nFuerza: %d\nAgilidad: %d\nConstitución: %d\nNivel: %d\nExperiencia: %d\nVida Máxima: %d\nVida Actual: %d\n",
         name,raza.toString(),(int)fuerza,(int)agilidad,(int)constitucion,nivel,experiencia,(int)maxHealth,currHealth);
     }
     
