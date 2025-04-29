@@ -1,8 +1,7 @@
-package ud6.Colecciones;
+package ud6.colecciones;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class Colecciones {

@@ -1,74 +1,85 @@
 package ud6.rae;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AppRae {
 
-
+    static String seats = "abcdefghijklmnñopqrstuvwxyz";
+    //static String seats = "abcdefghijklmnñopqrstuABCDEFGHIJKLMÑOPQRSTUVXZ";
     
-    static public Map<Character,Academico> seats = new HashMap<>();
-    static String seatsCharacters = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-    static public Academico[] arrSortedByName = new Academico[seatsCharacters.length()];
-    static public Academico[] arrSortedByYear = new Academico[seatsCharacters.length()];
-
     public static void main(String[] args) {
-        
-        final String filePath = "DATOS - Académicos RAE (2025_04_11).txt";
-     
-        String rawNames = readFileToString(filePath);
+        Map<Character, Academico> academia = new LinkedHashMap<>();
 
-        String[] names = rawNames.split("\\n");
-        System.out.println(names);
+        String contenidoFichero = readFileToString("src/ud6/rae/academicos.txt");
 
-        System.out.println(Arrays.toString(names));
+        String[] arr = contenidoFichero.split("\\n");
 
-        for (int i = 0; i < seatsCharacters.length(); i++) {
-            if (i>= names.length){
-                System.out.println("Se han cubierto todos los asientos, pero quedan nombres en la lista");
-                break;
-            }
-            String[] arrSplit = names[i].split("\\(");
-            String name = arrSplit[0];
-            String year = arrSplit[1];
-            year = year.replace(")","");
-    
-            Academico a = new Academico(name,year);
+        List<Academico> listAcadem = new ArrayList<>();
 
-            seats.put(Character.valueOf(seatsCharacters.charAt(i)),new Academico(name,year));
-            arrSortedByName[i] = a;
+
+        for (String str : arr) {
+            System.out.println(str);
+            
+            int bracketIDX = str.indexOf('(');
+            String name = str.substring(7,bracketIDX);
+            int year = Integer.valueOf(str.substring(bracketIDX+1,str.length()-1));
+            Character seatLetter = str.charAt(6);
+
+            Academico academico = new Academico(name,year);
+            listAcadem.add(academico);
+
+            nuevoAcademico(academia,academico,seatLetter);
+
+            academia.put(seatLetter, academico);
         }
-        
-        Character c = 'B';
-        boolean result = nuevoAcademico(seats, arrSortedByName[0], c );
-        System.out.printf("Sillón '%s': %s",c,result);
 
-        arrSortedByYear = arrSortedByName.clone();
-        System.out.println(Arrays.toString(arrSortedByName));
-        Arrays.sort(arrSortedByName);
+        System.out.println();
 
-        System.out.println(Arrays.toString(arrSortedByName));
+        for ( Map.Entry<Character,Academico> e : academia.entrySet()) {
+            System.out.println("map: "+e.getKey()+" "+e.getValue());
+        }
+
+
+        // Sort List by name
+        listAcadem.sort(Academico::compareTo);
+        //listAcadem.sort(Comparator.naturalOrder());
+        //listAcadem.sort((a, b) -> a.compareTo(b));
+        //listAcadem.sort(Comparator.comparing(a -> a.getName()));
+
+        for (Academico academico : listAcadem) {
+            System.out.println(academico);
+        }
+
+        listAcadem.sort((a1,a2) -> {
+            int tmp = a1.compareTo(a2); 
+            return tmp == 0 ? a1.getYear() - a2.getYear() : tmp;
+        }  );
+
+        listAcadem.sort(
+            Comparator.comparing((Academico a) -> a)
+                    .thenComparingInt(a -> a.getYear())
+        );
+
+
+
     }
 
 
     static boolean nuevoAcademico (Map<Character, Academico> academia, Academico nuevo, Character letra){
-        if (-1 == seatsCharacters.lastIndexOf(letra.charValue())) {
-            if (academia.get(letra) != null) {
-                System.out.println("Sillon ocupado");
-                return false;
-            }
-            
-            seats.put(letra,nuevo);
+        if (Character.isLetter(letra)){
+            academia.put(letra, nuevo);
             return true;
         }
-        else{
-            System.out.println("Sillon invalido");
-            return false;
-        }
+
+        return false;
     }
 
 
