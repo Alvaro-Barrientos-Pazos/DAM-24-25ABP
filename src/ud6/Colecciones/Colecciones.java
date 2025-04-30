@@ -2,11 +2,30 @@ package ud6.colecciones;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 public class Colecciones {
     public static void main(String[] args) {
         
+        ejemplo1();
+
+        LinkedHashMap<String,Integer> map = new LinkedHashMap<>();
+
+        LinkedHashSet<String> set = new LinkedHashSet<>();
+        
+        set.add("A");
+        set.add("D");
+        set.add("Z");
+        set.add("B");
+        set.add("D");
+
+        HashSet<String> hSet = new HashSet<>(set);
+    }
+
+    static void ejemplo1(){
         String[] arr = {"apple", "banana", "avocado"};
 
         Collection<String> listCollection = new ArrayList<>();
@@ -32,12 +51,7 @@ public class Colecciones {
 
         System.out.println(listArr2.get(1));
 
-        
-
         //System.out.println(listArr);
-
-        
-
 
     }
 }
