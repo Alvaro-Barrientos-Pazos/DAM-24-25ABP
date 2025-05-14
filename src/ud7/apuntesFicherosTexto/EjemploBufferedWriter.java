@@ -15,12 +15,13 @@ public class EjemploBufferedWriter {
     public static void main(String[] args) {
 
         test1();
+        test2();
 
     }
 
     static void test1(){
         try {
-            BufferedWriter out = new BufferedWriter(new FileWriter(FILE_PATH+"texto.txt"));
+            BufferedWriter out = new BufferedWriter(new FileWriter(FILE_PATH+"Quijote.txt"));
             
             
 
@@ -32,7 +33,7 @@ public class EjemploBufferedWriter {
             }
 
             out.flush();
-            
+
             out.newLine();
 
             out.write(linea2);
@@ -48,5 +49,32 @@ public class EjemploBufferedWriter {
             System.out.println(e.getMessage());
         }
     }    
+
+
+    static void test2(){
+        try (BufferedWriter out = new BufferedWriter(new FileWriter(FILE_PATH+"Quijote.txt"))){
+            
+            
+
+            String linea1 = "En un lugar de La Mancha";
+            String linea2 = "de cuyo nombre no quiero acordarme";
+
+            for (int i = 0; i < linea1.length(); i++) {
+                out.write(linea1.charAt(i));
+            }
+
+            out.flush();
+
+            out.newLine();
+
+            out.write(linea2);
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+    }    
+
 
 }
