@@ -1,29 +1,22 @@
 package ud7.apuntesFicherosTexto;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class EjemploBufferedWriter {
 
     static final String FILE_PATH = "src/ud7/apuntesFicherosTexto/";
 
     public static void main(String[] args) {
-
-        test1();
+        //test1();
         test2();
-
     }
 
     static void test1(){
         try {
             BufferedWriter out = new BufferedWriter(new FileWriter(FILE_PATH+"Quijote.txt"));
-            
-            
 
             String linea1 = "En un lugar de La Mancha";
             String linea2 = "de cuyo nombre no quiero acordarme";
@@ -33,15 +26,9 @@ public class EjemploBufferedWriter {
             }
 
             out.flush();
-
             out.newLine();
-
             out.write(linea2);
-
             out.close();
-            
-            
-
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
@@ -51,10 +38,9 @@ public class EjemploBufferedWriter {
     }    
 
 
+    // This version deallocates the BuggerWriter object automatically
     static void test2(){
         try (BufferedWriter out = new BufferedWriter(new FileWriter(FILE_PATH+"Quijote.txt"))){
-            
-            
 
             String linea1 = "En un lugar de La Mancha";
             String linea2 = "de cuyo nombre no quiero acordarme";
@@ -64,9 +50,7 @@ public class EjemploBufferedWriter {
             }
 
             out.flush();
-
             out.newLine();
-
             out.write(linea2);
 
         } catch (FileNotFoundException e) {
@@ -75,6 +59,5 @@ public class EjemploBufferedWriter {
             System.out.println(e.getMessage());
         }
     }    
-
 
 }
